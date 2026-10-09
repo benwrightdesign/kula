@@ -1,25 +1,30 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="robots" content="noindex, nofollow">
-<title>Kula Website Wireframe</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Kula connects brands with creators to produce authentic content that performs.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<title>Kula Website Brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,500..700;1,8..60,300..700&display=swap" rel="stylesheet">
+</head>
+<body>
 <style>
-/* Layout: full-bleed sticky scroll "scenes" carry the story; plain pages sit on a gutter grid. Wireframe hatch = placeholder media. Single committed dark world with Kula lime. */
+/* Layout: full-bleed sticky scroll "scenes" carry the story; plain pages sit on a gutter grid. Wireframe hatch = placeholder media. Brand pass: light ground, green/dark scenes for rhythm, lime as fill only. */
 :root{
-  /* Plain monochrome wireframe: white ground, black type, grey boxes. "lime" tokens now mean the emphasis colour (black). */
-  --ink:#ffffff; --ink-2:#f5f5f5; --ink-3:#e9e9e9; --line:#cfcfcf; --mute:#5f5f5f; --paper:#111111;
-  --lime:#111111; --lime-dim:#8a8a8a; --moss:#ffffff; --lime-2:#2c2c2c;
-  --f-display:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
-  --f-serif:inherit;
-  --f-mono:ui-monospace,Menlo,Consolas,monospace;
+  /* Kula brand pass. Core: Accent #d2ff00 · Primary #335900 · Light #fffcf7 · Dark #1a1a17, plus 50/25% tints.
+     Token roles kept from the wireframe: ink=ground, paper=text, lime=emphasis colour, moss=text on an emphasis fill. */
+  --accent:#d2ff00; --green:#335900; --green-50:#99ac80; --green-25:#ccd5bf; --light:#fffcf7; --dark:#1a1a17; --dark-50:#8d8d8b; --dark-25:#c6c6c5;
+  --ink:#fffcf7; --ink-2:#f6f2e9; --ink-3:#ebe7dc; --line:#dfdbd0; --mute:#5a5a55; --paper:#1a1a17;
+  --lime:#335900; --lime-dim:#99ac80; --moss:#fffcf7; --lime-2:rgba(51,89,0,.1); --grid:rgba(51,89,0,.07); --glow:rgba(51,89,0,.12);
+  --f-display:"Plus Jakarta Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  --f-serif:"Source Serif 4",Georgia,serif;
+  --f-mono:"Plus Jakarta Sans",ui-sans-serif,system-ui,sans-serif;
   --gut:clamp(16px,4vw,56px);
   color-scheme:light;
 }
 *{box-sizing:border-box}
-img{max-width:100%}
-[hidden]{display:none!important}
 body{margin:0;background:var(--ink);color:var(--paper);font:400 16px/1.55 var(--f-display);-webkit-font-smoothing:antialiased}
 main{overflow-x:clip}
 a{color:inherit}
@@ -30,7 +35,7 @@ em{font-style:normal;color:inherit}
 .wrap{padding-inline:var(--gut);max-width:1440px;margin-inline:auto}
 .eyebrow{font:500 12px/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--lime);margin:0 0 18px}
 .mono{font-family:var(--f-mono)}
-.btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;padding:0 22px;border-radius:999px;font-weight:700;text-decoration:none;border:1.5px solid currentColor;transition:background .2s,color .2s,border-color .2s;cursor:pointer;font-family:inherit;font-size:16px}
+.btn{display:inline-flex;align-items:center;gap:.5em;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;border:1.5px solid currentColor;transition:background .2s,color .2s,border-color .2s;cursor:pointer;font-family:inherit;font-size:16px}
 .btn-lime{background:var(--lime);color:var(--ink);border-color:var(--lime)}
 .btn-lime:hover{background:var(--paper);border-color:var(--paper)}
 .btn-moss{background:var(--moss);color:var(--lime);border-color:var(--moss)}
@@ -59,14 +64,14 @@ body.notes-on .note{display:block}
 .flow-note{margin-top:20px}
 
 /* nav */
-.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) var(--gut) 10px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #dcdcdc}
-.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700;font-size:21px;letter-spacing:-.02em;margin-right:auto;min-height:44px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:12px;padding:calc(10px + env(safe-area-inset-top,0px)) var(--gut) 10px;background:rgba(255,252,247,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:600;font-size:21px;letter-spacing:-.02em;margin-right:auto;min-height:44px}
 .brand-fw{width:30px;height:30px;color:var(--lime)}
 .nav-links{display:flex;align-items:center;gap:4px}
 .duo{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;margin-right:8px}
 .duo a{display:flex;flex-direction:column;justify-content:center;padding:4px 18px;min-height:46px;text-decoration:none;line-height:1.15;transition:background .2s,color .2s}
 .duo a+a{border-left:1px solid var(--line)}
-.duo b{font-weight:700}
+.duo b{font-weight:600}
 .duo .light{font-weight:300}
 .duo small{font:400 10px/1.2 var(--f-mono);color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
 .duo a:hover,.duo a[aria-current="page"]{background:var(--lime);color:var(--ink)}
@@ -79,11 +84,11 @@ body.notes-on .note{display:block}
 .tool-btn[aria-pressed="true"]{background:var(--lime);color:var(--ink);border:1px solid var(--lime)}
 .menu-btn{display:none}
 .mmenu{position:fixed;inset:0;z-index:49;background:var(--ink);padding:calc(96px + env(safe-area-inset-top,0px)) var(--gut) 40px;display:flex;flex-direction:column;gap:8px;overflow:auto}
-.mmenu a{display:flex;flex-direction:column;font-size:clamp(34px,9vw,52px);font-weight:700;text-decoration:none;letter-spacing:-.03em;line-height:1.1;padding:6px 0;border-bottom:1px solid var(--line)}
+.mmenu a{display:flex;flex-direction:column;font-size:clamp(34px,9vw,52px);font-weight:600;text-decoration:none;letter-spacing:-.03em;line-height:1.1;padding:6px 0;border-bottom:1px solid var(--line)}
 .mmenu a small{font:400 11px/1.4 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
 @media (max-width:900px){.nav-links{display:none}.menu-btn{display:inline-block}}
 
-.wf-chip{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;font:500 10px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px dashed var(--line);background:rgba(255,255,255,.92);padding:7px 9px;border-radius:4px;pointer-events:none}
+.wf-chip{position:fixed;right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;font:500 10px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);border:1px dashed var(--line);background:rgba(255,252,247,.92);padding:7px 9px;border-radius:4px;pointer-events:none}
 
 /* page transition */
 .xfade{position:fixed;inset:0;z-index:60;background:var(--ink);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .28s ease}
@@ -99,7 +104,7 @@ body.notes-on .note{display:block}
 /* ---------- HOME: hero + flywheel ---------- */
 .fly-stage{background:var(--ink)}
 .hero-copy{position:absolute;left:var(--gut);right:var(--gut);top:50%;transform:translateY(-50%);z-index:3;max-width:1180px}
-.hero-h{font-weight:700;font-size:clamp(44px,9vw,146px);line-height:.9;letter-spacing:-.04em;text-transform:uppercase}
+.hero-h{font-weight:600;font-size:clamp(46px,9vw,150px);line-height:.92;letter-spacing:-.045em}
 .hero-sub{font-size:clamp(20px,2.4vw,34px);margin-top:.7em;font-weight:500}
 .scroll-cue{margin-top:28px;font:500 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);display:flex;align-items:center;gap:10px}
 .scroll-cue i{display:block;width:1px;height:34px;background:var(--mute);animation:cue 1.6s ease-in-out infinite;transform-origin:top}
@@ -109,30 +114,30 @@ body.notes-on .note{display:block}
 .fw-spin path.lit{stroke:var(--lime)}
 .fw-spin circle.lit{fill:var(--lime)}
 .fw-spin.centred{color:var(--mute)}
-.fw-core{position:absolute;left:50%;top:50%;width:18%;aspect-ratio:1;border-radius:50%;border:2px solid var(--paper);background:var(--ink);opacity:0;z-index:2;transform:translate(-50%,-50%) scale(.2);box-shadow:0 0 0 10px rgba(0,0,0,.06)}
+.fw-core{position:absolute;left:50%;top:50%;width:18%;aspect-ratio:1;border-radius:50%;border:2px solid var(--paper);background:var(--ink);opacity:0;z-index:2;transform:translate(-50%,-50%) scale(.2);box-shadow:0 0 0 10px var(--grid)}
 .fw-core::after{content:"";position:absolute;inset:30%;border-radius:50%;background:var(--paper)}
 .fw-leader{position:absolute;left:50%;top:50%;width:56%;height:2px;background:var(--paper);transform-origin:left center;transform:translateY(-50%) scaleX(0);z-index:1}
 @media (max-width:760px){.fw-leader{display:none}}
 .fw-label{position:absolute;width:min(250px,24vw);z-index:3;opacity:0;will-change:transform,opacity}
 .fw-label.r{text-align:right}
 .fw-label .k{font:500 11px var(--f-mono);color:var(--lime);letter-spacing:.1em}
-.fw-label h3{font-size:clamp(22px,2.2vw,32px);font-weight:700;letter-spacing:-.02em;margin:2px 0 6px}
+.fw-label h3{font-size:clamp(22px,2.2vw,32px);font-weight:600;letter-spacing:-.02em;margin:2px 0 6px}
 .fw-label p{color:var(--mute);font-size:14px;line-height:1.45}
 .fw-caption{display:none;position:absolute;left:var(--gut);right:var(--gut);bottom:calc(26px + env(safe-area-inset-bottom,0px));z-index:4;opacity:0}
-.fw-caption h3{font-size:30px;font-weight:700;letter-spacing:-.02em}
+.fw-caption h3{font-size:30px;font-weight:600;letter-spacing:-.02em}
 .fw-caption p{color:var(--mute);font-size:15px;margin-top:6px}
 .fw-caption .dots{display:flex;gap:6px;margin-bottom:12px}
 .fw-caption .dots i{width:22px;height:4px;border-radius:2px;background:var(--line)}
 .fw-caption .dots i.on{background:var(--lime)}
 .fw-statement{position:absolute;left:var(--gut);right:var(--gut);bottom:9vh;text-align:center;opacity:0;z-index:3}
-.fw-statement h2{font-size:clamp(30px,4.6vw,68px);font-weight:700;letter-spacing:-.03em;line-height:1.02}
+.fw-statement h2{font-size:clamp(30px,4.6vw,68px);font-weight:600;letter-spacing:-.03em;line-height:1.02}
 .fw-statement p{color:var(--mute);font-size:clamp(16px,1.5vw,20px);max-width:620px;margin:18px auto 0}
 
 /* ---------- HOME: split + convergence ---------- */
 .split-stage{background:var(--ink)}
 .pane{position:absolute;top:0;height:100%;overflow:hidden;z-index:2;will-change:transform}
 .pane-l{background:var(--lime);color:var(--moss)}
-.pane-r{background-color:var(--ink-2);background-image:linear-gradient(rgba(0,0,0,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.06) 1px,transparent 1px);background-size:48px 48px}
+.pane-r{background-color:var(--ink-2);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:48px 48px}
 .pane-inner{position:absolute;top:0;height:100%;width:50vw;display:flex;flex-direction:column;gap:clamp(20px,3vh,36px);padding:calc(96px + env(safe-area-inset-top,0px)) var(--gut) 8vh}
 .media-slot{flex:1;min-height:0;border:1.5px dashed currentColor;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;opacity:.55;text-align:center;padding:12px}
 .media-slot svg{width:48px;height:48px}
@@ -142,10 +147,10 @@ body.notes-on .note{display:block}
 .pane-l em{color:var(--moss)}
 .wc-float{position:absolute;will-change:transform}
 .wc-clip{width:clamp(60px,8vw,128px);aspect-ratio:9/16}
-.wc-word{font-weight:700;letter-spacing:-.02em;white-space:nowrap;line-height:1}
+.wc-word{font-weight:600;letter-spacing:-.02em;white-space:nowrap;line-height:1}
 .pane-copy{flex:none}
 .pane-copy .eyebrow{color:inherit;opacity:.8}
-.pane-l h2{font-size:clamp(48px,6.6vw,112px);font-weight:700;letter-spacing:-.045em;line-height:.9}
+.pane-l h2{font-size:clamp(48px,6.6vw,112px);font-weight:600;letter-spacing:-.045em;line-height:.9}
 .pane-r h2{font-size:clamp(48px,6.6vw,112px);font-weight:300;letter-spacing:-.045em;line-height:.9}
 .pane-copy p.lede{font-size:clamp(16px,1.4vw,20px);max-width:420px;margin:16px 0 22px;font-weight:500;min-height:3em}
 .pane-r .pane-copy p.lede{color:var(--mute)}
@@ -156,22 +161,22 @@ body.notes-on .note{display:block}
 .split-dot{position:absolute;left:50%;top:50%;width:46px;height:46px;margin:-23px 0 0 -23px;color:var(--lime);z-index:4}
 .conv{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-inline:var(--gut);z-index:1;opacity:0}
 .conv-h{font-size:clamp(44px,8.4vw,140px);letter-spacing:-.045em;line-height:.95;display:flex;flex-wrap:wrap;justify-content:center;gap:0 .25em}
-.conv-h .cw-l{font-weight:700;display:inline-block}
+.conv-h .cw-l{font-weight:600;display:inline-block}
 .conv-h .cw-r{font-weight:300;display:inline-block}
 .eq{margin-top:32px;font-size:clamp(18px,2.4vw,34px);font-weight:500;opacity:0}
-.eq b{color:var(--lime);font-weight:700}
+.eq b{color:var(--lime);font-weight:600}
 .eq .x{color:var(--lime);font-family:var(--f-mono);padding:0 .2em}
 .conv-sub{margin-top:18px;color:var(--mute);max-width:560px;opacity:0}
 
 /* ---------- manifesto ---------- */
 .manifesto{position:relative;padding-block:clamp(90px,14vh,170px)}
 .m-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);position:relative;z-index:1}
-.m-lead{font-size:clamp(36px,5vw,80px);font-weight:700;letter-spacing:-.035em;line-height:1}
+.m-lead{font-size:clamp(36px,5vw,80px);font-weight:600;letter-spacing:-.035em;line-height:1}
 .m-body{display:flex;flex-direction:column;gap:18px;font-size:clamp(17px,1.5vw,21px);max-width:60ch;align-self:end}
 .m-trio{list-style:none;padding:0;margin:clamp(56px,9vh,110px) 0 0;display:flex;flex-direction:column;gap:2px;position:relative;z-index:1}
-.m-trio li{font-size:clamp(46px,8.5vw,140px);font-weight:700;letter-spacing:-.045em;line-height:.95;color:var(--lime)}
+.m-trio li{font-size:clamp(46px,8.5vw,140px);font-weight:600;letter-spacing:-.045em;line-height:.95;color:var(--lime)}
 .m-sign{margin-top:40px;font-size:clamp(24px,2.6vw,38px);position:relative;z-index:1}
-.m-sign b{font-weight:700}.m-sign span{font-weight:300}
+.m-sign b{font-weight:600}.m-sign span{font-weight:300}
 .m-stage{display:flex;align-items:center}
 .m-stage .manifesto{width:100%;padding-block:calc(84px + env(safe-area-inset-top,0px)) 24px}
 .m-stage .m-lead{font-size:clamp(28px,min(3.8vw,6vh),60px)}
@@ -198,10 +203,10 @@ body.notes-on .note{display:block}
 .route{position:relative;display:flex;flex-direction:column;justify-content:space-between;min-height:340px;padding:clamp(22px,3vw,40px);border-radius:16px;text-decoration:none;overflow:hidden;transition:transform .3s}
 .route:hover{transform:translateY(-4px)}
 .route-l{background:var(--lime);color:var(--moss)}
-.route-r{background-color:var(--ink-2);border:1px solid var(--line);background-image:linear-gradient(rgba(0,0,0,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.06) 1px,transparent 1px);background-size:32px 32px}
+.route-r{background-color:var(--ink-2);border:1px solid var(--line);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:32px 32px}
 .route h3{font-size:clamp(40px,5vw,76px);letter-spacing:-.045em;line-height:.9}
-.route-l h3{font-weight:700}.route-r h3{font-weight:300}
-.route .go{font-weight:700;font-size:18px;margin-top:18px}
+.route-l h3{font-weight:600}.route-r h3{font-weight:300}
+.route .go{font-weight:600;font-size:18px;margin-top:18px}
 .route .media-slot{position:absolute;right:clamp(16px,3vw,40px);top:clamp(16px,3vw,40px);width:min(46%,260px);height:52%;flex:none}
 .route-art{position:absolute;right:clamp(16px,3vw,40px);top:clamp(16px,3vw,40px);display:flex;gap:8px}
 .route-l .route-art .ph{width:62px;aspect-ratio:9/16}
@@ -212,12 +217,12 @@ body.notes-on .note{display:block}
 .route-art{display:grid;grid-template-columns:repeat(4,22px);gap:4px}
 .route-r .route-art i{height:22px;border:1px solid var(--line);border-radius:3px}
 .route-r .route-art i.on{background:var(--lime);border-color:var(--lime)}
-.routes-tag{text-align:center;margin-top:36px;font-size:clamp(26px,3.2vw,46px);font-weight:700;letter-spacing:-.03em}
+.routes-tag{text-align:center;margin-top:36px;font-size:clamp(26px,3.2vw,46px);font-weight:600;letter-spacing:-.03em}
 @media (max-width:760px){.routes-grid{grid-template-columns:1fr}.route{min-height:260px}}
 .final{text-align:center;padding-block:clamp(90px,16vh,190px);display:flex;flex-direction:column;align-items:center;gap:34px;border-top:1px solid var(--line)}
 .final-fw{width:72px;height:72px;color:var(--lime)}
 .final h2{font-size:clamp(44px,8vw,132px);letter-spacing:-.045em;line-height:.92}
-.final h2 b{font-weight:700}.final h2 span{font-weight:300}
+.final h2 b{font-weight:600}.final h2 span{font-weight:300}
 .btn.big{min-height:60px;font-size:clamp(16px,1.6vw,20px);padding:0 30px}
 
 .footer{border-top:1px solid var(--line);padding-block:36px calc(60px + env(safe-area-inset-bottom,0px));display:flex;flex-wrap:wrap;gap:16px 40px;align-items:center;color:var(--mute);font-size:14px}
@@ -228,7 +233,7 @@ body.notes-on .note{display:block}
 
 /* ---------- generic page head ---------- */
 .page-head{padding-block:calc(150px + env(safe-area-inset-top,0px)) clamp(48px,8vh,90px)}
-.ph1{font-size:clamp(46px,7.6vw,124px);font-weight:700;letter-spacing:-.045em;line-height:.92;max-width:14ch}
+.ph1{font-size:clamp(46px,7.6vw,124px);font-weight:600;letter-spacing:-.045em;line-height:.92;max-width:14ch}
 .lede{font-size:clamp(17px,1.6vw,22px);color:var(--mute);max-width:56ch;margin-top:26px}
 
 /* ---------- WORK ---------- */
@@ -246,9 +251,9 @@ body.notes-on .note{display:block}
 .cases-head p{color:var(--mute);font-size:14px}
 .crow{position:relative;display:grid;grid-template-columns:150px minmax(0,1fr) 220px;gap:24px;align-items:center;padding:clamp(26px,4vh,44px) 0;border-bottom:1px solid var(--line);text-decoration:none;transition:padding .35s}
 .crow-client{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
-.crow-h{font-size:clamp(30px,4.4vw,70px);font-weight:700;letter-spacing:-.04em;line-height:.98;transition:color .3s}
+.crow-h{font-size:clamp(30px,4.4vw,70px);font-weight:600;letter-spacing:-.04em;line-height:.98;transition:color .3s}
 .crow-stat{display:flex;flex-direction:column;gap:2px;text-align:right}
-.crow-stat b{font-size:clamp(28px,3vw,46px);font-weight:700;color:var(--lime);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
+.crow-stat b{font-size:clamp(28px,3vw,46px);font-weight:600;color:var(--lime);letter-spacing:-.03em;font-variant-numeric:tabular-nums;line-height:1}
 .crow-stat span{font-size:13px;color:var(--mute)}
 .crow-fan{position:absolute;right:250px;top:50%;display:flex;pointer-events:none;opacity:0;transform:translateY(-50%) translateX(30px);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1)}
 .crow-fan .ph{width:76px;aspect-ratio:9/16;margin-left:-18px;transition:transform .45s cubic-bezier(.2,.8,.2,1);background-color:var(--ink-3)}
@@ -269,7 +274,7 @@ body.notes-on .note{display:block}
 .c-hero{padding-block:calc(130px + env(safe-area-inset-top,0px)) 70px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,5vw,70px);align-items:end}
 .back{display:inline-flex;align-items:center;min-height:44px;font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;text-decoration:none;color:var(--mute);margin-bottom:18px}
 .back:hover{color:var(--lime)}
-.c-h{font-size:clamp(42px,6.4vw,104px);font-weight:700;letter-spacing:-.045em;line-height:.94}
+.c-h{font-size:clamp(42px,6.4vw,104px);font-weight:600;letter-spacing:-.045em;line-height:.94}
 .c-heromedia{display:flex;justify-content:flex-end;gap:12px}
 .c-heromedia .ph{width:31%;max-width:180px;aspect-ratio:9/16}
 .c-heromedia .ph:nth-child(1){transform:rotate(-4deg) translateY(20px)}
@@ -281,7 +286,7 @@ body.notes-on .note{display:block}
 .cs-grid{height:100%;display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:center;padding-top:70px}
 .cs-text{display:grid;min-width:0}
 .cs-block{grid-area:1/1;align-self:center}
-.cs-block h2{font-size:clamp(30px,3.6vw,56px);font-weight:700;letter-spacing:-.035em;line-height:1}
+.cs-block h2{font-size:clamp(30px,3.6vw,56px);font-weight:600;letter-spacing:-.035em;line-height:1}
 .cs-block>p:not(.eyebrow){color:var(--mute);font-size:17px;margin-top:18px;max-width:52ch}
 .cs-worked{opacity:0}
 .tests{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:6px}
@@ -291,9 +296,9 @@ body.notes-on .note{display:block}
 .tests li.win .chip{background:var(--lime);color:var(--ink);border-color:var(--lime)}
 .tests li.ph-row{color:var(--mute);border-style:dashed}
 .cs-tiles{position:relative;height:min(68vh,640px);min-width:0}
-.cs-gridbg{position:absolute;inset:-12px;border:1px solid var(--line);border-radius:12px;background-image:linear-gradient(rgba(0,0,0,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(0,0,0,.06) 1px,transparent 1px);background-size:24px 24px;opacity:0}
+.cs-gridbg{position:absolute;inset:-12px;border:1px solid var(--line);border-radius:12px;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;opacity:0}
 .tile{position:absolute;width:21%;height:46%;will-change:transform}
-.tile.note-t{background:var(--ink-3);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;font-size:14px;font-weight:700;line-height:1.25;overflow:hidden}
+.tile.note-t{background:var(--ink-3);border:1px solid var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;justify-content:space-between;font-size:14px;font-weight:600;line-height:1.25;overflow:hidden}
 .tile.note-t small{font:500 10px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--lime);font-weight:500}
 .tile.note-t.lime{background:var(--lime);color:var(--moss);border-color:var(--lime)}
 .tile.note-t.lime small{color:var(--moss)}
@@ -301,22 +306,22 @@ body.notes-on .note{display:block}
 .c-heroslot{height:min(50vh,420px);padding-bottom:0}
 @media (max-width:760px){.c-heroslot{height:240px}}
 .c-split{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(24px,4vw,64px);align-items:center;padding-block:80px;border-top:1px solid var(--line)}
-.c-split-t h2{font-size:clamp(30px,3.6vw,56px);font-weight:700;letter-spacing:-.035em;line-height:1}
+.c-split-t h2{font-size:clamp(30px,3.6vw,56px);font-weight:600;letter-spacing:-.035em;line-height:1}
 .c-split-t>p:not(.eyebrow){color:var(--mute);font-size:17px;margin-top:18px;max-width:52ch}
 .c-split .work-media{height:min(60vh,480px);padding-bottom:0}
 @media (max-width:760px){.c-split{grid-template-columns:1fr}.c-split .work-media{height:260px}}
 .c-out{padding-block:90px 50px;border-top:1px solid var(--line)}
 .c-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .stat{border-top:2px solid var(--lime);padding-top:16px;display:flex;flex-direction:column;gap:6px}
-.stat b{font-size:clamp(44px,5.4vw,84px);font-weight:700;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums}
+.stat b{font-size:clamp(44px,5.4vw,84px);font-weight:600;letter-spacing:-.045em;line-height:.95;font-variant-numeric:tabular-nums}
 .stat span{color:var(--mute);font-size:15px;max-width:26ch}
 .c-plat{padding-block:30px 60px}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:8px}
-.chips li{border:1.5px solid var(--lime);color:var(--lime);font-weight:700;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
+.chips li{border:1.5px solid var(--lime);color:var(--lime);font-weight:600;font-size:13px;letter-spacing:.08em;text-transform:uppercase;padding:9px 16px;border-radius:999px}
 .c-cta{padding-block:80px 100px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:30px;align-items:flex-start}
-.c-cta h2{font-size:clamp(40px,6vw,96px);font-weight:700;letter-spacing:-.045em;line-height:.95}
+.c-cta h2{font-size:clamp(40px,6vw,96px);font-weight:600;letter-spacing:-.045em;line-height:.95}
 .c-nav{display:flex;flex-wrap:wrap;gap:12px;width:100%;justify-content:space-between;border-top:1px solid var(--line);padding-top:24px}
-.c-nav a{text-decoration:none;font-weight:700;min-height:44px;display:inline-flex;align-items:center}
+.c-nav a{text-decoration:none;font-weight:600;min-height:44px;display:inline-flex;align-items:center}
 .c-nav a:hover{color:var(--lime)}
 .c-nav a.next{font-size:clamp(20px,2.4vw,32px);letter-spacing:-.02em}
 @media (max-width:760px){
@@ -343,7 +348,7 @@ body.notes-on .note{display:block}
 .pil-list li{border-top:1px solid var(--line)}
 .pil-list li:last-child{border-bottom:1px solid var(--line)}
 .pil{display:block;width:100%;text-align:left;background:none;border:0;color:var(--mute);padding:16px 0;cursor:pointer;font-family:inherit}
-.pil h3{font-size:clamp(24px,2.8vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1.05;display:flex;gap:16px;align-items:baseline;transition:color .3s}
+.pil h3{font-size:clamp(24px,2.8vw,42px);font-weight:600;letter-spacing:-.03em;line-height:1.05;display:flex;gap:16px;align-items:baseline;transition:color .3s}
 .pil h3 small{font:500 12px var(--f-mono);letter-spacing:.08em}
 .pil-d{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s ease}
 .pil-d>div{overflow:hidden}
@@ -406,13 +411,13 @@ li.active .pil-d{grid-template-rows:1fr}
 .ptexts{position:absolute;left:var(--gut);right:var(--gut);top:calc(92px + env(safe-area-inset-top,0px));z-index:2;display:grid}
 .ptext{grid-area:1/1;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s}
 .ptext.show{opacity:1;transform:none}
-.ptext h2{font-size:clamp(28px,4vw,60px);font-weight:700;letter-spacing:-.035em;line-height:1}
+.ptext h2{font-size:clamp(28px,4vw,60px);font-weight:600;letter-spacing:-.035em;line-height:1}
 .ptext p{color:var(--mute);margin-top:10px;font-size:clamp(16px,1.5vw,20px)}
 .pline{position:absolute;left:var(--gut);right:var(--gut);top:40%;z-index:2;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(8,1fr)}
 .pline::before{content:"";position:absolute;left:6.25%;right:6.25%;top:26px;height:1px;background:var(--line)}
 .pnode{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;min-width:0}
-.pc{width:52px;height:52px;border-radius:50%;border:2px solid var(--lime);display:grid;place-items:center;font-weight:700;color:var(--lime);background:var(--ink);position:relative;transition:all .35s;font-variant-numeric:tabular-nums}
-.pl{margin-top:10px;font-size:13px;font-weight:700;line-height:1.2;max-width:110px;transition:color .35s}
+.pc{width:52px;height:52px;border-radius:50%;border:2px solid var(--lime);display:grid;place-items:center;font-weight:600;color:var(--lime);background:var(--ink);position:relative;transition:all .35s;font-variant-numeric:tabular-nums}
+.pl{margin-top:10px;font-size:13px;font-weight:600;line-height:1.2;max-width:110px;transition:color .35s}
 .pabove{position:absolute;bottom:calc(100% + 8px);font-size:12px;color:var(--lime-dim);white-space:nowrap;opacity:0;transition:opacity .35s}
 [data-phase="a"] .pc{border-color:var(--line);color:var(--mute)}
 [data-phase="a"] .pl{color:var(--mute)}
@@ -420,14 +425,14 @@ li.active .pil-d{grid-template-rows:1fr}
 [data-phase="b"] .pnode:not(.touch) .pl,[data-phase="c"] .pnode:not(.touch) .pl{opacity:0}
 [data-phase="b"] .pnode:not(.touch) .pabove,[data-phase="c"] .pnode:not(.touch) .pabove{opacity:1}
 [data-phase="b"] .touch .pc,[data-phase="c"] .touch .pc,[data-phase="d"] .touch .pc{background:var(--lime);color:var(--ink);border-color:var(--lime)}
-.pnode.on .pc{transform:scale(1.18);box-shadow:0 0 0 8px rgba(0,0,0,.12)}
+.pnode.on .pc{transform:scale(1.18);box-shadow:0 0 0 8px var(--glow)}
 .pnode.on .pl,.pnode.on .pabove{color:var(--lime)}
 .p-panel{position:absolute;z-index:3;opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s;pointer-events:none}
 .p-panel.show{opacity:1;transform:none}
 .p-count{left:var(--gut);top:58%;display:flex;gap:24px;align-items:center;flex-wrap:wrap;right:var(--gut)}
-.p-count b{font-size:clamp(64px,11vw,180px);font-weight:700;letter-spacing:-.05em;line-height:.9;color:var(--lime);font-variant-numeric:tabular-nums}
+.p-count b{font-size:clamp(64px,11vw,180px);font-weight:600;letter-spacing:-.05em;line-height:.9;color:var(--lime);font-variant-numeric:tabular-nums}
 .p-count p{font-size:clamp(16px,1.7vw,24px);max-width:24ch}
-.p-count p strong{display:block;font-weight:700}
+.p-count p strong{display:block;font-weight:600}
 .p-legend{left:var(--gut);right:var(--gut);top:62%;display:flex;flex-direction:column;gap:18px;max-width:760px}
 .p-legend .keys{display:flex;flex-wrap:wrap;gap:12px 36px;font-size:15px}
 .p-legend .keys span{display:flex;align-items:center;gap:10px}
@@ -436,7 +441,7 @@ li.active .pil-d{grid-template-rows:1fr}
 .p-legend p{font-size:clamp(17px,1.7vw,24px);font-weight:500}
 .p-card{left:64%;right:var(--gut);top:54%;background:var(--ink-2);border:1px solid var(--line);border-radius:14px;padding:22px}
 .p-card .plus{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--lime)}
-.p-card h3{font-size:clamp(22px,2.2vw,32px);font-weight:700;letter-spacing:-.02em;margin:6px 0 8px}
+.p-card h3{font-size:clamp(22px,2.2vw,32px);font-weight:600;letter-spacing:-.02em;margin:6px 0 8px}
 .p-card [data-t]{color:var(--mute);font-size:15px}
 .p-card .gsteps{display:flex;gap:5px;margin-top:16px}
 .p-card .gsteps i{flex:1;height:4px;border-radius:2px;background:var(--line);transition:background .3s}
@@ -444,14 +449,14 @@ li.active .pil-d{grid-template-rows:1fr}
 .p-card .sig{display:flex;justify-content:space-between;font:500 10px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:14px;gap:10px}
 .p-cloudlbl{left:6%;top:calc(53% - 26px);font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
 .p-final{left:var(--gut);right:var(--gut);top:56%}
-.p-final li{font-size:clamp(40px,7vw,112px);font-weight:700;letter-spacing:-.045em;line-height:.95;color:var(--lime);list-style:none}
+.p-final li{font-size:clamp(40px,7vw,112px);font-weight:600;letter-spacing:-.045em;line-height:.95;color:var(--lime);list-style:none}
 .p-final ul{margin:0;padding:0}
 @media (max-width:760px){
   .pline{top:36%}
   .pline::before{top:15px}
   .pc{width:30px;height:30px;font-size:13px;border-width:1.5px}
   .pl,.pabove{display:none}
-  .pnode.on .pc{box-shadow:0 0 0 5px rgba(0,0,0,.12)}
+  .pnode.on .pc{box-shadow:0 0 0 5px var(--glow)}
   .p-count{top:50%}
   .p-legend{top:48%}
   .p-card{left:var(--gut);top:auto;bottom:calc(20px + env(safe-area-inset-bottom,0px));padding:16px}
@@ -465,7 +470,7 @@ li.active .pil-d{grid-template-rows:1fr}
 .prob-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .prob{border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:6px;background:var(--ink-2)}
 .prob .eyebrow{margin-bottom:8px;color:var(--lime-dim)}
-.prob b{font-size:clamp(36px,3.6vw,56px);font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+.prob b{font-size:clamp(36px,3.6vw,56px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .prob b.hi{color:var(--lime)}
 .prob p{color:var(--mute);font-size:14px}
 .prob i{font-family:var(--f-serif);color:var(--lime-dim);font-size:20px;margin-top:10px}
@@ -486,7 +491,7 @@ li.active .pil-d{grid-template-rows:1fr}
 .field input:focus,.field textarea:focus{outline:2px solid var(--lime);outline-offset:1px;border-color:var(--lime)}
 fieldset{border:0;padding:0;margin:0}
 .seg{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-.seg label{display:flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-weight:700}
+.seg label{display:flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--line);border-radius:999px;cursor:pointer;font-weight:600}
 .seg input{position:absolute;opacity:0;pointer-events:none}
 .seg input:checked+span{color:var(--ink)}
 .seg label:has(input:checked){background:var(--lime);border-color:var(--lime);color:var(--ink)}
@@ -495,7 +500,7 @@ fieldset{border:0;padding:0;margin:0}
 .sent h3{font-size:32px;letter-spacing:-.03em}
 .sent p{color:var(--mute)}
 .contact-side{display:flex;flex-direction:column;gap:22px;color:var(--mute)}
-.contact-side .addr{font-size:clamp(22px,2.4vw,32px);color:var(--paper);font-weight:700;letter-spacing:-.02em}
+.contact-side .addr{font-size:clamp(22px,2.4vw,32px);color:var(--paper);font-weight:600;letter-spacing:-.02em}
 @media (max-width:760px){.contact-grid{grid-template-columns:1fr}}
 
 /* ---------- mobile scene tweaks ---------- */
@@ -526,14 +531,255 @@ fieldset{border:0;padding:0;margin:0}
   .scroll-cue i{animation:none}
   *{transition-duration:.01ms!important}
 }
-</style>
-</head>
-<body>
 
+/* ================= KULA BRAND LAYER ================= */
+/* Scene themes: green (hero, final CTA, loader, menu) and dark (process, footer). Lime only ever as a fill or on green/dark. */
+[data-scene="fly"],[data-scene="manifesto"],.pane-r,.route-r,.c-hero,.final,.mmenu,.xfade,.t-green{
+  --ink:#335900; --ink-2:#2d4f00; --ink-3:#3f6510; --line:rgba(255,252,247,.2); --mute:#cdd8bc; --paper:#fffcf7;
+  --lime:#d2ff00; --lime-dim:#99ac80; --moss:#335900; --lime-2:rgba(210,255,0,.14); --grid:rgba(255,252,247,.07); --glow:rgba(210,255,0,.16);
+  background:var(--ink); color:var(--paper)}
+[data-scene="process"],.footer,.t-dark{
+  --ink:#1a1a17; --ink-2:#23231f; --ink-3:#2d2d28; --line:#3b3b35; --mute:#a6a69f; --paper:#fffcf7;
+  --lime:#d2ff00; --lime-dim:#8fa52a; --moss:#1a1a17; --lime-2:rgba(210,255,0,.12); --grid:rgba(255,252,247,.06); --glow:rgba(210,255,0,.16);
+  background:var(--ink); color:var(--paper)}
+
+/* Serif accent: Source Serif 4, always italic, used only where the copy already emphasises */
+em{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing:-.015em;color:var(--lime)}
+h1 em,h2 em{font-size:1.04em}
+.prob i{color:var(--lime);font-style:italic}
+
+/* Wordmark (stand-in until the logo SVG is supplied) */
+.logo{display:block;height:50px;width:auto;fill:currentColor;overflow:visible}
+.brand{color:#325a00}
+.footer .brand{color:var(--light)}
+.footer .logo{height:52px}
+/* Hero photo: brand duotone, washed with Primary Green, fades out as the flywheel takes over */
+.hero-bg{position:absolute;inset:0;z-index:0;background:url(hero.jpg) 62% center/cover no-repeat;will-change:opacity,transform;transform:scale(1.06)}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(51,89,0,.9) 0%,rgba(51,89,0,.72) 42%,rgba(51,89,0,.45) 100%),linear-gradient(0deg,rgba(51,89,0,.85) 0%,rgba(51,89,0,0) 35%)}
+@media (max-width:760px){.hero-bg{background-position:40% center}.hero-bg::after{background:linear-gradient(180deg,rgba(51,89,0,.88) 0%,rgba(51,89,0,.6) 55%,rgba(51,89,0,.8) 100%)}}
+.brand{gap:9px;font-weight:600}
+
+.eyebrow{font-weight:600}
+
+/* Buttons: lime pill with green label, as in the guide */
+.btn-lime{background:var(--accent);color:var(--green);border-color:var(--accent)}
+.btn-lime:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.nav-links>a.nav-cta{background:var(--accent);border-color:var(--accent);color:var(--green)}
+.nav-links>a.nav-cta:hover{background:var(--green);border-color:var(--green);color:var(--accent)}
+.duo a:hover,.duo a[aria-current="page"]{background:var(--green);color:var(--light)}
+
+/* Lime surfaces carry green type */
+.pane-l,.route-l,.tile.note-t.lime{background:var(--accent);color:var(--green)}
+.pane-l em,.route-l em{color:var(--green)}
+.on-lime .ph{background:rgba(51,89,0,.1);border-color:rgba(51,89,0,.3)}
+.on-lime .ph>span{color:var(--green)}
+.on-lime .ph.clip::after{border-left-color:var(--green)}
+.pane-l .media-slot,.route-l .media-slot{opacity:.7}
+.tile.note-t.lime small{color:var(--green)}
+
+/* Hero: lime mark on green, like the guide cover */
+[data-scene="fly"] .fw-spin,[data-scene="fly"] .fw-spin.centred{color:var(--lime)}
+[data-scene="fly"] .fw-core{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 10px rgba(210,255,0,.15)}
+[data-scene="fly"] .fw-core::after{background:var(--green)}
+[data-scene="fly"] .fw-leader{background:var(--accent)}
+
+/* Faint oversized mark behind the manifesto (guide p.2) */
+.m-fw{color:rgba(255,252,247,.045)}
+/* Manifesto on green: Light copy, lime for the emphasised lines */
+[data-scene="manifesto"] .m-sign b,[data-scene="manifesto"] .m-sign span{color:var(--paper)}
+[data-scene="manifesto"] .m-sign span{font-weight:300}
+/* "What works" side: reverse of "We create" — Primary Green ground, lime type, no grid */
+.pane-r,.route-r{background-image:none;color:var(--lime)}
+.route-r{border-color:var(--ink)}
+.pane-r .pane-copy p.lede,.pane-r .eyebrow,.route-r .go{color:var(--lime)}
+.pane-r .pane-copy .eyebrow{opacity:.8}
+.pane-r .btn-ghost{color:var(--lime);border-color:rgba(210,255,0,.62)} /* optically matches the 1px green outline opposite: light-on-dark reads heavier */
+.pane-r .btn-ghost{transition:background .25s,color .25s,border-color .25s}
+.pane-r .btn-ghost:hover,.pane-r .btn-ghost:focus-visible{background:var(--lime);color:var(--green);border-color:var(--lime)}
+.pane-r .media-slot,.route-r .media-slot{color:var(--lime);opacity:.6}
+.split-dot{color:var(--dark)}
+.scroll-cue{margin-top:32px;color:var(--lime);display:flex;align-items:center;justify-content:flex-start;gap:0;border:0}
+.scroll-cue svg{width:18px;height:27px;animation:cueArrow 1.8s cubic-bezier(.45,0,.35,1) infinite}
+@keyframes cueArrow{0%,100%{transform:translateY(-4px);opacity:.55}50%{transform:translateY(5px);opacity:1}}
+@media (prefers-reduced-motion:reduce){.scroll-cue svg{animation:none}}
+/* Brand logo tiles (supplied logos are light, for dark grounds) */
+.logo-tile{flex:none;display:flex;align-items:center;justify-content:center;width:150px;aspect-ratio:3/2;border-radius:14px;background:var(--dark)}
+.logo-tile img{height:auto;display:block}
+.crow-brand{display:flex;flex-direction:column;gap:10px}
+.crow .logo-tile img{filter:grayscale(1) brightness(1.15);opacity:.85;transition:filter .35s,opacity .35s}
+.crow:hover .logo-tile img,.crow:focus-visible .logo-tile img{filter:none;opacity:1}
+.c-title{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(18px,2.6vh,28px)}
+.logo-tile.lg{width:clamp(120px,10vw,156px)}
+@media (max-width:900px){.crow-brand{flex-direction:row;align-items:center;gap:14px}.crow .logo-tile{width:110px}.crow-fan{display:none}}
+@media (max-width:760px){.logo-tile.lg{width:120px}}
+/* Partner logo ticker */
+.logos{padding-block:clamp(56px,9vh,96px);overflow:hidden}
+.logos-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:clamp(20px,3vh,32px)}
+.logos-head .eyebrow{margin:0;color:var(--lime)}
+.logos-all{color:var(--paper);text-decoration:none;font-weight:600;font-size:15px;min-height:44px;display:inline-flex;align-items:center;gap:.3em}
+.logos-all:hover{color:var(--lime)}
+.logos-all:hover .arr{transform:translateX(5px)}
+.tick{position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.tick-track{display:flex;gap:12px;width:max-content;animation:tick 42s linear infinite}
+.tick:hover .tick-track,.tick:focus-within .tick-track{animation-play-state:paused}
+@keyframes tick{to{transform:translateX(calc(-50% - 6px))}}
+.tick-item{position:relative;flex:none;width:clamp(220px,23vw,320px);height:clamp(150px,15vw,200px);display:flex;align-items:center;justify-content:center;border-radius:16px;background:var(--ink-2);text-decoration:none;transition:background .3s}
+.tick-item img{max-width:74%;height:auto;filter:grayscale(1) brightness(1.15);opacity:.88;transition:filter .35s,opacity .35s,transform .35s cubic-bezier(.2,.8,.2,1)}
+.tick-cap{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-size:13px;font-weight:600;color:var(--lime);opacity:0;transform:translateY(6px);transition:opacity .3s,transform .3s}
+.tick-item:hover,.tick-item:focus-visible{background:var(--ink-3)}
+.tick-item:hover img,.tick-item:focus-visible img{filter:none;opacity:1;transform:translateY(-10px)}
+.tick-item:hover .tick-cap,.tick-item:focus-visible .tick-cap{opacity:1;transform:none}
+.tick-item:hover .arr{transform:translateX(4px)}
+@media (max-width:760px){.tick-item img{max-width:76%;transform:scale(.8)}.tick-item:hover img{transform:scale(.8) translateY(-12px)}}
+.logos + .final{margin-top:0}
+@media (prefers-reduced-motion:reduce){.tick-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center;padding-inline:var(--gut)}.tick{-webkit-mask-image:none;mask-image:none}.tick-item[aria-hidden="true"]{display:none}}
+.pane-l .btn-moss,.pane-r .btn-ghost{border-width:1px}
+.pane-l .btn-moss{background:transparent;color:var(--green);border-color:var(--green);transition:background .25s,color .25s,border-color .25s}
+.pane-l .btn-moss:hover,.pane-l .btn-moss:focus-visible{background:var(--green);color:var(--accent);border-color:var(--green)}
+.pane-l .btn-moss:active{transform:translateY(1px)}
+.btn .arr{display:inline-block;transition:transform .25s cubic-bezier(.2,.8,.2,1)}
+.btn:hover .arr,.btn:focus-visible .arr{transform:translateX(5px)}
+@media (prefers-reduced-motion:reduce){.btn:hover .arr,.btn:focus-visible .arr{transform:none}}
+/* When the CTA follows the manifesto directly (About), run on as one green block with a hairline */
+.m-scene + .final{margin-top:0;border-top:1px solid var(--line)}
+
+/* Placeholder media read as warm stone, slots in green */
+.media-slot{color:var(--lime)}
+.ph{border-radius:12px}
+
+/* Full-bleed bands for the CTA and footer */
+.final,.footer,.c-hero{box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax)}
+.c-hero{padding-bottom:clamp(64px,10vh,110px)}
+.c-hero + .c-chal{border-top:0}
+.c-hero .back{color:var(--mute)}
+.c-hero .back:hover{color:var(--lime)}
+.c-hero .logo-tile{box-shadow:0 0 0 1px rgba(255,252,247,.12)}
+.final{border-top:0;margin-top:clamp(40px,6vh,80px)}
+.final h2 span{font-weight:200}
+.footer{border-top:0}
+
+.footer a:hover{color:var(--accent)}
+
+/* Mobile menu */
+.mmenu a{border-bottom-color:var(--line)}
+
+/* Stats and numbers in brand green */
+.stat b,.prob b.hi,.crow-stat b{color:var(--lime)}
+.c-out .stat b{color:var(--paper)}
+.c-out .stat{border-top-color:var(--accent);border-top-width:4px}
+
+/* Selection */
+::selection{background:var(--accent);color:var(--green)}
+[hidden]:not([hidden=until-found i]){display:none!important}
+/* Intelligence marker: Dark core ringed in Light, Light pulse and leader, so it separates from both the lime mark and the green ground */
+[data-scene="fly"] .fw-core{width:13%;background:var(--dark);border:3px solid var(--light);box-shadow:0 0 0 6px rgba(26,26,23,.35)}
+[data-scene="fly"] .fw-core::after{inset:32%;background:var(--light)}
+[data-scene="fly"] .fw-core::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--light);animation:kpulse 2.4s cubic-bezier(.2,.6,.3,1) infinite}
+@keyframes kpulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
+[data-scene="fly"] .fw-leader{background:var(--light);height:2px;width:51%}
+[data-scene="fly"] .fw-leader::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--light)}
+@media (prefers-reduced-motion:reduce){[data-scene="fly"] .fw-core::before{animation:none;opacity:.5;transform:scale(1.6)}}
+/* Long emphasis (case headlines): keep green, drop to Jakarta light so the serif stays sparing */
+.c-h em{font-family:var(--f-display);font-style:normal;font-weight:300;font-size:1em;letter-spacing:-.045em}
+.prob .eyebrow{color:var(--lime)}
+.menu-btn{border:1.5px solid var(--paper);border-radius:999px;font:600 13px var(--f-display);letter-spacing:.02em;text-transform:none;padding:0 18px}
+.menu-btn[aria-expanded="true"]{background:var(--green);border-color:var(--green);color:var(--light)}
+
+/* ================= CASE STUDY: four chapters ================= */
+.c-hero{align-items:end}
+.c-index{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(24px,4vh,40px)}
+.c-index button{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--paper);font:600 13px var(--f-display);cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+.c-index button span{color:var(--lime);font-size:11px;letter-spacing:.08em;transition:color .25s}
+.c-index button:hover,.c-index button:focus-visible{background:var(--lime);border-color:var(--lime);color:var(--green)}
+.c-index button:hover span,.c-index button:focus-visible span{color:var(--green)}
+.c-herostat{display:flex;flex-direction:column;gap:8px;align-self:end;justify-self:end;text-align:right;padding-bottom:6px}
+.c-herostat b{font-size:clamp(64px,9vw,148px);font-weight:600;letter-spacing:-.05em;line-height:.85;color:var(--lime);font-variant-numeric:tabular-nums}
+.c-herostat span{color:var(--mute);font-size:15px;max-width:22ch;margin-left:auto}
+
+.chap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(28px,5vw,88px);align-items:center;padding-block:clamp(64px,11vh,128px);scroll-margin-top:72px}
+.chap + .chap:not(.chap-effect){border-top:1px solid var(--line)}
+.chap-fig{position:relative;margin:0;border-radius:18px;overflow:hidden;aspect-ratio:3/2;background:var(--ink-3)}
+.chap-fig img{display:block;width:100%;height:100%;object-fit:cover}
+.chap-fig figcaption{position:absolute;bottom:9%;width:34%;text-align:center;color:#fffcf7;font-weight:600;font-size:clamp(12px,1.25vw,17px);line-height:1.2;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.chap-fig.is-slot{display:flex;border:0}
+.chap-fig.is-slot .media-slot{flex:1;margin:0;opacity:.6;color:var(--lime)}
+.chap-text{display:flex;flex-direction:column;gap:16px;max-width:58ch}
+.chap-text .chap-k{display:flex;align-items:baseline;gap:14px;margin:0 0 6px;font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:clamp(28px,2.8vw,42px);letter-spacing:-.015em;line-height:1.05;color:var(--lime)}
+.chap-text .chap-k span{font:600 13px var(--f-display);font-style:normal;letter-spacing:.1em;color:var(--mute)}
+.chap-text p{color:var(--mute);font-size:17px;line-height:1.6}
+.chap-text p.chap-lead{color:var(--paper);font-size:clamp(19px,1.6vw,22px);line-height:1.5;font-weight:500}
+.chap-text p.is-ph{font-style:italic;opacity:.75}
+.chap-sub{font-weight:600!important;font-size:12px!important;letter-spacing:.1em;text-transform:uppercase;color:var(--lime)!important;margin-top:10px}
+.chap-text .tests{margin-top:0}
+.chap-text .chips{margin-top:6px}
+
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px;margin:10px 0 0}
+.facts div{border-top:2px solid var(--accent);padding-top:12px}
+.facts dt{font-size:clamp(32px,3vw,46px);font-weight:600;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;color:var(--paper)}
+.facts dd{margin:6px 0 0;color:var(--mute);font-size:14px;line-height:1.35}
+
+/* 04 The Kula Effect: Dark band, as in the deck */
+.chap-effect{display:block;padding-block:clamp(72px,12vh,140px);box-shadow:0 0 0 100vmax var(--ink);clip-path:inset(0 -100vmax)}
+.chap-inner{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(28px,5vw,88px);align-items:center}
+.effect-card{position:relative;border-radius:18px;overflow:hidden;background:var(--ink-2);padding:clamp(24px,3.4vw,48px);display:flex;flex-direction:column;gap:clamp(22px,3vh,34px);min-height:clamp(320px,34vw,460px);justify-content:center}
+.effect-card::before{content:"";position:absolute;inset:0 0 0 auto;width:46%;background:var(--effect-img,none) center/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent,#000 55%);mask-image:linear-gradient(90deg,transparent,#000 55%);opacity:.95;pointer-events:none}
+.effect-card>*{position:relative;max-width:78%}
+.effect-card:not([style]) > *{max-width:none}
+.effect-h{display:flex;flex-direction:column;gap:8px;margin:0}
+.effect-h b{font-size:clamp(52px,6.4vw,104px);font-weight:600;letter-spacing:-.05em;line-height:.9;color:var(--lime);font-variant-numeric:tabular-nums}
+.effect-h span{color:var(--paper);font-size:15px}
+.effect-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:0;margin:0;border-top:1px solid var(--line)}
+.effect-stats div{padding:16px 14px 0 0;min-width:0}
+.effect-stats div + div{padding-left:14px;border-left:1px solid var(--line)}
+.effect-stats dt{white-space:nowrap;font-size:clamp(20px,1.85vw,30px);font-weight:600;letter-spacing:-.035em;line-height:1;color:var(--lime);font-variant-numeric:tabular-nums}
+.effect-stats dd{margin:8px 0 0;color:var(--paper);font-size:13px;line-height:1.35}
+.effect-stats small{display:block;margin-top:10px;padding-top:10px;border-top:1px solid var(--line);color:var(--lime);font-size:12px;font-weight:600}
+.effect-close{color:var(--paper)!important}
+.effect-close strong{color:var(--lime);font-weight:600}
+
+@media (max-width:900px){
+  .chap,.chap-inner{grid-template-columns:1fr}
+  .chap-text{max-width:none}
+  .c-herostat{justify-self:start;text-align:left}
+  .c-herostat span{margin-left:0}
+  .effect-card>*{max-width:none}
+  .effect-card::before{width:100%;opacity:.18;-webkit-mask-image:none;mask-image:none}
+}
+@media (max-width:560px){
+  .effect-stats{grid-template-columns:1fr}
+  .effect-stats div + div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .chap-fig figcaption{font-size:11px}
+}
+
+/* v0.13: hero photo (same treatment as the homepage hero) + copy-left / image-right chapters */
+.c-hero{grid-template-columns:1fr;position:relative;isolation:isolate}
+.c-hero-in{position:relative;z-index:1;max-width:min(880px,100%)}
+.c-hero.has-img{min-height:clamp(560px,80vh,780px);align-content:end}
+.c-hero-bg{position:absolute;top:0;bottom:0;left:calc(50% - 50vw);width:100vw;z-index:0;background-size:cover;background-position:72% center;background-repeat:no-repeat}
+.c-hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(51,89,0,.94) 0%,rgba(51,89,0,.8) 38%,rgba(51,89,0,.42) 100%),linear-gradient(0deg,rgba(51,89,0,.9) 0%,rgba(51,89,0,0) 40%)}
+@media (max-width:760px){.c-hero-bg{background-position:65% center}.c-hero-bg::after{background:linear-gradient(180deg,rgba(51,89,0,.72) 0%,rgba(51,89,0,.86) 55%,rgba(51,89,0,.95) 100%)}}
+.chap{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);align-items:start}
+.chap-inner{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);align-items:start}
+.chap-text{max-width:60ch}
+.chap-fig,.effect-card{margin-top:clamp(6px,.6vw,10px)}
+@media (max-width:900px){.chap,.chap-inner{grid-template-columns:1fr}}
+
+/* v0.14: Kula Effect = copy + product photo, outcomes run along the bottom */
+.effect-fig{aspect-ratio:4/5;max-height:620px;width:100%;justify-self:end}
+.effect-fig img{object-position:center 40%}
+.chap-inner{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr)}
+.outcomes-k{margin:clamp(56px,9vh,96px) 0 18px!important}
+.outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:clamp(20px,2vw,28px) clamp(18px,2vw,30px);margin:0}
+.outcomes div{border-top:2px solid var(--paper);padding-top:clamp(14px,1.6vw,20px);min-width:0}
+.outcomes dt{font-size:clamp(30px,2.8vw,46px);font-weight:600;letter-spacing:-.045em;line-height:1;color:var(--lime);white-space:nowrap;font-variant-numeric:tabular-nums}
+.outcomes dd{margin:12px 0 0;color:var(--mute);font-size:14px;line-height:1.4;max-width:24ch}
+@media (max-width:900px){.effect-fig{aspect-ratio:4/3;justify-self:stretch}.outcomes{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.chap-inner{grid-template-columns:1fr}}
+</style>
 
 <main>
 <header class="nav">
-  <a href="#home" class="brand" aria-label="Kula home"><span class="brand-fw" data-fw id="navFw"></span>Kula</a>
+  <a href="#home" class="brand" aria-label="Kula home"><svg class="logo" viewBox="0 236 1060 536" role="img" aria-label="Kula"><g class="logo-mark" id="navFw"><path d="M451.48,405.06c13.13-44.23,4.12-97.57-41.61-118.7-45.41-20.99-97.67-.38-123.42,40.53-21.31,33.85-23.59,71.92-14.83,108.38-53.6-40.95-123.22-61.87-188.94-46.14C37.81,399.87-3.88,434.36.69,484.52c4.53,49.82,48.5,84.77,96.81,86.62,39.97,1.53,74.08-15.53,101.28-41.35-8.66,66.89,8.03,137.65,54.51,186.7,31.73,33.49,82.44,52.35,123.6,23.32,40.88-28.84,49.16-84.39,26.61-127.15-18.66-35.38-50.5-56.39-86.45-67.03,62.27-25.94,115.2-75.78,134.44-140.56ZM225.34,538.01c3.06-29.24,11.81-57.63,25.89-83.83,23.79,17.27,44,39.04,59.66,64.34-26.85,11.97-55.81,18.59-85.55,19.49ZM215.71,463.33c-26.69,47.61-76.19,92.76-135.21,77.94-56.3-14.14-71.42-86.89-18.31-115.54,43.92-23.69,101.43-15.33,145.42,3.63,7.02,3.03,13.84,6.39,20.45,10.05-3.81,6.86-7.29,13.95-10.43,21.22-.7.79-1.35,1.68-1.92,2.7ZM251.02,564.19c54.58-.69,118.43,19.6,135.11,78.12,15.9,55.82-39.54,105.3-90.91,73.63-42.48-26.19-63.99-80.18-69.56-127.75-.89-7.59-1.39-15.17-1.52-22.73,7.85-.13,25.72-1.26,26.88-1.27ZM354.19,493.14c-6.13,4.57-12.45,8.79-18.93,12.68-4.04-6.73-13.95-21.64-14.54-22.65-27.89-46.93-42.24-112.37.11-156.07,40.39-41.68,110.96-18.4,109.22,41.92-1.44,49.88-37.44,95.5-75.85,124.11Z"/></g><path transform="translate(32 0)" d="M984.52,551.31c0,23.61-15.18,37.88-35.03,37.88-12.46,0-22.31-6.75-22.31-19.33,0-9.6,6.1-19.85,22.19-24.65,8.69-2.59,19.07-3.63,32.69-3.63,1.82,0,2.47,2.59,2.47,9.73M939.5,534.05c-23.35,6.23-38.4,19.72-38.4,39.96s17.13,32.18,39.05,32.18c15.83,0,30.1-6.36,38.79-15.05,1.04-1.03,2.08-2.72,2.98-2.72s1.69.91,2.08,2.21c3.63,10.25,10.9,14.27,20.89,14.27,11.29,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.07-4.02-2.08,0-3.25,1.3-6.75,1.3-5.58,0-7.66-5.58-7.66-11.55,0-10.64,1.43-34.12,1.43-51.38,0-31.14-18.29-52.16-52.81-52.16-30.49,0-48.52,15.83-48.52,30.23,0,10.25,7.53,14.53,13.37,14.53s8.04-3.24,9.34-9.08c2.47-11.41,9.21-23.48,25.3-23.48,20.11,0,28.02,15.7,28.02,34.77,0,7.66-1.3,9.34-2.33,10.12-2.86,1.94-25.3,2.33-42.82,6.75M870.1,433.9c0-5.19-2.21-7.53-6.62-7.53s-9.34,3.76-21.02,8.43c-7.01,2.72-12.33,3.76-12.33,8.56,0,2.59,2.59,4.28,5.19,5.32,5.19,1.69,8.82,4.41,8.82,9.86v116.5c0,6.49-1.04,11.16-7.4,15.7-2.46,1.81-6.75,3.37-6.75,7.66,0,2.85,1.56,5.32,7.53,5.32,7.4,0,12.59-.65,19.46-.65,5.97,0,12.97.65,17.9.65,6.49,0,8.18-2.47,8.18-5.58,0-4.28-4.02-5.06-7.78-7.78-3.89-2.85-6.23-6.23-6.23-14.14v-102.1c0-27.11,1.04-32.04,1.04-40.22M797.06,513.55c0-22.57,2.98-28.67,2.98-35.68,0-4.02-2.21-6.75-6.23-6.75-4.54,0-14.92,3.37-28.54,4.8-4.93.65-7.66,2.47-7.66,6.36,0,4.15,3.89,5.84,7,8.04,6.1,3.63,7.66,8.31,7.66,16.35v42.03c0,26.47-13.75,39.44-33.21,39.44-22.58,0-28.67-19.46-28.67-40.87,0-42.56,6.35-59.68,6.35-69.28,0-3.37-1.69-6.88-6.75-6.88-5.32,0-11.03,2.47-28.54,4.54-5.84.78-8.82,2.59-8.82,6.62,0,5.19,6.49,6.23,9.86,9.34,2.86,2.86,4.54,5.58,4.54,12.84,0,6.75-2.47,30.36-2.47,50.73,0,27.25,12.32,50.47,43.72,50.47,22.71,0,33.86-11.28,38.14-15.18,1.3-1.3,2.72-2.85,3.5-2.85,1.3,0,1.95,1.43,2.34,2.33,2.47,5.97,7.13,14.92,21.41,14.92,11.16,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.21-4.02-1.95,0-3.12,1.3-6.75,1.3-5.58,0-7.78-5.58-7.78-11.55v-60.2ZM551.33,510.7c-.78,0-1.17-2.98-1.17-29.45,0-13.88,1.04-29.06,1.95-32.44,1.56-10.77,12.32-10.12,12.32-17.13,0-2.99-1.56-5.71-7.66-5.71-4.54,0-12.97.65-19.33.65s-14.79-.65-19.59-.65c-6.35,0-7.78,2.86-7.78,5.71,0,7.78,12.45,6.22,13.62,21.41.26,4.28.26,46.58.26,59.94,0,18.94-.26,63.05-1.04,68.5-1.43,11.16-13.62,9.86-13.62,16.87,0,2.85,2.21,5.32,8.3,5.32,4.93,0,13.36-.65,19.85-.65s16.48.65,21.8.65c5.71,0,8.17-2.21,8.17-5.32,0-4.15-4.8-5.71-9.08-8.56-4.8-2.98-7.91-6.88-7.91-14.79v-38.53c0-5.58,3.37-8.18,9.21-8.18,33.86,0,59.42,40.87,59.42,59.29,0,6.22-3.25,6.75-3.25,10.77,0,2.72,3.12,5.32,7.53,5.32,3.11,0,9.86-.65,19.2-.65,5.84,0,16.09.65,21.15.65,3.37,0,6.62-1.56,6.62-5.71s-3.63-5.19-9.08-8.95c-7.53-5.06-11.16-11.29-15.96-20.24-18.94-34.12-37.24-50.6-65.78-59.16-1.3-.39-1.69-1.04-1.69-1.56,0-.91.65-1.56,1.3-2.34,27.63-27.89,51.64-49.82,60.85-56.57,10.77-7.91,21.53-10.64,21.53-17.51,0-4.15-2.85-5.45-8.56-5.45-4.15,0-19.46.39-23.48.39-4.41,0-13.63-.65-17.52-.65-5.45,0-7.53,2.72-7.53,5.58,0,7,9.08,8.04,9.08,14.14,0,6.75-59.16,65-62.14,65"/></svg></a>
   <nav class="nav-links" aria-label="Main">
     <div class="duo" role="group" aria-label="We create, What works">
       <a href="#work" data-nav="work"><b>We create</b><small>Creativity</small></a>
@@ -552,17 +798,18 @@ fieldset{border:0;padding:0;margin:0}
   <a href="#contact"><small>Let's talk</small>Contact</a>
 </div>
 <div class="xfade" id="xfade" aria-hidden="true"><div class="xf-fw" data-fw></div></div>
-<div class="wf-chip">Wireframe v0.1 · not final design</div>
+<div class="wf-chip">Brand pass v0.12 · placeholder imagery</div>
 
 <!-- =============== HOME =============== -->
 <div data-view="home">
   <section class="scene" data-scene="fly" style="height:1700vh" aria-label="Not another social agency">
     <div class="stage fly-stage">
+      <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-copy">
         <p class="eyebrow">Kula · creator-led social</p>
         <h1 class="hero-h">Not another<br>social agency.</h1>
         <p class="hero-sub">We create <em>what works.</em></p>
-        <p class="scroll-cue"><i></i>Scroll to start the flywheel</p>
+        <p class="scroll-cue" aria-hidden="true"><svg viewBox="0 0 24 36" width="24" height="36"><path d="M12 2v30M3 23l9 9 9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
       </div>
       <div class="fw-wrap"><div class="fw-spin" data-fw></div></div>
       <div class="fw-caption" aria-live="polite"><div class="dots"><i></i><i></i><i></i><i></i></div><h3 data-cap-h></h3><p data-cap-p></p></div>
@@ -586,7 +833,7 @@ fieldset{border:0;padding:0;margin:0}
           <p class="eyebrow">The creative side</p>
           <h2>We create</h2>
           <p class="lede">Powerful, authentic brand stories. Told through creators.</p>
-          <a class="btn btn-moss" href="#work">Explore our work →</a>
+          <a class="btn btn-moss" href="#work">Explore our work <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div></div>
       <div class="pane pane-r"><div class="pane-inner">
@@ -595,7 +842,7 @@ fieldset{border:0;padding:0;margin:0}
           <p class="eyebrow">The intelligence side</p>
           <h2>What works</h2>
           <p class="lede">Predictive technology that connects creator content to business results.</p>
-          <a class="btn btn-ghost" href="#how">See how it works →</a>
+          <a class="btn btn-ghost" href="#how">See how it works <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div></div>
     </div>
@@ -738,7 +985,7 @@ fieldset{border:0;padding:0;margin:0}
   </section>
   <section class="wrap">
     <div class="duo-explain">
-      <div><h3 style="font-weight:700">Social content expertise</h3><p>Creators, ideas and formats people choose to watch.</p></div>
+      <div><h3 style="font-weight:600">Social content expertise</h3><p>Creators, ideas and formats people choose to watch.</p></div>
       <span class="x">×</span>
       <div><h3 style="font-weight:300">Predictive marketing technology</h3><p>AI, data and human insight that removes guesswork.</p></div>
     </div>
@@ -779,7 +1026,7 @@ fieldset{border:0;padding:0;margin:0}
 </div>
 
 <footer class="footer wrap">
-  <a href="#home" class="brand"><span class="brand-fw" data-fw></span>Kula</a>
+  <a href="#home" class="brand"><svg class="logo" viewBox="0 236 1060 536" role="img" aria-label="Kula"><g class="logo-mark"><path d="M451.48,405.06c13.13-44.23,4.12-97.57-41.61-118.7-45.41-20.99-97.67-.38-123.42,40.53-21.31,33.85-23.59,71.92-14.83,108.38-53.6-40.95-123.22-61.87-188.94-46.14C37.81,399.87-3.88,434.36.69,484.52c4.53,49.82,48.5,84.77,96.81,86.62,39.97,1.53,74.08-15.53,101.28-41.35-8.66,66.89,8.03,137.65,54.51,186.7,31.73,33.49,82.44,52.35,123.6,23.32,40.88-28.84,49.16-84.39,26.61-127.15-18.66-35.38-50.5-56.39-86.45-67.03,62.27-25.94,115.2-75.78,134.44-140.56ZM225.34,538.01c3.06-29.24,11.81-57.63,25.89-83.83,23.79,17.27,44,39.04,59.66,64.34-26.85,11.97-55.81,18.59-85.55,19.49ZM215.71,463.33c-26.69,47.61-76.19,92.76-135.21,77.94-56.3-14.14-71.42-86.89-18.31-115.54,43.92-23.69,101.43-15.33,145.42,3.63,7.02,3.03,13.84,6.39,20.45,10.05-3.81,6.86-7.29,13.95-10.43,21.22-.7.79-1.35,1.68-1.92,2.7ZM251.02,564.19c54.58-.69,118.43,19.6,135.11,78.12,15.9,55.82-39.54,105.3-90.91,73.63-42.48-26.19-63.99-80.18-69.56-127.75-.89-7.59-1.39-15.17-1.52-22.73,7.85-.13,25.72-1.26,26.88-1.27ZM354.19,493.14c-6.13,4.57-12.45,8.79-18.93,12.68-4.04-6.73-13.95-21.64-14.54-22.65-27.89-46.93-42.24-112.37.11-156.07,40.39-41.68,110.96-18.4,109.22,41.92-1.44,49.88-37.44,95.5-75.85,124.11Z"/></g><path transform="translate(32 0)" d="M984.52,551.31c0,23.61-15.18,37.88-35.03,37.88-12.46,0-22.31-6.75-22.31-19.33,0-9.6,6.1-19.85,22.19-24.65,8.69-2.59,19.07-3.63,32.69-3.63,1.82,0,2.47,2.59,2.47,9.73M939.5,534.05c-23.35,6.23-38.4,19.72-38.4,39.96s17.13,32.18,39.05,32.18c15.83,0,30.1-6.36,38.79-15.05,1.04-1.03,2.08-2.72,2.98-2.72s1.69.91,2.08,2.21c3.63,10.25,10.9,14.27,20.89,14.27,11.29,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.07-4.02-2.08,0-3.25,1.3-6.75,1.3-5.58,0-7.66-5.58-7.66-11.55,0-10.64,1.43-34.12,1.43-51.38,0-31.14-18.29-52.16-52.81-52.16-30.49,0-48.52,15.83-48.52,30.23,0,10.25,7.53,14.53,13.37,14.53s8.04-3.24,9.34-9.08c2.47-11.41,9.21-23.48,25.3-23.48,20.11,0,28.02,15.7,28.02,34.77,0,7.66-1.3,9.34-2.33,10.12-2.86,1.94-25.3,2.33-42.82,6.75M870.1,433.9c0-5.19-2.21-7.53-6.62-7.53s-9.34,3.76-21.02,8.43c-7.01,2.72-12.33,3.76-12.33,8.56,0,2.59,2.59,4.28,5.19,5.32,5.19,1.69,8.82,4.41,8.82,9.86v116.5c0,6.49-1.04,11.16-7.4,15.7-2.46,1.81-6.75,3.37-6.75,7.66,0,2.85,1.56,5.32,7.53,5.32,7.4,0,12.59-.65,19.46-.65,5.97,0,12.97.65,17.9.65,6.49,0,8.18-2.47,8.18-5.58,0-4.28-4.02-5.06-7.78-7.78-3.89-2.85-6.23-6.23-6.23-14.14v-102.1c0-27.11,1.04-32.04,1.04-40.22M797.06,513.55c0-22.57,2.98-28.67,2.98-35.68,0-4.02-2.21-6.75-6.23-6.75-4.54,0-14.92,3.37-28.54,4.8-4.93.65-7.66,2.47-7.66,6.36,0,4.15,3.89,5.84,7,8.04,6.1,3.63,7.66,8.31,7.66,16.35v42.03c0,26.47-13.75,39.44-33.21,39.44-22.58,0-28.67-19.46-28.67-40.87,0-42.56,6.35-59.68,6.35-69.28,0-3.37-1.69-6.88-6.75-6.88-5.32,0-11.03,2.47-28.54,4.54-5.84.78-8.82,2.59-8.82,6.62,0,5.19,6.49,6.23,9.86,9.34,2.86,2.86,4.54,5.58,4.54,12.84,0,6.75-2.47,30.36-2.47,50.73,0,27.25,12.32,50.47,43.72,50.47,22.71,0,33.86-11.28,38.14-15.18,1.3-1.3,2.72-2.85,3.5-2.85,1.3,0,1.95,1.43,2.34,2.33,2.47,5.97,7.13,14.92,21.41,14.92,11.16,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.21-4.02-1.95,0-3.12,1.3-6.75,1.3-5.58,0-7.78-5.58-7.78-11.55v-60.2ZM551.33,510.7c-.78,0-1.17-2.98-1.17-29.45,0-13.88,1.04-29.06,1.95-32.44,1.56-10.77,12.32-10.12,12.32-17.13,0-2.99-1.56-5.71-7.66-5.71-4.54,0-12.97.65-19.33.65s-14.79-.65-19.59-.65c-6.35,0-7.78,2.86-7.78,5.71,0,7.78,12.45,6.22,13.62,21.41.26,4.28.26,46.58.26,59.94,0,18.94-.26,63.05-1.04,68.5-1.43,11.16-13.62,9.86-13.62,16.87,0,2.85,2.21,5.32,8.3,5.32,4.93,0,13.36-.65,19.85-.65s16.48.65,21.8.65c5.71,0,8.17-2.21,8.17-5.32,0-4.15-4.8-5.71-9.08-8.56-4.8-2.98-7.91-6.88-7.91-14.79v-38.53c0-5.58,3.37-8.18,9.21-8.18,33.86,0,59.42,40.87,59.42,59.29,0,6.22-3.25,6.75-3.25,10.77,0,2.72,3.12,5.32,7.53,5.32,3.11,0,9.86-.65,19.2-.65,5.84,0,16.09.65,21.15.65,3.37,0,6.62-1.56,6.62-5.71s-3.63-5.19-9.08-8.95c-7.53-5.06-11.16-11.29-15.96-20.24-18.94-34.12-37.24-50.6-65.78-59.16-1.3-.39-1.69-1.04-1.69-1.56,0-.91.65-1.56,1.3-2.34,27.63-27.89,51.64-49.82,60.85-56.57,10.77-7.91,21.53-10.64,21.53-17.51,0-4.15-2.85-5.45-8.56-5.45-4.15,0-19.46.39-23.48.39-4.41,0-13.63-.65-17.52-.65-5.45,0-7.53,2.72-7.53,5.58,0,7,9.08,8.04,9.08,14.14,0,6.75-59.16,65-62.14,65"/></svg></a>
   <nav aria-label="Footer"><a href="#work">Work</a><a href="#how">How it works</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
   <span style="margin-left:auto">© 2026 Ben Wright Design</span>
 </footer>
@@ -787,6 +1034,7 @@ fieldset{border:0;padding:0;margin:0}
 
 <script>
 (()=>{
+const PCOL={hi:'#d2ff00',mid:'#c9e65a',lo:'#6f6f69'}; /* process particles on the dark scene */
 const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const mq = matchMedia('(max-width: 760px)');
 let mobile = mq.matches;
@@ -817,61 +1065,76 @@ manifesto:`<section class="scene m-scene" data-scene="manifesto" aria-label="Man
   <ul class="m-trio"><li data-line>Less guesswork.</li><li data-line>More confidence.</li><li data-line>More growth.</li></ul>
   <p class="m-sign" data-line><b>We create</b> <span>what works.</span></p>
 </div></div></section>`,
-routes:`<section class="routes wrap" aria-label="Two sides, one agency">
-  <div class="routes-grid">
-    <a class="route route-l on-lime" href="#work"><div class="media-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 34 L17 25 L26 31 L33 24 L43 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Image / animation</span></div><div></div><div><h3>We create</h3><p class="go">See the work →</p></div></a>
-    <a class="route route-r" href="#how"><div class="media-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 34 L17 25 L26 31 L33 24 L43 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Image / animation</span></div><div></div><div><h3>What works</h3><p class="go">See the intelligence →</p></div></a>
-  </div>
-  <p class="routes-tag">Together: <em>predictable growth.</em></p>
+routes:`<section class="logos t-dark" aria-label="Brands we have worked with">
+  <div class="wrap logos-head"><p class="eyebrow">Brands we've grown</p><a class="logos-all" href="#work">All work <span class="arr" aria-hidden="true">→</span></a></div>
+  <div class="tick"><div class="tick-track"><a class="tick-item" href="#case-bighams" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#case-clays" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#case-myclaim" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#case-bighams" aria-hidden="true" tabindex="-1" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#case-clays" aria-hidden="true" tabindex="-1" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#case-myclaim" aria-hidden="true" tabindex="-1" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a></div></div>
 </section>`,
 cta:`<section class="final wrap" aria-label="Get in touch">
   <h2><b>We create</b> <span>what works.</span></h2>
-  <a class="btn btn-lime big" href="#contact">Let's create something that works →</a>
+  <a class="btn btn-lime big" href="#contact">Talk to the team <span class="arr" aria-hidden="true">→</span></a>
 </section>`
 };
 $$('[data-include]').forEach(n=>{n.outerHTML=BLOCKS[n.dataset.include]});
 
-/* ---------- case data (one structure, every case) ---------- */
+/* ---------- case data: every case follows the same four chapters ----------
+   01 The Kula Challenge · 02 What we created · 03 What worked · 04 The Kula Effect
+   Square-bracketed text is a placeholder still to be written. */
 const CASES={
-  bighams:{client:"Charlie Bigham's",h1:"Charlie Bigham's",h2:"started a social movement",
-    top:{v:'6×',l:'return on ad spend'},
-    challenge:"How to measure and scale a social investment that supports the brand, and start the Charlie Bigham's movement.",
-    createdHead:"Customers with a story to tell.",
-    created:"We sourced current Bigham's customers with a story to tell, briefed them on the brand's 'Everyday Lives' platform and launched their content flywheel for a six-month campaign.",
-    snippets:[['Brief',"Everyday Lives"],['Core idea','Taking time to do things properly'],['Creators','Real customers, real kitchens'],['Comment','[Positive ad comment]']],
-    workedHead:"Super fans first. Then everyone like them.",
-    worked:"Targeting super fans built social proof (comments, saves, shares), which gave us the momentum to reach similar, then new, customer audiences. A third-party MMM model attributed 6× sales revenue and gave the board confidence to reinvest in creators.",
-    tests:[['Super fans','Step 1 · social proof',0],['Similar audiences','Step 2 · momentum',0],['New customers','Step 3 · scale',0],['Third-party MMM','6× attributed',1]],
-    stats:[['6×','return on ad spend (client attributed)'],['4×','more effective than brand ads'],['120+','unique partnership videos'],['2,000+','positive ad comments'],['12+ yrs','of content consumed by the target audience']],
-    platforms:['Facebook','Instagram','YouTube']},
+  bighams:{client:"Charlie Bigham's",h1:"Charlie Bigham's",h2:"starting a self-funded social movement",
+    top:{v:'6.5×',l:'ROI, attributed through econometrics'},
+    heroImg:'cases/bighams-hero.jpg',
+    challenge:{
+      paras:["Charlie Bigham's was already a much-loved brand, with people naturally talking about and creating content around it. But there was a big gap between the social-first content people chose to consume and the content the brand was putting into the world, limiting its effectiveness and restricting its scalability.",
+             "We needed to radically improve the content and prove its impact beyond vanity metrics, building client confidence to expand creator spend and turn it into a serious contributor to the marketing plan."],
+      img:'cases/bighams-challenge.jpg',alt:"Creator videos about Charlie Bigham's beside the brand's own sponsored posts",
+      captions:[['Content people created and consumed',9],['Content the brand distributed',58]]},
+    created:{
+      paras:["Kula didn't just start creating better content, we built a whole new creator system. We used the Kula Platform to find genuine customers and food lovers to build a stronger relationship with the brand, then developed the creative strategy, sourced the right creators, developed the content at scale and used paid media to take the strongest ideas beyond creators' existing audiences.",
+             "We focused on real, everyday occasions where Charlie Bigham's naturally fits into people's lives, with the freedom to tell those stories in their own way."],
+      facts:[['6','briefs'],['600+','creators'],['3','creative routes: real customers, real occasions, social-first stories']],
+      img:'cases/bighams-created.jpg',alt:"Three phone screens: real customers, real occasions and social-first stories"},
+    worked:{
+      paras:["Super fans helped us build comments, saves and shares, and helped us expand to new target audiences.",
+             "By connecting creator, creative and media data, every piece of content made the next piece smarter, by understanding which people, stories, hooks and creative signals actually drove performance. Every new piece of content gave us more confidence in what worked and how to expand it.",
+             "The Kula Platform helped us turn creative judgement into an intelligent system that could grow exponentially."],
+      learnings:[['[Key content learning 1]','To come',2],['[Key content learning 2]','To come',2],['[Key content learning 3]','To come',2]],
+      platforms:['Facebook','Instagram','YouTube'],
+      img:'cases/bighams-worked.jpg',alt:"Three phone screens showing Charlie Bigham's creator content"},
+    effect:{
+      outcomes:[['6.5×',"ROI, attributed through Charlie Bigham's econometrics model"],['4×','more effective than brand ads'],['12m+','15-second views'],['20.5 yrs','of creator content watched'],['4.5k+','comments analysed'],['2,000+','positive ad comments'],['120+','unique partnership videos']],
+      paras:["We didn't just deliver over 6.5× ROI and create content that was 4× more effective than investment in traditional media. Although that in itself was pretty impressive.",
+             "We created an intelligent, self-funding creator system that the brand could grow with, giving the marketing team confidence in a new return on expanded investment model."],
+      close:"The Kula Platform now provides predictable performance for every new campaign we work on, making <strong>creator-led social a measurable, scalable and investable movement for the brand.</strong>",
+      img:'cases/bighams-effect.jpg',alt:"A Charlie Bigham's lasagne in its wooden tray"}},
+
   clays:{client:'Clays',h1:'Clays grew revenue 288%,',h2:'and raised $100m for US',
     top:{v:'+288%',l:'cumulative revenue growth'},
-    challenge:"Maximise revenue through online bookings and corporate leads.",
-    createdHead:"Formats built to be shared.",
-    created:"As our founding client, Clays had measurement and content gaps. We ideated a series of briefs and video formats to show off the experience, because we knew its shareability drove desire.",
-    snippets:[['Brief','Show the experience'],['Format','Come With Me'],['Format','Secret Experience'],['Comment','[Creator comment]']],
-    workedHead:"Six formats tested. Two won.",
-    worked:"After testing 6 formats and hundreds of pieces of content, two winning templates emerged. They give us +86% confidence in ad performance versus the others.",
-    tests:[['Come With Me','Winner',1],['Secret Experience','Winner · +86% confidence',1],['[Format 3]','Tested',2],['[Format 4]','Tested',2],['[Format 5]','Tested',2],['[Format 6]','Tested',2]],
-    stats:[['+288%','total cumulative revenue growth'],['71%','CAGR per year over 2.5 years'],['−55%','cost per online booking'],['+52%','growth in leads, 2024 vs 2025'],['+300%','increase in ad spend in 2025']],
-    platforms:['Facebook','Instagram','TikTok','YouTube']},
+    challenge:{paras:["Maximise revenue through online bookings and corporate leads.","[Expand the challenge: where Clays started and what had to be proved]"]},
+    created:{paras:["As our founding client, Clays had measurement and content gaps. We ideated a series of briefs and video formats to show off the experience, because we knew its shareability drove desire."],
+      facts:[['6','video formats tested'],['100s','of pieces of content']]},
+    worked:{paras:["After testing six formats and hundreds of pieces of content, two winning templates emerged. They give us +86% confidence in ad performance versus the others."],
+      learnings:[['Come With Me','Winner',1],['Secret Experience','Winner · +86% confidence',1],['[Formats 3–6]','Tested',2]],
+      platforms:['Facebook','Instagram','TikTok','YouTube']},
+    effect:{outcomes:[['+288%','total cumulative revenue growth'],['71%','CAGR per year over 2.5 years'],['−55%','cost per online booking'],['+52%','growth in leads, 2024 vs 2025'],['+300%','increase in ad spend in 2025']],
+      paras:["[The Kula Effect for Clays: what this unlocked for the business, including the $100m raise for US expansion]"]}},
+
   myclaim:{client:'MyClaimGroup',h1:'MyClaimGroup signed new clients,',h2:'at record speed',
     top:{v:'+5k',l:'new signed clients'},
-    challenge:"MyClaimGroup was investing heavily across channels to reach customers with past car finance deals, and needed new creative angles to keep cost per lead efficient.",
-    createdHead:"27 creators. 27 ideas.",
-    created:"We asked 27 creators for ideas, shortlisted the top 5, then ran them as unique content briefs across 55 creators.",
-    snippets:[['Pitch','27 creators, 27 ideas'],['Shortlist','Top 5 ideas'],['Idea','"I helped my parents submit a claim"'],['Scale','55 creators · 300+ variants']],
-    workedHead:"One idea, scaled for three months.",
-    worked:"\"I helped my parents submit a claim\" was 15% more efficient than the other ideas, so we scaled it for three months. Messaging that tackled the worry that these claims are a scam lifted click-to-conversion.",
-    tests:[['I helped my parents submit a claim','Winner · +15% efficient',1],['[Idea 2]','Tested',2],['[Idea 3]','Tested',2],['[Idea 4]','Tested',2],['[Idea 5]','Tested',2],['Addressing the "scam" worry','Insight',0]],
-    stats:[['£30','under CPL target'],['+5k','new signed clients'],['300+','ad variants from 55 creators'],['10 days','from brief to live']],
-    platforms:['Facebook','Instagram','TikTok']}
+    challenge:{paras:["MyClaimGroup was investing heavily across channels to reach customers with past car finance deals, and needed new creative angles to keep cost per lead efficient."]},
+    created:{paras:["We asked 27 creators for ideas, shortlisted the top five, then ran them as unique content briefs across 55 creators."],
+      facts:[['27','creator ideas pitched'],['5','ideas shortlisted'],['55','creators briefed']]},
+    worked:{paras:["\"I helped my parents submit a claim\" was 15% more efficient than the other ideas, so we scaled it for three months. Messaging that tackled the worry that these claims are a scam lifted click-to-conversion."],
+      learnings:[['I helped my parents submit a claim','Winner · +15% efficient',1],['Addressing the "scam" worry','Insight',0],['[Ideas 2–5]','Tested',2]],
+      platforms:['Facebook','Instagram','TikTok']},
+    effect:{outcomes:[['+5k','new signed clients'],['£30','under CPL target'],['300+','ad variants from 55 creators'],['10 days','from brief to live']],
+      paras:["[The Kula Effect for MyClaimGroup: what this unlocked for the business]"]}}
 };
+const LOGO_W={bighams:66,clays:44,myclaim:78,jollyhog:58,littlefreddie:66,rmwilliams:86}; /* logo width as % of its tile, set by eye */
 const PLACEHOLDER_CLIENTS=['The Jolly Hog','Little Freddie','R.M. Williams'];
 
 /* work list */
 $('#caseList').innerHTML=Object.entries(CASES).map(([id,c])=>`<a class="crow" href="#case-${id}">
-  <span class="crow-client">${c.client}</span>
+  <span class="crow-brand"><span class="logo-tile"><img src="logos/${id}.svg" alt="" style="width:${LOGO_W[id]}%"></span><span class="crow-client">${c.client}</span></span>
   <span class="crow-h">${c.h1} <em>${c.h2}</em></span>
   <span class="crow-stat"><b>${c.top.v}</b><span>${c.top.l}</span></span>
 </a>`).join('');
@@ -899,41 +1162,62 @@ const GROUPS=[
   {s:[7],n:'Campaign reporting',t:'Reporting prompts the next tests and optimisations.'}];
 
 /* ---------- case template ---------- */
+const CHAPTERS=[['challenge','The Kula Challenge'],['created','What we created'],['worked','What worked'],['effect','The Kula Effect']];
+const SLOT=`<div class="media-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 34 L17 25 L26 31 L33 24 L43 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Image / animation</span></div>`;
+const isPh=t=>/^\[.*\]$/.test(t.trim());
+const paras=ps=>ps.map((p,i)=>`<p class="${i===0?'chap-lead':''}${isPh(p)?' is-ph':''}">${p}</p>`).join('');
+const chapHead=(n,label)=>`<p class="chap-k"><span>0${n}</span>${label}</p>`;
+const fig=(ch,cls='')=>ch.img
+  ?`<figure class="chap-fig ${cls}"><img src="${ch.img}" alt="${ch.alt||''}" decoding="async">${(ch.captions||[]).map(([t,x])=>`<figcaption style="left:${x}%">${t}</figcaption>`).join('')}</figure>`
+  :`<div class="chap-fig is-slot ${cls}">${SLOT}</div>`;
+
 function renderCase(id){
   const c=CASES[id], keys=Object.keys(CASES), nid=keys[(keys.indexOf(id)+1)%keys.length], nx=CASES[nid];
+  const {challenge:a,created:b,worked:w,effect:e}=c;
   $('#caseView').innerHTML=`
-  <section class="c-hero wrap">
-    <div>
+  <section class="c-hero wrap${c.heroImg?' has-img':''}">
+    ${c.heroImg?`<div class="c-hero-bg" style="background-image:url(${c.heroImg})" aria-hidden="true"></div>`:''}
+    <div class="c-hero-in">
       <a class="back" href="#work">← Back to work</a>
-      <p class="eyebrow">01 · ${c.client}</p>
-      <h1 class="c-h">${c.h1} <em>${c.h2}</em></h1>
+      <p class="eyebrow">Case study · ${c.client}</p>
+      <div class="c-title"><span class="logo-tile lg"><img src="logos/${id}.svg" alt="${c.client} logo" style="width:${LOGO_W[id]}%"></span><h1 class="c-h">${c.h1} <em>${c.h2}</em></h1></div>
+      <nav class="c-index" aria-label="Case study chapters">${CHAPTERS.map(([k,l],i)=>`<button type="button" data-ch="${k}"><span>0${i+1}</span>${l}</button>`).join('')}</nav>
     </div>
-    <div class="work-media c-heroslot"><div class="media-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 34 L17 25 L26 31 L33 24 L43 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Image / animation</span></div></div>
   </section>
-  <section class="c-chal wrap">
-    <p class="eyebrow">02 · Campaign challenge</p>
-    <div><p class="c-chal-t">${c.challenge}</p></div>
+
+  <section class="chap wrap" id="ch-challenge" aria-label="The Kula Challenge">
+    <div class="chap-text">${chapHead(1,'The Kula Challenge')}${paras(a.paras)}</div>
+    ${fig(a)}
   </section>
-  <section class="c-split wrap">
-    <div class="c-split-t"><p class="eyebrow">03 · We created</p><h2>${c.createdHead}</h2><p>${c.created}</p></div>
-    <div class="work-media"><div class="media-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 34 L17 25 L26 31 L33 24 L43 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Image / animation</span></div></div>
+
+  <section class="chap wrap" id="ch-created" aria-label="What we created">
+    <div class="chap-text">${chapHead(2,'What we created')}${paras(b.paras)}
+      ${b.facts?`<dl class="facts">${b.facts.map(([v,l])=>`<div><dt>${v}</dt><dd>${l}</dd></div>`).join('')}</dl>`:''}</div>
+    ${fig(b)}
   </section>
-  <section class="c-split wrap">
-    <div class="c-split-t"><p class="eyebrow">04 · What worked</p><h2>${c.workedHead}</h2><p>${c.worked}</p>
-      <ul class="tests">${c.tests.map(([n,s,w])=>`<li class="${w===1?'win':w===2?'ph-row':''}"><span>${n}</span><span class="chip">${s}</span></li>`).join('')}</ul></div>
-    <div class="work-media"><div class="media-slot"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="9" width="38" height="30" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17" cy="19" r="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 34 L17 25 L26 31 L33 24 L43 32" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span>Image / animation</span></div></div>
+
+  <section class="chap wrap" id="ch-worked" aria-label="What worked">
+    <div class="chap-text">${chapHead(3,'What worked')}${paras(w.paras)}
+      ${w.learnings?`<p class="chap-sub">Key learnings</p><ul class="tests">${w.learnings.map(([n,s,st])=>`<li class="${st===1?'win':st===2?'ph-row':''}"><span>${n}</span><span class="chip">${s}</span></li>`).join('')}</ul>`:''}
+      ${w.platforms?`<ul class="chips" aria-label="Platforms">${w.platforms.map(p=>`<li>${p}</li>`).join('')}</ul>`:''}</div>
+    ${fig(w)}
   </section>
-  <section class="c-out wrap">
-    <p class="eyebrow">05 · Key outcomes</p>
-    <div class="c-stats">${c.stats.map(([v,l])=>`<div class="stat"><b>${v}</b><span>${l}</span></div>`).join('')}</div>
+
+  <section class="chap chap-effect t-dark" id="ch-effect" aria-label="The Kula Effect">
+    <div class="wrap chap-inner">
+      <div class="chap-text">${chapHead(4,'The Kula Effect')}${paras(e.paras)}${e.close?`<p class="effect-close">${e.close}</p>`:''}</div>
+      ${e.img?`<figure class="chap-fig effect-fig"><img src="${e.img}" alt="${e.alt||''}" decoding="async"></figure>`:`<div class="chap-fig effect-fig is-slot">${SLOT}</div>`}
+    </div>
+    <div class="wrap"><p class="chap-sub outcomes-k">Key outcomes</p>
+      <dl class="outcomes">${e.outcomes.map(([v,l])=>`<div><dt>${v}</dt><dd>${l}</dd></div>`).join('')}</dl></div>
   </section>
-  <section class="c-plat wrap"><p class="eyebrow">06 · Platforms</p><ul class="chips">${c.platforms.map(p=>`<li>${p}</li>`).join('')}</ul></section>
+
   <section class="c-cta wrap">
-    <p class="eyebrow" style="margin:0">07 · Next step</p>
     <h2>Let's create something <em>that works.</em></h2>
-    <a class="btn btn-lime big" href="#contact">Let's create something that works →</a>
+    <a class="btn btn-lime big" href="#contact">Talk to the team <span class="arr" aria-hidden="true">→</span></a>
     <div class="c-nav"><a href="#work">← Back to work</a><a class="next" href="#case-${nid}">Next case: ${nx.client} →</a></div>
   </section>`;
+  $$('[data-ch]',$('#caseView')).forEach(btn=>btn.addEventListener('click',()=>{const t=document.getElementById('ch-'+btn.dataset.ch);if(t)t.scrollIntoView({behavior:RM?'auto':'smooth',block:'start'})}));
 }
 
 /* ---------- scenes ---------- */
@@ -951,7 +1235,7 @@ function flyScene(el){
   wrap.insertAdjacentHTML('beforeend','<div class="fw-core"></div><div class="fw-leader"></div>');
   const core=$('.fw-core',el), leader=$('.fw-leader',el);
   const labels=$$('.fw-label',el), parts={}; $$('[data-part]',spin).forEach(n=>parts[n.dataset.part]=n);
-  const dots=$$('.dots i',cap); let capIdx=-2;
+  const dots=$$('.dots i',cap); let capIdx=-2; const heroBg=$('.hero-bg',el);
   return {el,update(p,t){
     const W=innerWidth,H=innerHeight;
     const m=ease(seg(p,0,.14)), stP=ease(seg(p,.74,.82)), end=ease(seg(p,.9,1));
@@ -959,10 +1243,10 @@ function flyScene(el){
     y=lerp(y,-H*.13,stP);
     let s=lerp(mobile?1.1:1.5,1.08,m); s=lerp(s,.62,stP);
     wrap.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;
-    wrap.style.opacity=lerp(.4,1,m)*(1-seg(p,.93,.99));
+    wrap.style.opacity=lerp(.8,1,m)*(1-seg(p,.93,.99));
     spin.style.transform=`scale(${s}) rotate(${RM?0:(t*.024)%360}deg)`; /* continuous, time-based spin: one turn every 15s, independent of scroll */
     spin.classList.toggle('centred',m>.6);
-    const hc=seg(p,.02,.12); copy.style.opacity=1-hc; copy.style.transform=`translateY(-50%) translateY(${-hc*90}px)`;
+    const hc=seg(p,.02,.12); copy.style.opacity=1-hc; if(heroBg){const bf=ease(seg(p,.01,.16));heroBg.style.opacity=1-bf;heroBg.style.transform=`scale(${1.06-.06*bf}) translateY(${-bf*4}%)`} copy.style.transform=`translateY(-50%) translateY(${-hc*90}px)`;
     const fade=1-seg(p,.72,.77), size=wrap.offsetWidth; let cur=-1;
     PARTS.forEach((d,i)=>{
       const r=ease(seg(p,S[i]+.05,S[i]+.12));
@@ -1060,7 +1344,7 @@ function processScene(el){
     /* particles */
     const b=ease(seg(p,.32,.46)), c=ease(seg(p,.55,.62)), o=ease(seg(p,.62,.9)), d=ease(seg(p,.92,.98));
     ctx.setTransform(dpr,0,0,dpr,0,0); ctx.clearRect(0,0,W,H);
-    const lb=b*(1-d); if(lb>0){ctx.globalAlpha=lb*.8;ctx.strokeStyle='#9a9a9a';ctx.lineWidth=1;ctx.setLineDash([3,5]);ctx.beginPath();ctx.moveTo(pts[0].x,lineY+(mobile?24:40));ctx.lineTo(pts[7].x,lineY+(mobile?24:40));ctx.stroke();ctx.setLineDash([])}
+    const lb=b*(1-d); if(lb>0){ctx.globalAlpha=lb*.8;ctx.strokeStyle=PCOL.lo;ctx.lineWidth=1;ctx.setLineDash([3,5]);ctx.beginPath();ctx.moveTo(pts[0].x,lineY+(mobile?24:40));ctx.lineTo(pts[7].x,lineY+(mobile?24:40));ctx.stroke();ctx.setLineDash([])}
     const shown=b>0?N:Math.floor(N*clamp(pa*1.1)); const tt=RM?0:t;
     const sp=mobile?.6:1, cols=20, rows=9;
     for(let i=0;i<shown;i++){
@@ -1074,7 +1358,7 @@ function processScene(el){
       const x=lerp(lerp(cx,sx,b),tx,c), y=lerp(lerp(cy,sy,b),ty,c);
       let al=.55; if(b>.5&&c<.5)al=.45; al*=1-o*.78*(q.rank/N); al*=1-d*.9;
       const top=q.rank<3&&o>.5&&d<.5;
-      ctx.globalAlpha=top?1:al; ctx.fillStyle=top?'#111111':(b>.5&&c<.5)?'#9a9a9a':'#111111';
+      ctx.globalAlpha=top?1:al; ctx.fillStyle=top?PCOL.hi:(b>.5&&c<.5)?PCOL.lo:PCOL.mid;
       const z=top?7:2.6; ctx.fillRect(x-z/2,y-z/2,z,z);
     }
     ctx.globalAlpha=1;
@@ -1117,7 +1401,7 @@ function show(first){
     fillFw(root); window.scrollTo(0,0);
     $$('[data-nav]').forEach(a=>{const on=a.dataset.nav===r.view||(r.view==='case'&&a.dataset.nav==='work');if(on)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
     buildScenes(root); closeMenu();
-    document.title=r.view==='case'?`${CASES[r.id].client} · Kula Website Wireframe`:'Kula Website Wireframe';
+    document.title=r.view==='case'?`${CASES[r.id].client} · Kula`:'Kula Website';
   };
   if(first||RM){go();return}
   xf.classList.add('on'); setTimeout(()=>{go(); requestAnimationFrame(()=>xf.classList.remove('on'))},300);
@@ -1151,7 +1435,7 @@ addEventListener('resize',relayout);
 fillFw(document); const navFw=$('#navFw'); let lastY=scrollY;
 function frame(t){
   const y=scrollY, dy=y-lastY; lastY=y; boost=clamp(boost*.9+dy*.4,-140,140);
-  if(!RM)navFw.style.transform=`rotate(${y*.3}deg)`;
+  if(!RM)navFw.setAttribute('transform',`rotate(${(y*.3)%360} 262 504)`); /* (262,504) = where the loops cross = centre of the mark's enclosing circle */
   for(const s of scenes){if(inView(s.el))s.update(remap(prog(s.el),s.pace),t)}
   const H=innerHeight;
   for(const l of lines){const top=l.getBoundingClientRect().top;l.style.opacity=.28+.72*clamp((H*.88-top)/(H*.32))}
@@ -1161,6 +1445,5 @@ function frame(t){
 show(true); requestAnimationFrame(frame);
 })();
 </script>
-
 </body>
 </html>
