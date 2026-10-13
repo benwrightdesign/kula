@@ -598,6 +598,48 @@ h1 em,h2 em{font-size:1.04em}
 .pane-r .btn-ghost:hover,.pane-r .btn-ghost:focus-visible{background:var(--lime);color:var(--green);border-color:var(--lime)}
 .pane-r .media-slot,.route-r .media-slot{color:var(--lime);opacity:.6}
 .split-dot{color:var(--dark)}
+@media (min-width:761px){.pl{margin-top:30px}.pline{top:35%}.p-cloudlbl{top:max(calc(53% - 26px),calc(35% + 126px))}.p-card{top:max(54%,calc(35% + 148px))}}
+.viz-x{display:flex;justify-content:space-between;padding:0 0 0 5%;margin-top:-8px;font:500 11px var(--f-mono);color:var(--mute);letter-spacing:.04em}
+.ctrl li .box{margin-left:0}
+.ctrl li > span:last-child{margin-left:auto}
+.ctrl li{justify-content:flex-start}
+/* True Business Results: nodes share one baseline, links run through disc centres */
+.chain{--d:clamp(64px,7vw,92px);align-items:flex-start;gap:0;justify-content:center}
+.cn{justify-content:flex-start;gap:0}
+.cn .disc{width:var(--d);height:var(--d);flex:none}
+.cn b{margin-top:14px;line-height:1.25}
+.cn span{margin-top:4px;line-height:1.35;max-width:16ch}
+.chain{position:relative}
+.cn{flex:1 1 0;position:relative;z-index:1}
+.cn .disc{background:var(--ink-2)}
+.cn.last.lit .disc{background:var(--lime)}
+.clink{position:absolute;top:calc(var(--d) / 2 - 1px);height:0;width:33.334%;margin:0;flex:none;z-index:0}
+.clink:nth-child(2){left:16.667%}
+.clink:nth-child(4){left:50%}
+.cn .disc svg{width:44%;height:44%;overflow:visible}
+.cn svg *{transform-box:fill-box}
+/* icon animations: once, in order (content -> platform -> business), after the chain has fully lit */
+.ic-play{transform-origin:center}
+.chain.go .cn-play .ic-play{animation:icPress .9s cubic-bezier(.3,0,.3,1) .1s 1 both}
+@keyframes icPress{0%{transform:scale(1)}35%{transform:scale(.72)}65%{transform:scale(1.08)}100%{transform:scale(1)}}
+.chain.go .cn-play .disc{animation:discPress 1s ease-out .3s 1 both}
+@keyframes discPress{0%{box-shadow:0 0 0 0 rgba(51,89,0,.28)}100%{box-shadow:0 0 0 14px rgba(51,89,0,0)}}
+.chain.go .cn-mix .k1{animation:knobA 1.3s ease-in-out 1.1s 1 both}
+.chain.go .cn-mix .k2{animation:knobB 1.3s ease-in-out 1.2s 1 both}
+.chain.go .cn-mix .k3{animation:knobC 1.3s ease-in-out 1.3s 1 both}
+@keyframes knobA{0%,100%{transform:translateX(0)}50%{transform:translateX(7px)}}
+@keyframes knobB{0%,100%{transform:translateX(0)}40%{transform:translateX(-6px)}75%{transform:translateX(3px)}}
+@keyframes knobC{0%,100%{transform:translateX(0)}55%{transform:translateX(-8px)}}
+.cn-mix{--knob-gap:var(--ink-2)}
+.cn-bars rect{transform-origin:50% 100%;transform:scaleY(.14)}
+.chain.go .cn-bars .b1{animation:barGrow .7s cubic-bezier(.2,.8,.2,1) 2.7s 1 both}
+.chain.go .cn-bars .b2{animation:barGrow .7s cubic-bezier(.2,.8,.2,1) 2.85s 1 both}
+.chain.go .cn-bars .b3{animation:barGrow .7s cubic-bezier(.2,.8,.2,1) 3s 1 both}
+@keyframes barGrow{0%{transform:scaleY(.14)}100%{transform:scaleY(1)}}
+/* centre the chain in its panel */
+.viz[data-v="2"] .chain{flex:none;margin-block:auto}
+@media (max-width:760px){.chain{--d:56px}.cn b{font-size:13px}.cn span{font-size:11px}}
+@media (prefers-reduced-motion:reduce){.cn svg *,.cn .disc{animation:none!important}.cn-bars rect{transform:none!important}}
 .scroll-cue{margin-top:32px;color:var(--lime);display:flex;align-items:center;justify-content:flex-start;gap:0;border:0}
 .scroll-cue svg{width:18px;height:27px;animation:cueArrow 1.8s cubic-bezier(.45,0,.35,1) infinite}
 @keyframes cueArrow{0%,100%{transform:translateY(-4px);opacity:.55}50%{transform:translateY(5px);opacity:1}}
@@ -894,16 +936,15 @@ h1 em,h2 em{font-size:1.04em}
         <div class="pil-viz" aria-hidden="true">
           <div class="viz show" data-v="0">
             <div class="viz-t"><span>Expected outcome</span><span>From Kula campaign data</span></div>
-            <svg viewBox="0 0 400 230" preserveAspectRatio="none">
+            <svg viewBox="0 0 400 206" preserveAspectRatio="none">
               <line class="axis" x1="20" y1="200" x2="390" y2="200"/>
               <line class="axis" x1="20" y1="14" x2="20" y2="200"/>
               <path class="band-area" d="M20 178 C120 160 230 120 390 50 L390 104 C230 160 120 190 20 196Z"/>
               <path class="band-edge" d="M20 178 C120 160 230 120 390 50"/>
               <path class="band-edge" d="M20 196 C120 190 230 160 390 104"/>
               <path class="band-line" id="bandLine" d="M20 188 C70 182 110 168 150 166 S 230 140 270 122 S 350 92 388 78"/>
-              <text class="svg-t" x="26" y="222">Launch</text>
-              <text class="svg-t" x="330" y="222">Week 8</text>
             </svg>
+            <div class="viz-x" aria-hidden="true"><span>Launch</span><span>Week 8</span></div>
             <p class="viz-foot">Shaded band: the predicted range before launch. Line: the campaign landing inside it. [Illustrative; no real figures]</p>
           </div>
           <div class="viz" data-v="1">
@@ -913,11 +954,11 @@ h1 em,h2 em{font-size:1.04em}
           <div class="viz" data-v="2">
             <div class="viz-t"><span>From content to outcome</span><span>Measured, not assumed</span></div>
             <div class="chain">
-              <div class="cn"><div class="disc"><svg viewBox="0 0 20 20"><path d="M6 4 L16 10 L6 16Z" fill="currentColor"/></svg></div><b>Content</b><span>What you feed in</span></div>
+              <div class="cn cn-play"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="ic-play" d="M8.5 5.5 L18.5 12 L8.5 18.5Z" fill="currentColor" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div><b>Content</b><span>What you feed in</span></div>
               <div class="clink"></div>
-              <div class="cn"><div class="disc"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2"/><path d="M10 4 A6 6 0 0 1 16 10" fill="none" stroke="currentColor" stroke-width="3"/></svg></div><b>Platform</b><span>The optimisation machine</span></div>
+              <div class="cn cn-mix"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><g stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M3.5 5.5h17M3.5 12h17M3.5 18.5h17"/></g><g fill="currentColor" stroke="var(--knob-gap)" stroke-width="1.3"><circle class="k1" cx="8" cy="5.5" r="3.4"/><circle class="k2" cx="12.5" cy="12" r="3.4"/><circle class="k3" cx="16.5" cy="18.5" r="3.4"/></g></svg></div><b>Platform</b><span>The optimisation machine</span></div>
               <div class="clink"></div>
-              <div class="cn last"><div class="disc"><svg viewBox="0 0 20 20"><rect x="3" y="11" width="3" height="6" fill="currentColor"/><rect x="8.5" y="7" width="3" height="10" fill="currentColor"/><rect x="14" y="3" width="3" height="14" fill="currentColor"/></svg></div><b>Business performance</b><span>The outcome you're judged on</span></div>
+              <div class="cn cn-bars last"><div class="disc"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="currentColor"><rect class="b1" x="4" y="13" width="4" height="7" rx="1"/><rect class="b2" x="10" y="9" width="4" height="11" rx="1"/><rect class="b3" x="16" y="4" width="4" height="16" rx="1"/></g></svg></div><b>Business performance</b><span>The outcome you're judged on</span></div>
             </div>
             <p class="viz-foot">Platforms optimise brilliantly to platform metrics. Paid amplification lets the data show causation all the way to revenue.</p>
           </div>
@@ -1107,27 +1148,59 @@ const CASES={
       close:"The Kula Platform now provides predictable performance for every new campaign we work on, making <strong>creator-led social a measurable, scalable and investable movement for the brand.</strong>",
       img:'cases/bighams-effect.jpg',alt:"A Charlie Bigham's lasagne in its wooden tray"}},
 
-  clays:{client:'Clays',h1:'Clays grew revenue 288%,',h2:'and raised $100m for US',
+  clays:{client:'Clays',h1:'Taking Clays from start-up,',h2:'to $100m scale-up',
     top:{v:'+288%',l:'cumulative revenue growth'},
-    challenge:{paras:["Maximise revenue through online bookings and corporate leads.","[Expand the challenge: where Clays started and what had to be proved]"]},
-    created:{paras:["As our founding client, Clays had measurement and content gaps. We ideated a series of briefs and video formats to show off the experience, because we knew its shareability drove desire."],
-      facts:[['6','video formats tested'],['100s','of pieces of content']]},
-    worked:{paras:["After testing six formats and hundreds of pieces of content, two winning templates emerged. They give us +86% confidence in ad performance versus the others."],
-      learnings:[['Come With Me','Winner',1],['Secret Experience','Winner · +86% confidence',1],['[Formats 3–6]','Tested',2]],
-      platforms:['Facebook','Instagram','TikTok','YouTube']},
-    effect:{outcomes:[['+288%','total cumulative revenue growth'],['71%','CAGR per year over 2.5 years'],['−55%','cost per online booking'],['+52%','growth in leads, 2024 vs 2025'],['+300%','increase in ad spend in 2025']],
-      paras:["[The Kula Effect for Clays: what this unlocked for the business, including the $100m raise for US expansion]"]}},
+    heroImg:'cases/clays-hero.jpg',
+    challenge:{
+      paras:["Clays had an experience people loved in real life. The challenge was translating that into social content that could consistently drive online bookings and corporate leads.",
+             "Our mission was to maximise short-term revenue, then scale investment without sacrificing efficiency.",
+             "In essence, turn bookings into a repeatable system for growth that could help prove the business case for a $100m investment."],
+      img:'cases/clays-challenge.jpg',alt:"Inside a Clays venue, with the Clays logo"},
+    created:{
+      paras:["Clays had both a measurement and a content gap, but we couldn't solve it with short-term fixes. We needed to build a creator-led content system around the Clays experience.",
+             "We developed a series of briefs and video formats to showcase the experience, using the shareability of the content to drive desire. Performance data fed into the Kula Platform helped us understand the customers we wanted to target, the best creators to help us find new audiences, and the ideas, hooks and formats most likely to drive action."],
+      facts:[['6','video formats tested'],['100s','of pieces of content'],['4','platforms']],
+      img:'cases/clays-created.jpg',alt:"Three phone screens showing creators on their way to and playing at Clays"},
+    worked:{
+      paras:["After extensive testing across six formats and hundreds of pieces of content, Come With Me and Secret Experience themed content won above all others, giving an 86% increase in confidence in ad performance versus every other format.",
+             "Then, by connecting creator, creative and media performance, we could concentrate investment behind the ideas most likely to work and keep optimising them as we scaled."],
+      learnings:[['[Key content learning 1]','To come',2],['[Key content learning 2]','To come',2],['[Key content learning 3]','To come',2]],
+      platforms:['Facebook','Instagram','TikTok','YouTube'],
+      img:'cases/clays-worked.jpg',alt:"Three phone screens showing Clays creator posts"},
+    effect:{
+      outcomes:[['+288%','total cumulative revenue growth'],['71%','CAGR per year over a 2.5-year span'],['55%','reduction in cost per online booking'],['52%','growth in leads, 2024 vs 2025'],['300%','increase in ad spend in 2025'],['$100m','investment raise for the US']],
+      paras:["We didn't just deliver a 288% increase in revenue, we were able to confidently scale media investment by over 300% in one year.",
+             "The predictive intelligence of the Kula Platform helped develop the business case for a $100m investment raise that would help the business expand exponentially."],
+      close:"Kula became the platform for not just marketing growth but <strong>dramatic business growth, all through the power of creators.</strong>",
+      img:'cases/clays-effect.jpg',alt:"A guest taking aim at a Clays simulator"}},
 
-  myclaim:{client:'MyClaimGroup',h1:'MyClaimGroup signed new clients,',h2:'at record speed',
-    top:{v:'+5k',l:'new signed clients'},
-    challenge:{paras:["MyClaimGroup was investing heavily across channels to reach customers with past car finance deals, and needed new creative angles to keep cost per lead efficient."]},
-    created:{paras:["We asked 27 creators for ideas, shortlisted the top five, then ran them as unique content briefs across 55 creators."],
-      facts:[['27','creator ideas pitched'],['5','ideas shortlisted'],['55','creators briefed']]},
-    worked:{paras:["\"I helped my parents submit a claim\" was 15% more efficient than the other ideas, so we scaled it for three months. Messaging that tackled the worry that these claims are a scam lifted click-to-conversion."],
-      learnings:[['I helped my parents submit a claim','Winner · +15% efficient',1],['Addressing the "scam" worry','Insight',0],['[Ideas 2–5]','Tested',2]],
-      platforms:['Facebook','Instagram','TikTok']},
-    effect:{outcomes:[['+5k','new signed clients'],['£30','under CPL target'],['300+','ad variants from 55 creators'],['10 days','from brief to live']],
-      paras:["[The Kula Effect for MyClaimGroup: what this unlocked for the business]"]}}
+  myclaim:{client:'MyClaimGroup',h1:'MyClaimGroup find and sign new clients,',h2:'at record speed',
+    top:{v:'5,000+',l:'new signed clients'},
+    heroImg:'cases/myclaim-hero.jpg',
+    challenge:{
+      paras:["MyClaimGroup was already investing heavily across channels to recruit customers with historic car finance agreements.",
+             "But maintaining an efficient cost per lead required a constant supply of new creative angles, and new, efficient media channels capable of reaching and converting new audiences.",
+             "We needed to find those ideas quickly, prove which ones worked and scale them before performance declined. More creative wasn't the answer; finding the right creative was."],
+      img:'cases/myclaim-challenge.jpg',alt:"A row of cars on a forecourt, with the MyClaimGroup logo"},
+    created:{
+      paras:["We turned creator ideation into a rapid creative testing system. We asked 27 creators to develop ideas, identified the five strongest creative territories, then turned them into distinct briefs delivered across 55 creators.",
+             "The Kula Platform helped create more than 300 ad variants, taking us from brief to live campaign in just 10 days and rapidly identifying the messages and creative approaches that drove the greatest response and the most signed clients."],
+      facts:[['27','creators pitched ideas'],['5','creative territories'],['55','creators briefed']],
+      img:'cases/myclaim-created.jpg',alt:"Three phone screens showing MyClaimGroup creator videos"},
+    worked:{
+      paras:["The Kula Platform allowed us to quickly define and refine the best creators, with the right messages and hooks to help us expand into new audience groups.",
+             "Talking through children helping their parents opened a different route into the category. Simple hooks like \"I helped my parents submit a claim\" were 15% more efficient than other ideas.",
+             "Trust was also a conversion barrier. Directly addressing concerns that claims might be a \"scam\" materially improved click-to-conversion.",
+             "Rapid creator testing meant winning ideas could be identified and scaled quickly, so new client acquisition stayed ahead of fierce competition."],
+      learnings:[['[Key content learning 1]','To come',2],['[Key content learning 2]','To come',2],['[Key content learning 3]','To come',2]],
+      platforms:['Facebook','Instagram','TikTok'],
+      img:'cases/myclaim-worked.jpg',alt:"Three phone screens showing MyClaimGroup creator videos"},
+    effect:{
+      outcomes:[['5,000+','new signed clients'],['£30','below CPL target'],['300+','ad variants'],['55','creators'],['10 days','from brief to live']],
+      paras:["MyClaimGroup found new audiences and converted them at record speed. But we didn't just deliver leads, we built a faster way to discover which creator ideas could unlock new customers and scale them confidently, in three-month sprints, quarter on quarter.",
+             "The Kula Platform brought creator, creative and performance data together to turn experimentation into intelligence, helping MyClaimGroup grow its client base against a new audience profile while maintaining acquisition efficiency."],
+      close:"<strong>The record results speak for themselves.</strong>",
+      img:'cases/myclaim-effect.jpg',alt:"A MyClaimGroup creator talking to camera: I can't believe I wasted so much time"}}
 };
 const LOGO_W={bighams:66,clays:44,myclaim:78,jollyhog:58,littlefreddie:66,rmwilliams:86}; /* logo width as % of its tile, set by eye */
 const PLACEHOLDER_CLIENTS=['The Jolly Hog','Little Freddie','R.M. Williams'];
@@ -1312,7 +1385,7 @@ function pillarsScene(el){
     if(a!==active){active=a;lis.forEach((l,i)=>l.classList.toggle('active',i===a));viz.forEach((v,i)=>v.classList.toggle('show',i===a))}
     const b0=a>0?1:clamp(loc*1.5); line.style.strokeDashoffset=len*(1-b0);
     const nA=a>1?48:a===1?Math.round(48*clamp(loc*1.4)):0; attrs.forEach((x,i)=>x.classList.toggle('lit',i<nA)); cnt.textContent=`${nA} / 48 attributes`;
-    const nC=a>2?3:a===2?Math.floor(clamp(loc*1.5)*3.99):0; cns.forEach((c,i)=>c.classList.toggle('lit',i<nC)); links.forEach((l,i)=>l.classList.toggle('lit',i<nC-1));
+    const nC=a>2?3:a===2?Math.floor(clamp(loc*1.5)*3.99):0; cns.forEach((c,i)=>c.classList.toggle('lit',i<nC)); { const ch=cns[0]&&cns[0].parentElement; if(ch){ if(nC>=3) ch.classList.add('go'); else if(nC===0) ch.classList.remove('go'); } } links.forEach((l,i)=>l.classList.toggle('lit',i<nC-1));
     const nD=a===3?Math.floor(clamp(loc*1.4)*4.99):0; ctrl.forEach((c,i)=>c.classList.toggle('lit',i<nD));
   }};
 }
