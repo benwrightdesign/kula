@@ -26,3 +26,9 @@ Case content lives in the `CASES` object inside `index.html`. Each case follows 
 ## Fonts
 
 Plus Jakarta Sans and Source Serif 4, loaded from Google Fonts.
+
+## Creator sign-ups
+
+The **Creators – Join us** button in the main navigation (and the footer link) opens a sign-up form. It isn't connected anywhere yet: submissions show a thank-you marked as a preview and are not sent.
+
+To connect it, search `index.html` for `JOIN_ENDPOINT` and paste in a form endpoint URL (for example a Formspree form URL). The form then posts its fields there as JSON: `name`, `email`, `platform`, `handle`, `followers`, `niche`, `consent`.
