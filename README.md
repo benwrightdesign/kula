@@ -7,7 +7,8 @@ Brand pass of the Kula website: a single-page site built to the Kula Visual Iden
 | Path | What it is |
 | --- | --- |
 | `index.html` | The whole site: markup, styles and scripts in one file |
-| `hero.jpg` | Homepage header photo (brand duotone) |
+| `hero.jpg` | Homepage header photo (brand duotone), used as the video fallback |
+| `hero-desktop.*`, `hero-mobile.*` | Homepage header video montage (MP4 + WebM), with `hero-poster*.jpg` stills |
 | `logos/` | Partner logos (SVG) used in the ticker and case studies |
 | `cases/` | Case study imagery |
 | `favicon.svg` | Kula mark for the browser tab |
