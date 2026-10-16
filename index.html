@@ -10,6 +10,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,500..700;1,8..60,300..700&display=swap" rel="stylesheet">
 </head>
 <body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Kula Website Brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,500..700;1,8..60,300..700&display=swap" rel="stylesheet">
 <style>
 /* Layout: full-bleed sticky scroll "scenes" carry the story; plain pages sit on a gutter grid. Wireframe hatch = placeholder media. Brand pass: light ground, green/dark scenes for rhythm, lime as fill only. */
 :root{
@@ -598,6 +602,9 @@ h1 em,h2 em{font-size:1.04em}
 .pane-r .btn-ghost:hover,.pane-r .btn-ghost:focus-visible{background:var(--lime);color:var(--green);border-color:var(--lime)}
 .pane-r .media-slot,.route-r .media-slot{color:var(--lime);opacity:.6}
 .split-dot{color:var(--dark)}
+.hero-mission{font-size:clamp(17px,1.6vw,23px);line-height:1.4;font-weight:400;color:var(--paper);opacity:.88;max-width:34ch;margin-top:1.1em}
+.hero-mission + .hero-sub{margin-top:.9em}
+@media (max-width:760px){.hero-mission{font-size:16px;max-width:30ch}}
 .hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:62% center;opacity:0;transition:opacity .8s ease}
 .hero-vid.on{opacity:1}
 .hero-bg::after{z-index:1}
@@ -895,6 +902,164 @@ html.join-open{overflow:hidden}
 @media (max-width:900px){.nav-join.m{display:inline-flex}}
 @media (max-width:360px){.nav-join.m .nj-label{display:none}.nav-join.m{padding:0 11px}}
 @media (prefers-reduced-motion:reduce){.nj-mark,.nav-join::after{animation:none}.nav-join::after{display:none}}
+
+/* ================= Home: Less guesswork / More confidence (between hero and flywheel) ================= */
+.lg{position:absolute;inset:0;z-index:4;pointer-events:none;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:calc(78px + env(safe-area-inset-top,0px)) var(--gut) 3vh;gap:0}
+.lg-heads{position:relative;flex:none;width:100%;height:var(--lh);--lh:clamp(34px,min(6.2vh,6.2vw),80px);margin-bottom:clamp(26px,5.5vh,64px)}
+.lg-h{position:absolute;left:0;right:0;top:0;text-align:center;font-size:var(--lh);font-weight:600;letter-spacing:-.045em;line-height:1;color:var(--lime);opacity:0;will-change:transform,opacity}
+.lg-mid{position:relative;flex:none;display:flex;justify-content:center}
+.lg-card{--w:min(310px,27vh,54vw);position:relative;z-index:3;width:var(--w);background:#fffcf7;color:#1a1a17;border-radius:calc(var(--w)*.075);
+  padding:calc(var(--w)*.055);box-shadow:0 30px 60px -28px rgba(0,0,0,.55),0 0 0 1px rgba(255,252,247,.25);opacity:0;will-change:transform,opacity;
+  font-size:calc(var(--w)*.042);line-height:1.25;display:flex;flex-direction:column;gap:calc(var(--w)*.04)}
+.pc-top{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.pc-handle{font-weight:700;font-size:1.08em}
+.pc-kula{display:inline-flex;align-items:center;gap:.35em;background:#335900;color:#d2ff00;border-radius:999px;padding:.32em .7em .32em .5em;font-weight:600;font-size:.86em;white-space:nowrap}
+.pc-k{width:1.15em;height:1.15em;display:block}
+.pc-head{display:flex;align-items:center;gap:calc(var(--w)*.06)}
+.pc-ava{width:calc(var(--w)*.24);height:calc(var(--w)*.24);border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px #fffcf7,0 0 0 4px #335900}
+.pc-stats{flex:1;display:flex;justify-content:space-between;text-align:center}
+.pc-stats b{display:block;font-weight:700;font-size:1.12em;font-variant-numeric:tabular-nums}
+.pc-stats span{color:#5a5a55;font-size:.86em}
+.pc-bio{display:flex;flex-direction:column;gap:.15em}
+.pc-bio b{font-weight:700}
+.pc-bio span{color:#5a5a55}
+.pc-btns{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pc-btns span{background:#ebe7dc;border-radius:.6em;text-align:center;padding:.5em 0;font-weight:600}
+.pc-btns span:first-child{background:#335900;color:#fffcf7}
+.pc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin:0 calc(var(--w)*-.055) calc(var(--w)*-.055);border-radius:0 0 calc(var(--w)*.075) calc(var(--w)*.075);overflow:hidden}
+.pc-grid img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.lg-orbit{position:absolute;left:50%;top:50%;width:0;height:0;z-index:1}
+.lg-lines{position:absolute;left:-50vw;top:-50vh;width:100vw;height:100vh;overflow:visible}
+.lg-lines line{stroke:#d2ff00;stroke-width:1;stroke-dasharray:3 3}
+.lg-lines circle{fill:#d2ff00}
+.lg-tag{position:absolute;left:0;top:0;display:inline-flex;align-items:center;gap:7px;white-space:nowrap;padding:7px 12px 7px 9px;border-radius:999px;
+  background:#fffcf7;color:#335900;font:500 13px/1 var(--f-display);box-shadow:0 10px 24px -14px rgba(0,0,0,.6);opacity:0;will-change:transform,opacity}
+.lg-tag i{width:8px;height:8px;border-radius:2px;background:#335900;flex:none}
+.lg-tag b{font-weight:700;color:#1a1a17}
+.lg-shot{--sw:calc(min(310px,27vh,54vw)*.42);position:absolute;left:0;top:0;width:var(--sw);aspect-ratio:9/16;border-radius:calc(var(--sw)*.14);overflow:hidden;
+  background:#1a1a17;border:3px solid #1a1a17;box-shadow:0 18px 36px -18px rgba(0,0,0,.7);opacity:0;will-change:transform,opacity}
+.lg-shot video{width:100%;height:100%;object-fit:cover;display:block}
+.lg-lbl{position:absolute;left:0;top:0;z-index:4;margin:0;white-space:nowrap;font:600 11.5px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;color:#d2ff00;
+  background:rgba(26,26,23,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:9px 14px;border-radius:999px;box-shadow:0 0 0 1px rgba(210,255,0,.35),0 12px 26px -12px rgba(0,0,0,.7);opacity:0}
+.lg-copy{position:relative;flex:none;width:min(580px,100%);height:clamp(70px,10vh,96px);text-align:center;margin-top:clamp(22px,4.6vh,52px)}
+.lg-c{position:absolute;inset:0;margin:0;font-size:clamp(14px,min(1.9vh,1.25vw),17px);line-height:1.5;color:var(--paper);opacity:0}
+@media (max-width:760px){
+  .lg{padding-top:calc(70px + env(safe-area-inset-top,0px))}
+  .lg-heads{margin-bottom:clamp(20px,4vh,40px)}.lg-copy{margin-top:clamp(18px,3.4vh,36px)}
+  .lg-tag{font-size:10.5px;padding:5px 8px 5px 6px;gap:4px}.lg-tag i{width:6px;height:6px}
+  .lg-tag.d-only{display:none}
+  .lg-card{--w:min(300px,27vh,40vw)}
+  .lg-shot{--sw:calc(min(300px,27vh,40vw)*.44)}
+  .lg-tag b{display:none}
+  .lg-ghost:nth-child(2n){display:none}
+  .lg-lines{display:none}
+  .lg-lbl{font-size:9px;line-height:1.25;letter-spacing:.07em;padding:6px 9px;white-space:normal;text-align:center;width:max-content;max-width:118px;border-radius:10px}
+  .lg-copy{height:auto;min-height:15vh}
+  .lg-c{font-size:14px}
+  .hero-mission{display:block}
+}
+
+.lg-meas{position:absolute;left:var(--gut);right:var(--gut);top:0;bottom:4vh;display:flex;flex-direction:column;align-items:center;gap:2.2vh;opacity:0;z-index:5}
+.lg-meas-k{margin:0;font:600 13px var(--f-display);letter-spacing:.12em;text-transform:uppercase;color:var(--paper);opacity:.85}
+.lg-cols{flex:1;min-height:0;width:min(1100px,100%);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,2vw,28px)}
+.lg-col{display:flex;flex-direction:column;gap:12px;min-width:0;border-top:1px solid rgba(255,252,247,.25);padding-top:14px;opacity:0;will-change:transform,opacity}
+.lg-art{position:relative;flex:1;min-height:0;max-height:30vh;border-radius:14px;background:rgba(26,26,23,.18);overflow:hidden;color:var(--lime)}
+.lg-art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lg-col h3{margin:0;font-size:clamp(22px,min(3.2vh,2.4vw),34px);font-weight:600;letter-spacing:-.03em;color:var(--paper)}
+.lg-col ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.lg-col li{display:flex;gap:9px;align-items:baseline;font-size:clamp(14px,min(1.9vh,1.3vw),17px);color:var(--mute);line-height:1.3}
+.lg-col li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--lime);flex:none;transform:translateY(-1px)}
+@media (max-width:760px){
+  .lg-meas{gap:1.4vh}.lg-meas-k{font-size:11px}
+  .lg-cols{gap:8px}.lg-col{gap:7px;padding-top:9px}
+  .lg-art{max-height:16vh;border-radius:10px}
+  .lg-col h3{font-size:17px}.lg-col li{font-size:11.5px;gap:6px}.lg-col li::before{width:5px;height:5px}
+}
+
+/* background tags sit behind the main tags and the card */
+.lg-ghosts{position:absolute;left:0;top:0;width:0;height:0;z-index:0}
+.lg-tag.lg-ghost{box-shadow:none;background:#e9eedc;color:#335900}
+.lg-tag:not(.lg-ghost){z-index:2}
+.lg-lines{z-index:1}
+
+/* hero copy centred now the flywheel has moved further down the page */
+.hero-copy{margin:0 auto;text-align:center}
+.hero-mission{margin-left:auto;margin-right:auto}
+.scroll-cue{justify-content:center}
+@media (max-width:760px){.hero-copy{top:50%}}
+
+/* flywheel title, top left while the four parts come in */
+.fw-title{position:absolute;left:var(--gut);top:calc(78px + env(safe-area-inset-top,0px) + 7vh);margin:0;max-width:12ch;z-index:6;
+  font-size:clamp(30px,min(4.4vh,3.4vw),54px);font-weight:600;letter-spacing:-.04em;line-height:1.02;color:var(--paper);opacity:0;will-change:transform,opacity}
+.fw-title em{white-space:nowrap;font-family:var(--f-serif,'Source Serif 4',serif);font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--lime)}
+@media (max-width:760px){.fw-title{left:var(--gut);right:var(--gut);max-width:none;text-align:center;top:calc(70px + env(safe-area-inset-top,0px) + 2.5vh);font-size:clamp(22px,6.4vw,28px)}}
+
+.fw-statement p .hl{position:relative;white-space:nowrap;font-weight:600;color:var(--paper);transition:color .5s .2s}
+.fw-statement p .hl::after{content:"";position:absolute;left:0;right:0;bottom:-.18em;height:2px;border-radius:2px;background:#d2ff00;transform:scaleX(0);transform-origin:left;transition:transform .7s cubic-bezier(.6,0,.25,1) .1s}
+.fw-statement.hl-on p .hl{color:#d2ff00}
+.fw-statement.hl-on p .hl::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.fw-statement p .hl,.fw-statement p .hl::after{transition:none}}
+
+.conv-sub .hlm{font-weight:600;color:#1a1a17;padding:.04em .18em;margin:0 -.1em;border-radius:.2em;-webkit-box-decoration-break:clone;box-decoration-break:clone;
+  background:linear-gradient(#d2ff00,#d2ff00) no-repeat 0 0/0% 100%;transition:background-size 1.1s cubic-bezier(.6,0,.25,1) .15s}
+.conv.hlm-on .conv-sub .hlm{background-size:100% 100%}
+@media (prefers-reduced-motion:reduce){.conv-sub .hlm{transition:none}}
+
+/* ================= Home: Kula in numbers (stats + creator ads in a phone) ================= */
+[data-scene="showcase"]{--ink:#335900;--ink-2:#2d4f00;--line:rgba(255,252,247,.2);--mute:#cdd8bc;--paper:#fffcf7;--lime:#d2ff00;background:var(--ink);color:var(--paper)}
+.sc-stage{display:flex;align-items:center}
+.sc-wrap{width:100%;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:center;padding-top:calc(70px + env(safe-area-inset-top,0px))}
+.sc-left .eyebrow{color:var(--lime);margin:0 0 2vh}
+.sc-big{display:flex;flex-direction:column;gap:.6vh;min-height:calc(min(19vh,12.5vw) + 40px)}
+.sc-n{font-size:clamp(84px,min(19vh,12.5vw),220px);font-weight:600;letter-spacing:-.06em;line-height:.9;color:var(--lime);font-variant-numeric:tabular-nums}
+.sc-l{font-size:clamp(20px,min(3vh,2vw),30px);font-weight:500;letter-spacing:-.02em;color:var(--paper)}
+.sc-list{list-style:none;margin:4.5vh 0 0;padding:0;border-top:1px solid var(--line);max-width:560px}
+.sc-list li{border-bottom:1px solid var(--line)}
+.sc-list button{all:unset;box-sizing:border-box;width:100%;display:grid;grid-template-columns:34px 78px 1fr;align-items:baseline;gap:10px;padding:clamp(9px,1.4vh,14px) 4px;cursor:pointer;color:var(--mute);transition:color .3s}
+.sc-list i{font:500 12px var(--f-mono,monospace);letter-spacing:.08em;font-style:normal;opacity:.7}
+.sc-list b{font-weight:600;font-size:17px;color:inherit}
+.sc-list span{font-size:15px}
+.sc-list li.on button{color:var(--paper)}
+.sc-list li.on b,.sc-list li.on i{color:var(--lime);opacity:1}
+.sc-list button:hover{color:var(--paper)}
+.sc-list button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:4px}
+.sc-right{display:flex;justify-content:center}
+.sc-phone{--pw:min(330px,36vh,40vw);width:var(--pw);aspect-ratio:9/19;border-radius:calc(var(--pw)*.15);background:#1a1a17;padding:calc(var(--pw)*.035);
+  box-shadow:0 40px 80px -36px rgba(0,0,0,.65),0 0 0 1px rgba(255,252,247,.12) inset;position:relative;transform:rotate(2deg)}
+.sc-phone::before{content:"";position:absolute;top:calc(var(--pw)*.06);left:50%;width:28%;height:calc(var(--pw)*.07);transform:translateX(-50%);background:#1a1a17;border-radius:999px;z-index:3}
+.sc-screen{position:relative;width:100%;height:100%;border-radius:calc(var(--pw)*.12);overflow:hidden;background:#23231f}
+.sc-ad{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.sc-ad.on{opacity:1}
+.sc-ad video{width:100%;height:100%;object-fit:cover;display:block}
+.sc-bars{position:absolute;left:5%;right:5%;top:calc(var(--pw)*.15);display:flex;gap:4px;z-index:2}
+.sc-bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,252,247,.35);overflow:hidden}
+.sc-bars b{display:block;height:100%;width:0;background:#fffcf7}
+.sc-top{position:absolute;left:5%;right:5%;top:calc(var(--pw)*.19);display:flex;align-items:center;gap:8px;z-index:2;color:#fffcf7;font-size:calc(var(--pw)*.042);text-shadow:0 1px 6px rgba(0,0,0,.4)}
+.sc-av{width:calc(var(--pw)*.1);height:calc(var(--pw)*.1);border-radius:50%;background:#335900;color:#d2ff00;padding:calc(var(--pw)*.018);box-sizing:border-box;flex:none}
+.sc-av svg{width:100%;height:100%;display:block;fill:currentColor}
+.sc-brand{font-weight:700}
+.sc-sp{opacity:.8;font-size:.88em}
+.sc-bot{position:absolute;left:0;right:0;bottom:0;padding:22% 6% 7%;z-index:2;background:linear-gradient(transparent,rgba(26,26,23,.75));display:flex;flex-direction:column;gap:10px}
+.sc-cap{margin:0;color:#fffcf7;font-size:calc(var(--pw)*.042);opacity:.9}
+.sc-cta{display:block;text-align:center;background:#d2ff00;color:#335900;font-weight:700;font-size:calc(var(--pw)*.045);padding:.7em;border-radius:.7em}
+@media (max-width:760px){
+  .sc-wrap{grid-template-columns:1fr;gap:3vh;padding-top:calc(64px + env(safe-area-inset-top,0px));text-align:center}
+  .sc-right{order:-1}
+  .sc-phone{--pw:min(250px,26vh,64vw);transform:none}
+  .sc-left .eyebrow{margin-bottom:1.2vh}
+  .sc-big{min-height:0;align-items:center}
+  .sc-n{font-size:clamp(64px,19vw,96px)}
+  .sc-l{font-size:18px}
+  .sc-list{display:flex;justify-content:center;gap:8px;border:0;margin-top:2.2vh}
+  .sc-list li{border:0}
+  .sc-list button{width:10px;height:10px;padding:0;border-radius:50%;background:var(--line);display:block}
+  .sc-list button>*{display:none}
+  .sc-list li.on button{background:var(--lime)}
+}
+@media (prefers-reduced-motion:reduce){.sc-ad{transition:none}}
+.sc-screen::after{content:"";position:absolute;left:0;right:0;top:0;height:34%;z-index:1;pointer-events:none;background:linear-gradient(rgba(26,26,23,.62),transparent)}
+[data-scene="showcase"] + .final, [data-scene="showcase"] ~ .final{margin-top:0;border-top:1px solid var(--line)}
 </style>
 
 <main>
@@ -966,20 +1131,71 @@ html.join-open{overflow:hidden}
 
 <!-- =============== HOME =============== -->
 <div data-view="home">
-  <section class="scene" data-scene="fly" style="height:1700vh" aria-label="Not another social agency">
+  <section class="scene" data-scene="fly" style="height:3200vh" aria-label="Not another creator agency">
     <div class="stage fly-stage">
       <div class="hero-bg" aria-hidden="true"><video class="hero-vid" muted loop playsinline preload="metadata" poster="hero-poster.jpg" data-src-d="hero-desktop.mp4" data-src-m="hero-mobile.mp4" data-poster-m="hero-poster-m.jpg"></video></div>
       <div class="hero-copy">
-        <p class="eyebrow">Kula · creator-led social</p>
-        <h1 class="hero-h">Not another<br>social agency.</h1>
+        <h1 class="hero-h">Not another<br>creator agency.</h1>
+        <p class="hero-mission">We're on a mission to turn creators into a grown-up marketing channel.</p>
         <p class="hero-sub">We create <em>what works.</em></p>
         <p class="scroll-cue" aria-hidden="true"><svg viewBox="0 0 24 36" width="24" height="36"><path d="M12 2v30M3 23l9 9 9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
+      </div>
+      <div class="lg" aria-hidden="false">
+        <div class="lg-heads">
+          <h2 class="lg-h lg-h1">Less guesswork.</h2>
+          <h2 class="lg-h lg-h2">More confidence.</h2>
+          <h2 class="lg-h lg-h3">More growth.</h2>
+        </div>
+        <div class="lg-mid">
+          <div class="lg-orbit" aria-hidden="true">
+            <svg class="lg-lines"></svg>
+            <span class="lg-tag" data-x="-1.62" data-y="-0.84" data-mx="-1" data-my="-0.78"><i></i>Face to camera</span>
+            <span class="lg-tag" data-x="1.62" data-y="-0.86" data-mx="1" data-my="-0.78"><i></i>Comments <b>1.2k</b></span>
+            <span class="lg-tag" data-x="-1.98" data-y="-0.4" data-mx="-1" data-my="-0.26"><i></i>Engagement <b>6.4%</b></span>
+            <span class="lg-tag" data-x="1.98" data-y="-0.42" data-mx="1" data-my="-0.26"><i></i>Hook <b>Question</b></span>
+            <span class="lg-tag" data-x="-2.08" data-y="0.08" data-mx="-1" data-my="0.26"><i></i>Tone <b>Conversational</b></span>
+            <span class="lg-tag" data-x="2.08" data-y="0.06" data-mx="1" data-my="0.26"><i></i>Saves &amp; shares</span>
+            <span class="lg-tag" data-x="-1.88" data-y="0.54" data-mx="-1" data-my="0.78"><i></i>Watch time <b>0:21</b></span>
+            <span class="lg-tag" data-x="1.86" data-y="0.5" data-mx="1" data-my="0.78"><i></i>Audience <b>25–34</b></span>
+            <span class="lg-tag d-only" data-x="-1.62" data-y="0.95"><i></i>Format <b>Tutorial</b></span>
+            <span class="lg-tag d-only" data-x="1.62" data-y="0.93"><i></i>Brand fit <b>High</b></span>
+            <p class="lg-lbl l">Product demonstration</p>
+            <p class="lg-lbl r">Lifestyle</p>
+            <div class="lg-shot" data-x="-1.78" data-y="-0.36" data-r="-6" data-src="lg/s1"><video muted loop playsinline preload="none" poster="lg/s1.jpg"></video></div>
+            <div class="lg-shot" data-x="-2.62" data-y="0.06" data-r="4" data-src="lg/s2"><video muted loop playsinline preload="none" poster="lg/s2.jpg"></video></div>
+            <div class="lg-shot" data-x="-1.86" data-y="0.5" data-r="-2" data-src="lg/s3"><video muted loop playsinline preload="none" poster="lg/s3.jpg"></video></div>
+            <div class="lg-shot" data-x="1.78" data-y="-0.38" data-r="5" data-src="lg/s4"><video muted loop playsinline preload="none" poster="lg/s4.jpg"></video></div>
+            <div class="lg-shot" data-x="2.62" data-y="0.04" data-r="-4" data-src="lg/s5"><video muted loop playsinline preload="none" poster="lg/s5.jpg"></video></div>
+            <div class="lg-shot" data-x="1.86" data-y="0.5" data-r="3" data-src="lg/s6"><video muted loop playsinline preload="none" poster="lg/s6.jpg"></video></div>
+          </div>
+          <article class="lg-card" aria-label="Example creator profile, tagged by Kula">
+            <div class="pc-top"><span class="pc-handle">@sofia.makes</span><span class="pc-kula"><span class="pc-k" data-fw></span>Kula profile</span></div>
+            <div class="pc-head"><img class="pc-ava" src="lg/avatar.jpg" alt="">
+              <div class="pc-stats"><div><b>312</b><span>posts</span></div><div><b>84.2k</b><span>followers</span></div><div><b>418</b><span>following</span></div></div></div>
+            <div class="pc-bio"><b>Sofia Marlow</b><span>Style, home and everyday finds. London.</span></div>
+            <div class="pc-btns"><span>Follow</span><span>Message</span></div>
+            <div class="pc-grid"><img src="lg/g1.jpg" alt=""><img src="lg/g2.jpg" alt=""><img src="lg/g3.jpg" alt=""><img src="lg/g4.jpg" alt=""><img src="lg/g5.jpg" alt=""><img src="lg/g6.jpg" alt=""><img src="lg/g7.jpg" alt=""><img src="lg/g8.jpg" alt=""><img src="lg/g9.jpg" alt=""></div>
+          </article>
+        </div>
+        <div class="lg-meas" data-art-host>
+          <p class="lg-meas-k">With measurement</p>
+          <div class="lg-cols">
+            <div class="lg-col"><div class="lg-art"><canvas data-art="swirl" role="img" aria-label="A flock of pixels looping round in a circle, for time spent with content"></canvas></div><h3>Social</h3><ul><li>Content dwell time</li><li>Comment sentiment analysis</li></ul></div>
+            <div class="lg-col"><div class="lg-art"><canvas data-art="gather" role="img" aria-label="Pixels drifting in and gathering into a cluster marked by a ring, for business results"></canvas></div><h3>Business</h3><ul><li>Website visits</li><li>Purchases</li><li>Customer loyalty</li></ul></div>
+            <div class="lg-col"><div class="lg-art"><canvas data-art="focus" role="img" aria-label="A cluster of pixels with rings picking out individual points, for independent measurement"></canvas></div><h3>Independent</h3><ul><li>MMM</li><li>Lift study</li></ul></div>
+          </div>
+        </div>
+        <h2 class="fw-title">Kula is a <em>platform&#8209;powered</em> creator agency.</h2>
+        <div class="lg-copy">
+          <p class="lg-c lg-c1">Every creator we work with is profiled across 48 content attributes, from hook and format to tone of voice and how their audience responds. So we match the right creator to your brief before a single post goes live.</p>
+          <p class="lg-c lg-c2">We know what each creator does best, from product demonstrations to everyday lifestyle moments, and what it delivers. So every brief starts from evidence, not instinct.</p>
+        </div>
       </div>
       <div class="fw-wrap"><div class="fw-spin" data-fw></div></div>
       <div class="fw-caption" aria-live="polite"><div class="dots"><i></i><i></i><i></i><i></i></div><h3 data-cap-h></h3><p data-cap-p></p></div>
       <div class="fw-statement">
-        <h2>Closed loops are fixed; <em>a flywheel builds momentum.</em></h2>
-        <p>The combination of creators, brand, media and intelligence produces exceptional and predictable growth.</p>
+        <h2>Closed loops are fixed;<br><em>a flywheel builds momentum.</em></h2>
+        <p>The combination of creators, brand, media and intelligence produces exceptional and <span class="hl">predictable growth</span>.</p>
       </div>
     </div>
   </section>
@@ -989,12 +1205,11 @@ html.join-open{overflow:hidden}
       <div class="conv">
         <h2 class="conv-h"><span class="cw-l">We create</span><span class="cw-r">what works.</span></h2>
         <p class="eq">Creativity <span class="x">×</span> Intelligence <span class="x">=</span> <b>Predictable Growth</b></p>
-        <p class="conv-sub">Kula doesn't choose between creativity and data. Our advantage is the point where they meet.</p>
+        <p class="conv-sub">Kula fuses <span class="hlm">social content expertise with predictive marketing technology</span> to make creator-led marketing more intelligent, measurable and predictable.</p>
       </div>
       <div class="pane pane-l on-lime"><div class="pane-inner">
         <div class="pane-art"><canvas data-art="murmur" role="img" aria-label="Pixels flowing together like a murmuration"></canvas></div>
         <div class="pane-copy">
-          <p class="eyebrow">The creative side</p>
           <h2>We create</h2>
           <p class="lede">Powerful, authentic brand stories. Told through creators.</p>
           <a class="btn btn-moss" href="#work">Explore our work <span class="arr" aria-hidden="true">→</span></a>
@@ -1003,7 +1218,6 @@ html.join-open{overflow:hidden}
       <div class="pane pane-r"><div class="pane-inner">
         <div class="pane-art"><canvas data-art="focus" role="img" aria-label="A cluster of pixels, with individual pixels circled and scored"></canvas></div>
         <div class="pane-copy">
-          <p class="eyebrow">The intelligence side</p>
           <h2>What works</h2>
           <p class="lede">Predictive technology that connects creator content to business results.</p>
           <a class="btn btn-ghost" href="#how">See how it works <span class="arr" aria-hidden="true">→</span></a>
@@ -1012,8 +1226,39 @@ html.join-open{overflow:hidden}
     </div>
   </section>
 
-  <div data-include="manifesto"></div>
-  <div data-include="routes"></div>
+  <section class="scene sc-scene" data-scene="showcase" aria-label="Kula in numbers">
+    <div class="stage sc-stage">
+      <div class="sc-wrap wrap">
+        <div class="sc-left">
+          <p class="eyebrow">Kula in numbers</p>
+          <div class="sc-big" aria-live="polite"><span class="sc-n">40k</span><span class="sc-l">UK creators assessed</span></div>
+          <ol class="sc-list">
+            <li data-to="40" data-suf="k"><button type="button"><i>01</i><b>40k</b><span>UK creators assessed</span></button></li>
+            <li data-to="3" data-suf="k"><button type="button"><i>02</i><b>3k</b><span>Creators briefed</span></button></li>
+            <li data-to="50" data-suf="+"><button type="button"><i>03</i><b>50+</b><span>Years of content consumed</span></button></li>
+            <li data-to="100" data-pre="$" data-suf="m"><button type="button"><i>04</i><b>$100m</b><span>Raised for expansion</span></button></li>
+            <li data-to="6.5" data-dec="1" data-suf="x"><button type="button"><i>05</i><b>6.5x</b><span>ROI achieved</span></button></li>
+          </ol>
+        </div>
+        <div class="sc-right">
+          <div class="sc-phone" role="img" aria-label="Creator ads made with Kula">
+            <div class="sc-screen">
+              <div class="sc-ad" data-brand="Clays" data-src="sc/v1"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video></div>
+              <div class="sc-ad" data-brand="Savernack" data-src="sc/v2"><video muted loop playsinline preload="none" poster="sc/v2.jpg"></video></div>
+              <div class="sc-ad" data-brand="R.M.Williams" data-src="sc/v3"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video></div>
+              <div class="sc-ad" data-brand="Charlie Bigham's" data-src="sc/v4"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video></div>
+              <div class="sc-ad" data-brand="The Jolly Hog" data-src="sc/v5"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video></div>
+              <div class="sc-bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+              <div class="sc-top"><span class="sc-av" data-fw></span><span class="sc-brand">Clays</span><span class="sc-sp">Sponsored</span></div>
+              <div class="sc-bot"><p class="sc-cap">Creator ad · made with Kula</p><span class="sc-cta">Shop now</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARKED: "Brands we've grown" logo ticker. Restore with <div data-include="routes"></div> -->
   <div data-include="cta"></div>
 </div>
 
@@ -1125,7 +1370,7 @@ html.join-open{overflow:hidden}
     </div>
   </section>
 
-  <div data-include="routes"></div>
+  <!-- PARKED: "Brands we've grown" logo ticker. Restore with <div data-include="routes"></div> -->
   <div data-include="cta"></div>
 </div>
 
@@ -1423,28 +1668,143 @@ const PARTS=[
 const S=[.16,.30,.44,.58];
 let boost=0;
 
+/* ---------- Home: hero -> Less guesswork / More confidence / More growth -> flywheel ---------- */
+/* One pinned scene. Timeline (p = 0..1 through the scene):
+   hero .00–.06 | less guesswork + tags .06–.27 | more confidence + content screens .27–.47 |
+   more growth + measurement .47–.68 | flywheel .68–.92 | closing statement .92–1 */
+function lgSetup(el){
+  const root=$('.lg',el); if(!root) return {update(){}};
+  const H1=$('.lg-h1',root),H2=$('.lg-h2',root),H3=$('.lg-h3',root),card=$('.lg-card',root),mid=$('.lg-mid',root),orbit=$('.lg-orbit',root),
+        svg=$('.lg-lines',root),C1=$('.lg-c1',root),C2=$('.lg-c2',root),meas=$('.lg-meas',root),cols=$$('.lg-col',root),heads=$('.lg-heads',root),
+        tags=$$('.lg-tag',root).map(n=>({n,x:+n.dataset.x,y:+n.dataset.y,mx:n.dataset.mx!=null?+n.dataset.mx:null,my:n.dataset.my!=null?+n.dataset.my:null,w:0,h:0})),
+        shots=$$('.lg-shot',root).map(n=>({n,x:+n.dataset.x,y:+n.dataset.y,r:+n.dataset.r,v:$('video',n),src:n.dataset.src,loaded:false,on:false})),
+        lbl=[$('.lg-lbl.l',root),$('.lg-lbl.r',root)];
+  const NS='http://www.w3.org/2000/svg';
+  // background tags: blurred, smaller and dimmer, set further back to suggest the full set of 48 attributes
+  const GHOST=['Pacing <b>Fast</b>','Captions <b>On</b>','Music <b>Trending</b>','Setting <b>Home</b>','Lighting <b>Natural</b>','CTA <b>Soft</b>','Length <b>0:34</b>',
+    'Voiceover','Product in hand','Humour <b>Light</b>','Unboxing','First person','Trend use','Sentiment <b>+0.62</b>','Location <b>London</b>','Posting <b>Evening</b>',
+    'Colour <b>Warm</b>','Shot <b>Close-up</b>','Text overlay','Reply rate <b>38%</b>','Story arc','Before / after','Shares <b>2.3k</b>','Retention <b>71%</b>',
+    'Hook <b>0–2s</b>','Energy <b>High</b>','Duet','Outdoor','Talking head','Swipe-through'];
+  const gwrap=document.createElement('div'); gwrap.className='lg-ghosts'; orbit.prepend(gwrap);
+  let seed=7; const rr=()=>(seed=(seed*16807)%2147483647)/2147483647;
+  const ghosts=GHOST.map((h,i)=>{ const n=document.createElement('span'); n.className='lg-tag lg-ghost'; n.innerHTML='<i></i>'+h; gwrap.append(n);
+    const z=rr(); return {n,z,ph:rr()*7,blur:1.4+z*2.6,sc:.86-z*.22,op:.62-z*.3,x:0,y:0,ok:false,w:0,h:0}; });
+  ghosts.forEach(g=>{ g.n.style.filter=`blur(${g.blur.toFixed(1)}px)`; });
+  tags.forEach(g=>{ g.line=document.createElementNS(NS,'line'); g.dot=document.createElementNS(NS,'circle'); g.dot.setAttribute('r','2.5'); svg.append(g.line,g.dot); });
+  let a=0,b=0,W=0,Hh=0,mob=false;
+  const fit=()=>{ W=innerWidth; Hh=innerHeight; mob=W<=760; a=card.offsetWidth/2; b=card.offsetHeight/2;
+    tags.forEach(g=>{ g.w=g.n.offsetWidth; g.h=g.n.offsetHeight; });
+    svg.setAttribute('viewBox',`${-W/2} ${-Hh/2} ${W} ${Hh}`); placeGhosts(); };
+  // scatter the background tags around the card without sitting under the main tags or each other
+  const placeGhosts=()=>{
+    const boxes=tags.filter(g=>g.n.offsetWidth).map(g=>{ const x=mob&&g.mx!=null?Math.sign(g.mx)*(a+g.w/2+6):g.x*a, y=(mob&&g.my!=null?g.my:g.y)*b;
+      return [x-g.w/2-8,y-g.h/2-6,x+g.w/2+8,y+g.h/2+6]; });
+    boxes.push([-a-6,-b-6,a+6,b+6]);
+    const xmax=Math.min(W/2-10,mob?W:a*3.6), ymax=b*1.02; seed=7; let side=1;
+    ghosts.forEach(g=>{ g.w=g.n.offsetWidth*g.sc; g.h=g.n.offsetHeight*g.sc; g.ok=false; side=-side;
+      for(let k=0;k<60&&!g.ok;k++){
+        const x=side*(a+10+g.w/2+rr()*Math.max(0,xmax-a-10-g.w)), y=(rr()*2-1)*(ymax-g.h/2);
+        const bx=[x-g.w/2,y-g.h/2,x+g.w/2,y+g.h/2];
+        if(Math.abs(x+ox())+g.w/2>W/2-10) continue;
+        if(boxes.some(o=>bx[0]<o[2]&&bx[2]>o[0]&&bx[1]<o[3]&&bx[3]>o[1])) continue;
+        g.x=x; g.y=y; g.ok=true; boxes.push([bx[0]-4,bx[1]-3,bx[2]+4,bx[3]+3]); }
+    }); };
+  addEventListener('resize',()=>requestAnimationFrame(fit)); if(document.fonts) document.fonts.ready.then(()=>fit()); setTimeout(fit,0); setTimeout(fit,300);
+  const vtype=v=>v.canPlayType('video/mp4; codecs="avc1.4D401E"')?'.mp4':v.canPlayType('video/webm; codecs="vp9"')?'.webm':'';
+  // keep a point inside the viewport (relative to the orbit centre)
+  const ox=()=>mid.offsetLeft+card.offsetLeft+a-W/2, oy=()=>root.offsetTop+mid.offsetTop+card.offsetTop+b-Hh/2;
+  const clampX=(x,hw)=>{const c=ox(),lim=W/2-12-hw; return Math.max(-lim-c,Math.min(lim-c,x));};
+  const clampY=(y,hh)=>{const c=oy(),top=-Hh/2+76+hh,bot=Hh/2-10-hh; return Math.max(top-c,Math.min(bot-c,y));};
+  const show=(n,o,dy=0,s=1)=>{ n.style.opacity=o; n.style.transform=`translateY(${dy}px) scale(${s})`; };
+  return {update(p,t){
+    if(!a) fit();
+    const T=RM?0:t;
+    // headlines stack: Less guesswork. / More confidence. / More growth.
+    const hOut=1-seg(p,.655,.69);
+    const h1=ease(seg(p,.06,.09)), h2=ease(seg(p,.27,.30)), h3=ease(seg(p,.47,.50));
+    // each new line enters at the bottom of the stack and pushes the earlier ones up
+    const L=H1.offsetHeight||60, k=h1+h2+h3, kk=Math.max(1,k);
+    heads.style.height=(kk*L)+'px';
+    [[H1,h1],[H2,h2],[H3,h3]].forEach(([n,v],i)=>{ n.style.opacity=v*hOut; n.style.transform=`translateY(${(kk-k+i)*L}px)`; });
+    if(p>.46) meas.style.top=(root.offsetTop+heads.offsetTop+3*L+Math.max(26,Hh*.045))+'px';
+    // profile card: rises in, steps aside for measurement
+    const cIn=ease(seg(p,.07,.11)), cOut=ease(seg(p,.455,.50));
+    card.style.opacity=cIn*(1-cOut); card.style.transform=`translateY(${(1-cIn)*60}px) scale(${lerp(.9,1,cIn)*lerp(1,.6,cOut)})`;
+    // body copy under the card
+    const c1=ease(seg(p,.10,.13))*(1-seg(p,.255,.28)), c2=ease(seg(p,.29,.32))*(1-seg(p,.44,.46));
+    show(C1,c1,(1-Math.min(1,c1*1.4))*10); show(C2,c2,(1-Math.min(1,c2*1.4))*10);
+    // tags fan out from behind the card, float, then tuck back in
+    tags.forEach((g,i)=>{
+      const e=ease(seg(p,.12+i*.0055,.165+i*.0055))*(1-ease(seg(p,.225+i*.0025,.265+i*.0025)));
+      if(e<=0.001){ g.n.style.opacity=0; g.line.style.opacity=0; g.dot.style.opacity=0; return; }
+      let tx=mob&&g.mx!=null?Math.sign(g.mx)*(a+g.w/2+6):g.x*a, ty=(mob&&g.my!=null?g.my:g.y)*b;
+      tx=clampX(tx,g.w/2); ty=clampY(ty,g.h/2);
+      const fx=Math.sin(T*.0009+i*1.7)*5, fy=Math.cos(T*.0011+i*1.3)*4;
+      const x=(tx+fx)*e, y=(ty+fy)*e;
+      g.n.style.opacity=Math.min(1,e*1.5); g.n.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px) scale(${lerp(.55,1,e)})`;
+      const k=Math.min(a/Math.max(1e-3,Math.abs(x)),b/Math.max(1e-3,Math.abs(y)),1);   // where the ray leaves the card
+      const ex=x*k, ey=y*k, outside=k<1;
+      g.line.setAttribute('x1',ex); g.line.setAttribute('y1',ey); g.line.setAttribute('x2',x); g.line.setAttribute('y2',y);
+      g.dot.setAttribute('cx',ex); g.dot.setAttribute('cy',ey);
+      const lo=outside?Math.max(0,(e-.25)/.75):0; g.line.style.opacity=lo*.9; g.dot.style.opacity=lo;
+    });
+    ghosts.forEach((g,i)=>{
+      const e=g.ok?ease(seg(p,.13+i*.0022,.18+i*.0022))*(1-ease(seg(p,.222+i*.0012,.26+i*.0012))):0;
+      if(e<=0.001){ g.n.style.opacity=0; return; }
+      const fx=Math.sin(T*.0006+g.ph)*3, fy=Math.cos(T*.0007+g.ph)*3;
+      g.n.style.opacity=g.op*Math.min(1,e*1.4);
+      g.n.style.transform=`translate(-50%,-50%) translate(${(g.x+fx)*e}px,${(g.y+fy)*e}px) scale(${g.sc*lerp(.6,1,e)})`;
+    });
+    // content screens cluster either side of the profile
+    let anyShot=false; const cl=[[0,0,0],[0,0,0]];
+    shots.forEach((s,i)=>{
+      const e=ease(seg(p,.31+i*.009,.355+i*.009))*(1-ease(seg(p,.44+i*.003,.47+i*.003)));
+      if(e>.001&&!s.loaded){ const ext=vtype(s.v); if(ext){ s.v.src=s.src+ext; } s.loaded=true; }
+      const hw=s.n.offsetWidth/2, hh=s.n.offsetHeight/2;
+      const tx=clampX(s.x*a,hw), ty=clampY(s.y*b,hh);
+      s.n.style.opacity=Math.min(1,e*1.4); s.n.style.transform=`translate(-50%,-50%) translate(${tx*e}px,${ty*e}px) rotate(${s.r*e}deg) scale(${lerp(.5,1,e)})`;
+      const want=e>.05&&!RM; if(want!==s.on){ s.on=want; if(want){ const pr=s.v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } else s.v.pause(); }
+      if(e>.05) anyShot=true;
+      const c=cl[s.x>0?1:0]; c[0]+=tx; c[1]=Math.max(c[1],ty+hh*.55); c[2]++;
+    });
+    const le=ease(seg(p,.37,.40))*(1-seg(p,.44,.46));
+    lbl.forEach((n,i)=>{ const c=cl[i], hw=n.offsetWidth/2, cx=c[0]/(c[2]||1), x=clampX((i?1:-1)*Math.max(Math.abs(cx),a+hw+4),hw), y=c[1];
+      n.style.opacity=le; n.style.transform=`translate(-50%,-50%) translate(${x}px,${y+(1-le)*12}px)`; });
+    // measurement columns, in the We create / What works pixel style
+    const mIn=ease(seg(p,.50,.52)), mOut=1-seg(p,.655,.69);
+    meas.style.opacity=mIn*mOut;
+    cols.forEach((c,i)=>{ const e=ease(seg(p,.515+i*.018,.555+i*.018)); c.style.opacity=e*mOut; c.style.transform=`translateY(${(1-e)*40}px)`; });
+  }};
+}
+
+const FLY_S=[.745,.78,.815,.85];
 function flyScene(el){
-  const wrap=$('.fw-wrap',el), spin=$('.fw-spin',el), copy=$('.hero-copy',el), st=$('.fw-statement',el), cap=$('.fw-caption',el);
+  const wrap=$('.fw-wrap',el), spin=$('.fw-spin',el), copy=$('.hero-copy',el), st=$('.fw-statement',el), cap=$('.fw-caption',el), heroBg=$('.hero-bg',el);
   wrap.insertAdjacentHTML('beforeend',PARTS.map((d,i)=>`<div class="fw-label${d.r?' r':''}" style="left:${d.x*100}%;top:${d.y*100}%"><p class="k">0${i+1}</p><h3>${d.h}</h3><p>${d.p}</p></div>`).join(''));
   wrap.insertAdjacentHTML('beforeend','<div class="fw-core"></div><div class="fw-leader"></div>');
-  const core=$('.fw-core',el), leader=$('.fw-leader',el);
-  const labels=$$('.fw-label',el), parts={}; $$('[data-part]',spin).forEach(n=>parts[n.dataset.part]=n);
-  const dots=$$('.dots i',cap); let capIdx=-2; const heroBg=$('.hero-bg',el);
+  const core=$('.fw-core',el), leader=$('.fw-leader',el), labels=$$('.fw-label',el), dots=$$('.dots i',cap); let capIdx=-2;
+  const LG=lgSetup(el);
+  const ttl=$('.fw-title',el);
   return {el,update(p,t){
-    const W=innerWidth,H=innerHeight;
-    const m=ease(seg(p,0,.14)), stP=ease(seg(p,.74,.82)), end=ease(seg(p,.9,1));
-    let x=lerp(mobile?0:W*.36,0,m), y=lerp(mobile?H*.24:0,mobile?-H*.08:0,m);
-    y=lerp(y,-H*.13,stP);
-    let s=lerp(mobile?1.1:1.5,1.08,m); s=lerp(s,.62,stP);
-    wrap.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px)`;
-    wrap.style.opacity=lerp(.8,1,m)*(1-seg(p,.93,.99));
-    spin.style.transform=`scale(${s}) rotate(${RM?0:(t*.024)%360}deg)`; /* continuous, time-based spin: one turn every 15s, independent of scroll */
-    spin.classList.toggle('centred',m>.6);
-    const hc=seg(p,.02,.12); copy.style.opacity=1-hc; if(heroBg){const bf=ease(seg(p,.01,.16));heroBg.style.opacity=1-bf;heroBg.style.transform=`scale(${1.06-.06*bf}) translateY(${-bf*4}%)`} copy.style.transform=`translateY(-50%) translateY(${-hc*90}px)`;
-    const fade=1-seg(p,.72,.77), size=wrap.offsetWidth; let cur=-1;
+    const H=innerHeight;
+    // hero
+    const hc=seg(p,.012,.05); copy.style.opacity=1-hc; copy.style.transform=`translateY(-50%) translateY(${-hc*90}px)`;
+    if(heroBg){const bf=ease(seg(p,.005,.06));heroBg.style.opacity=1-bf;heroBg.style.transform=`scale(${1.06-.06*bf}) translateY(${-bf*4}%)`}
+    LG.update(p,t);
+    // the flywheel grows out of the centre once the measurement story is done
+    const m=ease(seg(p,.68,.735)), stP=ease(seg(p,.915,.945));
+    let y=lerp(mobile?-H*.08:0,-H*.13,stP);
+    let s=lerp(.3,mobile?1.1:1.08,m); s=lerp(s,.62,stP);
+    wrap.style.transform=`translate(-50%,-50%) translate(0px,${y}px)`;
+    wrap.style.opacity=m*(1-seg(p,.965,.995));
+    spin.style.transform=`scale(${s}) rotate(${RM?0:((t*.024)-(1-m)*140)%360}deg)`;
+    spin.classList.add('centred');
+    const fade=1-seg(p,.90,.915), size=wrap.offsetWidth; let cur=-1;
+    if(ttl){ const ti=ease(seg(p,.715,.75)); ttl.style.opacity=ti*fade; ttl.style.transform=`translateY(${(1-ti)*18}px)`; }
     PARTS.forEach((d,i)=>{
-      const r=ease(seg(p,S[i]+.05,S[i]+.12));
-      const dx=(.5-d.x)*size*(1-r), dy=(.5-d.y)*size*(1-r);
+      const r=ease(seg(p,FLY_S[i],FLY_S[i]+.03));
+      // Intelligence starts beside the centre rather than inside it, so it doesn't sweep across the wheel
+      const tr=d.k==='intelligence'?.25:1, dx=(.5-d.x)*size*(1-r)*tr, dy=(.5-d.y)*size*(1-r)*tr;
       labels[i].style.opacity=r*fade;
       labels[i].style.transform=`translate(${d.ax},-50%) translate(${dx}px,${dy}px) scale(${lerp(.6,1,r)})`;
       if(r>.5)cur=i;
@@ -1452,7 +1812,7 @@ function flyScene(el){
     });
     if(cur!==capIdx){capIdx=cur; if(cur>=0){$('[data-cap-h]',cap).textContent=PARTS[cur].h;$('[data-cap-p]',cap).textContent=PARTS[cur].p} dots.forEach((d,i)=>d.classList.toggle('on',i<=cur))}
     cap.style.opacity=(cur>=0?1:0)*fade;
-    const so=seg(p,.78,.84)*(1-seg(p,.94,.99)); st.style.opacity=so; st.style.transform=`translateY(${(1-seg(p,.78,.84))*24}px)`;
+    const so=seg(p,.92,.95)*(1-seg(p,.97,.995)); st.style.opacity=so; if(so>.85) st.classList.add('hl-on'); else if(so<.15) st.classList.remove('hl-on'); st.style.transform=`translateY(${(1-seg(p,.92,.95))*24}px)`;
   }};
 }
 
@@ -1461,7 +1821,8 @@ function splitScene(el){
   const floats=$$('.wc-float',el).map(n=>({n,r:+n.dataset.r||0,k:+n.dataset.k||1})), cells=$$('.ww-cell',el), inL=$('.pane-inner',L), inR=$('.pane-inner',R);
   let last=-1;
   return {el,update(p,t){
-    const e1=ease(seg(p,.02,.2)), e2=ease(seg(p,.5,.72)), w=50*(1-e2);
+    // statement first (.02–.30), then it lifts away as the creative and intelligence sides slide in (.42–.64)
+    const e1=ease(seg(p,.42,.64)), w=50;
     if(!mobile){
       L.style.cssText=`left:${50-w}%;width:${w}%;top:0;height:100%;transform:translateX(${-(1-e1)*110}%)`;
       R.style.cssText=`left:50%;width:${w}%;top:0;height:100%;transform:translateX(${(1-e1)*110}%)`;
@@ -1469,14 +1830,14 @@ function splitScene(el){
       L.style.cssText=`left:0;width:100%;top:${50-w}%;height:${w}%;transform:translateX(${-(1-e1)*110}%)`;
       R.style.cssText=`left:0;width:100%;top:50%;height:${w}%;transform:translateX(${(1-e1)*110}%)`;
     }
-    const cf=1-seg(p,.5,.62); inL.style.opacity=cf; inR.style.opacity=cf;
+    inL.style.opacity=1; inR.style.opacity=1;
     floats.forEach((f,i)=>{const a=RM?0:Math.sin(t*.0007*f.k+i*1.9), b=RM?0:Math.cos(t*.0006*f.k+i*1.3);f.n.style.transform=`translate(${a*14}px,${b*12 - p*60*f.k}px) rotate(${f.r+a*4}deg)`});
     if(!RM&&cells.length){const idx=Math.floor(t/320)%cells.length; if(idx!==last){if(last>=0)cells[last].classList.remove('hot');cells[idx].classList.add('hot');last=idx}}
-    const e3=ease(seg(p,.52,.74));
-    conv.style.opacity=seg(p,.53,.64);
+    const e3=ease(seg(p,.02,.17)), cOut=ease(seg(p,.38,.5));
+    conv.style.opacity=seg(p,.02,.1)*(1-cOut); conv.style.transform=`translateY(${-cOut*8}vh)`;
     cwL.style.transform=`translateX(${-(1-e3)*42}vw)`; cwR.style.transform=`translateX(${(1-e3)*42}vw)`;
-    eq.style.opacity=seg(p,.78,.86); eq.style.transform=`translateY(${(1-seg(p,.78,.86))*16}px)`;
-    sub.style.opacity=seg(p,.85,.93);
+    eq.style.opacity=seg(p,.15,.21); eq.style.transform=`translateY(${(1-seg(p,.15,.21))*16}px)`;
+    const so=seg(p,.2,.27); sub.style.opacity=so; if(so>.85) conv.classList.add('hlm-on'); else if(so<.15) conv.classList.remove('hlm-on');
   }};
 }
 
@@ -1563,13 +1924,42 @@ function manifestoScene(el){
   const ls=$$('[data-line]',el);
   return {el,update(p){if(mobile)return;const n=ls.length;ls.forEach((l,i)=>{l.style.opacity=.18+.82*seg(p,i/n*.8,(i+1)/n*.8)})}};
 }
-const FACT={manifesto:manifestoScene,fly:flyScene,split:splitScene,case:caseScene,pillars:pillarsScene,process:processScene};
+/* ---------- Home: Kula in numbers — one stat at a time, the phone plays a matching creator ad ---------- */
+function showcaseScene(el){
+  const items=$$('.sc-list li',el), ads=$$('.sc-ad',el).map(n=>({n,v:$('video',n),src:n.dataset.src,brand:n.dataset.brand,loaded:false})),
+        bars=$$('.sc-bars b',el), N=$('.sc-n',el), Lb=$('.sc-l',el), brand=$('.sc-brand',el), stage=$('.stage',el);
+  const S=items.map(li=>({to:+li.dataset.to,pre:li.dataset.pre||'',suf:li.dataset.suf||'',dec:+li.dataset.dec||0,label:$('span',li).textContent}));
+  const vtype=v=>v.canPlayType('video/mp4; codecs="avc1.4D401E"')?'.mp4':v.canPlayType('video/webm; codecs="vp9"')?'.webm':'';
+  const load=a=>{ if(a&&!a.loaded){ const ext=vtype(a.v); if(ext) a.v.src=a.src+ext; a.loaded=true; } };
+  const fmt=(s,x)=>s.pre+(s.dec?x.toFixed(s.dec):Math.round(x))+s.suf;
+  let cur=-1, t0=0, playing=null;
+  items.forEach((li,i)=>$('button',li).addEventListener('click',()=>{ const top=el.getBoundingClientRect().top+scrollY;
+    window.scrollTo({top:top+unmap(i*.2+.1,PACE.showcase)*(el.offsetHeight-innerHeight)+2,behavior:RM?'auto':'smooth'}); }));
+  return {el,update(p,t){
+    const i=Math.max(0,Math.min(4,Math.floor(p*5)));
+    const r=el.getBoundingClientRect(), vis=r.top<innerHeight&&r.bottom>0;
+    if(vis){ load(ads[i]); load(ads[Math.min(4,i+1)]); }
+    if(i!==cur){ cur=i; t0=t;
+      items.forEach((li,k)=>li.classList.toggle('on',k===i)); ads.forEach((a,k)=>a.n.classList.toggle('on',k===i));
+      Lb.textContent=S[i].label; brand.textContent=ads[i].brand;
+      bars.forEach((b,k)=>{ if(k<i) b.style.width='100%'; else if(k>i) b.style.width='0'; });
+    }
+    // count the number up each time a new stat arrives
+    const k=RM?1:Math.min(1,(t-t0)/900), e=1-Math.pow(1-k,3); N.textContent=fmt(S[i],S[i].to*e);
+    // only the ad on screen plays; its story bar tracks the clip
+    const want=vis&&!RM?ads[i]:null;
+    if(want!==playing){ if(playing) playing.v.pause(); playing=want; if(want){ const pr=want.v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } }
+    const v=ads[i].v; bars[i].style.width=(v.duration?Math.min(100,v.currentTime/v.duration*100):0)+'%';
+  }};
+}
+const FACT={showcase:showcaseScene,manifesto:manifestoScene,fly:flyScene,split:splitScene,case:caseScene,pillars:pillarsScene,process:processScene};
 /* Pauses: each [at, length] freezes the timeline at progress "at" for "length" vh of extra scroll (~400vh ≈ 2s at a normal pace). */
 const HP=400;
 const PACE={
   manifesto:{base:500,holds:[[.85,HP*2]]},
-  fly:{base:1200,holds:[[.28,HP],[.42,HP],[.56,HP],[.71,HP*2],[.87,HP]]},
-  split:{base:1150,holds:[[.3,HP],[.95,HP]]},
+  showcase:{base:600,holds:[[.1,HP],[.3,HP],[.5,HP],[.7,HP],[.9,HP]]},
+  fly:{base:2300,holds:[[.205,HP],[.405,HP],[.61,HP*1.2],[.775,HP],[.81,HP],[.845,HP],[.88,HP*1.5],[.958,HP]]},
+  split:{base:1150,holds:[[.3,HP*1.2],[.8,HP*1.2]]},
   pillars:{base:900,holds:[[.2,HP],[.45,HP],[.7,HP],[.95,HP]]},
   process:{base:1400,holds:[[.05,HP],[.29,HP],[.5,HP],[.605,HP],[.662,HP],[.718,HP],[.775,HP],[.832,HP],[.889,HP],[.97,HP]]},
   case:{base:600,holds:[[.2,HP],[.8,HP]]}
@@ -1578,6 +1968,69 @@ const total=c=>c.base+c.holds.reduce((a,h)=>a+h[1],0);
 function remap(raw,c){const y=raw*total(c);let acc=0;for(const [at,len] of c.holds){const pos=at*c.base+acc;if(y<pos)return(y-acc)/c.base;if(y<pos+len)return at;acc+=len}return clamp((y-acc)/c.base)}
 function unmap(p,c){let y=p*c.base;for(const [at,len] of c.holds)if(at<p)y+=len;return y/total(c)}
 let scenes=[], lines=[], spins=[];
+
+/* ---------- step scrolling: one wheel flick / swipe / key press glides to the next resting point ---------- */
+(()=>{
+  const fine=matchMedia('(pointer:fine)');
+  let anim=null, lastWheel=0, acc=0, quietNeeded=false, touchY=null, touchT=0;
+  const maxY=()=>document.documentElement.scrollHeight-innerHeight;
+  const blocked=()=>document.documentElement.classList.contains('join-open')||!$('#mobileMenu').hidden;
+  function stops(){
+    const root=$$('[data-view]').find(v=>!v.hidden); if(!root) return [0];
+    const out=[0], ih=innerHeight, push=y=>out.push(Math.max(0,Math.min(maxY(),Math.round(y))));
+    const blocks=[...root.children].filter(n=>n.offsetHeight>0);
+    const ft=$('.footer'); if(ft) blocks.push(ft);
+    for(const el of blocks){
+      const top=el.getBoundingClientRect().top+scrollY, h=el.offsetHeight;
+      if(el.matches('[data-scene]')){
+        const c=PACE[el.dataset.scene], T=total(c), run=h-ih; let accv=0;
+        for(const [at,len] of c.holds){ push(top+(at*c.base+accv+len/2)/T*run); accv+=len; }
+        if(!c.holds.length) push(top);
+      } else {
+        push(top);
+        for(let y=top+ih*.85;y<top+h-ih*.5;y+=ih*.85) push(y);   // tall blocks get extra stops so nothing is skipped
+      }
+    }
+    push(maxY());
+    return [...new Set(out)].sort((a,b)=>a-b).filter((y,i,a)=>!i||y-a[i-1]>24);
+  }
+  const ease=k=>k<.5?4*k*k*k:1-Math.pow(-2*k+2,3)/2;
+  function glide(to){
+    const from=scrollY, d=to-from; if(Math.abs(d)<2) return;
+    if(RM){ window.scrollTo(0,to); return; }
+    const vh=Math.abs(d)/innerHeight*100, dur=Math.min(2200,Math.max(750,650+vh*1.9)), t0=performance.now();
+    if(anim) cancelAnimationFrame(anim.raf);
+    anim={to};
+    const step=now=>{ const k=Math.min(1,(now-t0)/dur); window.scrollTo(0,from+d*ease(k));
+      if(k<1) anim.raf=requestAnimationFrame(step); else { anim=null; quietNeeded=true; } };
+    anim.raf=requestAnimationFrame(step);
+  }
+  function go(dir){
+    const y=anim?anim.to:scrollY, s=stops();
+    const t=dir>0?s.find(v=>v>y+4):[...s].reverse().find(v=>v<y-4);
+    if(t!=null) glide(t);
+  }
+  addEventListener('wheel',e=>{
+    if(blocked()||e.ctrlKey||e.target.closest('.join-panel,.mmenu,textarea,select')) return;
+    e.preventDefault();
+    const now=performance.now(), gap=now-lastWheel; lastWheel=now;
+    if(anim) return;
+    if(quietNeeded){ if(gap<180) return; quietNeeded=false; }   // swallow trackpad momentum from the last flick
+    if(gap>250) acc=0;
+    acc+=e.deltaY; if(Math.abs(acc)<24) return;
+    const dir=Math.sign(acc); acc=0; quietNeeded=true; go(dir);
+  },{passive:false});
+  addEventListener('keydown',e=>{
+    if(blocked()||e.target.closest('input,textarea,select,[contenteditable]')) return;
+    const k=e.key, dn=['ArrowDown','PageDown',' '].includes(k)&&!(k===' '&&e.shiftKey), up=['ArrowUp','PageUp'].includes(k)||(k===' '&&e.shiftKey);
+    if(!dn&&!up) return; e.preventDefault(); if(!anim) go(dn?1:-1);
+  });
+  addEventListener('touchstart',e=>{ if(blocked()||e.touches.length>1) return; touchY=e.touches[0].clientY; touchT=performance.now(); },{passive:true});
+  addEventListener('touchmove',e=>{ if(touchY!=null&&!e.target.closest('.join-panel,.mmenu')) e.preventDefault(); },{passive:false});
+  addEventListener('touchend',e=>{ if(touchY==null) return; const dy=touchY-(e.changedTouches[0]||{}).clientY; touchY=null;
+    if(Math.abs(dy)>28&&!anim) go(Math.sign(dy)); });
+  addEventListener('hashchange',()=>{ if(anim){ cancelAnimationFrame(anim.raf); anim=null; } });
+})();
 
 /* ---------- router ---------- */
 const VIEWS=['home','work','how','about','contact'];
@@ -1658,11 +2111,31 @@ show(true); requestAnimationFrame(frame);
 
   function init(st){
     const {W,H}=st; const m=Math.min(W,H);
-    if(st.kind==='murmur'){
+    if(st.kind==='murmur'||st.kind==='swirl'){
       const n=Math.round(Math.max(420,Math.min(950,W*H/300)));
       st.p=Array.from({length:n},(_,i)=>({u:Math.pow(Math.random(),.85),off:(Math.random()+Math.random()+Math.random()-1.5)/1.5,
         x:W/2,y:H/2,s:rnd(.7,1.3),o:rnd(.45,1),j:rnd(0,7),lag:rnd(.035,.07)}));
       st.m=m; st.hist=[];
+    } else if(st.kind==='bars'){
+      const step=Math.max(9,Math.round(m*.055)), cols=5, cw=Math.floor((W*.7)/cols), slots=[];
+      const per=Math.max(2,Math.floor((cw-step*.8)/step));
+      const bw=per*step, gap=(W*.7-cols*bw)/(cols-1), xs=(W-(cols*bw+(cols-1)*gap))/2;
+      for(let c=0;c<cols;c++){ const hk=H*(.16+.58*(c/(cols-1))), rows=Math.max(1,Math.round(hk/step)), x0=xs+c*(bw+gap);
+        for(let r=0;r<rows;r++) for(let k=0;k<per;k++) slots.push({x:x0+k*step,y:H*.84-(r+1)*step,c,r,d:(c/cols)*.34+(r/rows)*.16,o:.6+.4*((r+k+c)%3===0?1:.7)}); }
+      st.x0=xs; st.x1=xs+cols*bw+(cols-1)*gap;
+      st.p=slots; st.step=step;
+    } else if(st.kind==='gather'){
+      const n=Math.round(Math.max(140,Math.min(260,W*H/420)));
+      st.p=Array.from({length:n},()=>({u:Math.random(),sp:rnd(.75,1.25),y0:(Math.random()*2-1),ph:rnd(0,7),o:rnd(.45,1),s:rnd(.8,1.25)}));
+      st.k=Array.from({length:34},(_,i)=>({a:rnd(0,Math.PI*2),r:Math.sqrt(Math.random()),sp:rnd(.15,.4)*(i%2?1:-1),o:rnd(.6,1)}));
+      st.m=m;
+    } else if(st.kind==='loop'){
+      const n=Math.round(Math.max(110,Math.min(190,m*.7)));
+      st.p=Array.from({length:n},(_,i)=>({a:i/n*Math.PI*2,dr:(i%3-1)*.026+((i*7)%5-2)*.006,o:.75+.25*((i*13)%4)/3}));
+      st.m=m;
+    } else if(st.kind==='lift'){
+      const n=Math.round(Math.max(90,Math.min(220,W*H/450)));
+      st.p=Array.from({length:n},(_,i)=>({g:i%2,x:rnd(.08,.92)*W,dy:(Math.random()+Math.random()-1)*H*.09,ph:rnd(0,7),o:rnd(.5,1)}));
     } else {
       const n=Math.round(Math.max(120,Math.min(260,W*H/1300)));
       st.p=Array.from({length:n},()=>{const a=rnd(0,Math.PI*2), r=Math.sqrt(Math.random())*.36*m;
@@ -1675,8 +2148,12 @@ show(true); requestAnimationFrame(frame);
     const {ctx,W,H,p,m}=st;
     // a leader sweeps a slow, looping path; each pixel sits at the point the leader passed a little while ago,
     // so the flock is a full ribbon from the first frame, independent of frame rate
-    const lead=tt=>{const s=tt*.00021;return [W*(.5+.3*Math.sin(s*1.9)+.06*Math.sin(s*5.3)), H*(.5+.26*Math.sin(s*2.7+1.1)+.05*Math.cos(s*6.1))]};
-    const SPAN=8300, s=t*.00021;
+    // swirl: the same flock, but the leader loops round a breathing, slightly lopsided circle so the ribbon chases its own tail
+    const R=m*.3, lead=st.kind==='swirl'
+      ? (tt=>{const s=tt*.00021, an=tt*.00058, r=R*(1+.1*Math.sin(s*3.1)+.05*Math.sin(an*2.3+1));
+          return [W/2+Math.cos(an)*r*1.12+W*.025*Math.sin(s*5.3), H/2+Math.sin(an)*r+H*.03*Math.cos(s*4.1)]})
+      : (tt=>{const s=tt*.00021;return [W*(.5+.3*Math.sin(s*1.9)+.06*Math.sin(s*5.3)), H*(.5+.26*Math.sin(s*2.7+1.1)+.05*Math.cos(s*6.1))]});
+    const SPAN=st.kind==='swirl'?8800:8300, s=t*.00021;
     ctx.fillStyle=getComputedStyle(st.cv).color;
     for(const q of p){
       const tu=t-q.u*SPAN, a=lead(tu), b2=lead(tu-32);
@@ -1687,6 +2164,59 @@ show(true); requestAnimationFrame(frame);
       if(!q.on){q.x=tx;q.y=ty;q.on=1} else {q.x+=(tx-q.x)*q.lag; q.y+=(ty-q.y)*q.lag;}
       const z=2.3*q.s; ctx.globalAlpha=q.o*(.55+.45*(1-q.u)); ctx.fillRect(q.x-z/2,q.y-z/2,z,z);
     }
+    ctx.globalAlpha=1;
+  }
+
+  function bars(st,t){
+    const {ctx,W,H,p}=st; const Tc=7000, ph=((t-st.t0)%Tc)/Tc, z=st.step-2;
+    ctx.fillStyle=getComputedStyle(st.cv).color;
+    const out=ph>.82?1-(ph-.82)/.18:1;
+    for(const q of p){ const pr=Math.max(0,Math.min(1,(ph-q.d)/.1)); if(pr<=0) continue;
+      const e=1-Math.pow(1-pr,3), y=-8+(q.y+8)*e;
+      ctx.globalAlpha=q.o*out*(.3+.7*e); ctx.fillRect(q.x,y,z,z); }
+    ctx.globalAlpha=.35; ctx.fillRect(st.x0-6,H*.84+4,st.x1-st.x0+10,1); ctx.globalAlpha=1;
+  }
+  function gather(st,t){
+    // loose pixels rise from the bottom, drawn together into a tight cluster that keeps a core; a ring marks the point they gather
+    const {ctx,W,H,p,k,m}=st; const s=(t-st.t0)*.001, tx=W*.5, ty=H*.5, cr=m*.085, y0=H*1.02;
+    ctx.fillStyle=getComputedStyle(st.cv).color; ctx.strokeStyle=ctx.fillStyle;
+    for(const q of p){ const pr=(q.u+s*.075*q.sp)%1, e=1-Math.pow(1-pr,2.2), spread=.16+.84*Math.pow(1-e,1.3);
+      const y=y0+(ty-y0)*e+Math.sin(s*.9+q.ph)*4*spread,
+            x=tx+q.y0*W*.44*spread+Math.sin(pr*7+q.ph+s*.6)*W*.045*spread;
+      const a=Math.min(1,pr*6)*(1-Math.min(1,Math.max(0,(pr-.74)/.16))); if(a<=0) continue;
+      const z=2.3*q.s; ctx.globalAlpha=q.o*a*(.45+.55*e); ctx.fillRect(x-z/2,y-z/2,z,z); }
+    for(const q of k){ const an=q.a+s*q.sp, r=cr*(.25+.75*q.r)*(1+.08*Math.sin(s*1.3+q.a));
+      const x=tx+Math.cos(an)*r, y=ty+Math.sin(an)*r*.85, z=2.6; ctx.globalAlpha=q.o; ctx.fillRect(x-z/2,y-z/2,z,z); }
+    ctx.lineWidth=1.2; ctx.globalAlpha=.85; ctx.beginPath(); ctx.arc(tx,ty,cr*1.55,0,Math.PI*2); ctx.stroke();
+    const ph=(s%2.2)/2.2, pe=1-Math.pow(1-ph,2); ctx.globalAlpha=(1-ph)*.6;
+    ctx.beginPath(); ctx.arc(tx,ty,cr*1.55*(1+pe*.9),0,Math.PI*2); ctx.stroke();
+    ctx.globalAlpha=1;
+  }
+  function loop(st,t){
+    // a connected ring of pixels; a bright head keeps travelling round it, like attention held on a loop
+    const {ctx,W,H,p,m}=st; const TAU=Math.PI*2, R=m*.3*(1+.02*Math.sin(t*.0011)), head=((t-st.t0)*.0017)%TAU, cx=W/2, cy=H/2;
+    ctx.fillStyle=getComputedStyle(st.cv).color;
+    for(const q of p){ let d=(head-q.a)%TAU; if(d<0) d+=TAU;              // distance behind the head
+      const k=1-d/TAU, rr=R*(1+q.dr), z=3.2+2.6*Math.pow(k,6);
+      const x=cx+Math.cos(q.a-Math.PI/2)*rr, y=cy+Math.sin(q.a-Math.PI/2)*rr;
+      ctx.globalAlpha=q.o*(.45+.55*Math.pow(k,1.6)); ctx.fillRect(x-z/2,y-z/2,z,z); }
+    const hx=cx+Math.cos(head-Math.PI/2)*R, hy=cy+Math.sin(head-Math.PI/2)*R, hz=8;
+    ctx.globalAlpha=1; ctx.fillRect(hx-hz/2,hy-hz/2,hz,hz);
+    ctx.globalAlpha=1;
+  }
+  function lift(st,t){
+    const {ctx,W,H,p}=st; const Tc=6500, ph=((t-st.t0)%Tc)/Tc, s=t*.001;
+    const up=ph<.12?0:ph<.5?(1-Math.cos(Math.PI*(ph-.12)/.38))/2:ph<.86?1:1-(ph-.86)/.14;
+    const base=H*.66, top=base-H*.3*up, col=getComputedStyle(st.cv).color;
+    ctx.fillStyle=col; ctx.strokeStyle=col;
+    for(const q of p){ const cy=q.g?top:base, x=q.x+Math.sin(s*.6+q.ph)*3, y=cy+q.dy+Math.cos(s*.8+q.ph)*2;
+      ctx.globalAlpha=q.g?q.o:q.o*.32; const z=q.g?3:2.6; ctx.fillRect(x-z/2,y-z/2,z,z); }
+    ctx.globalAlpha=.5; ctx.setLineDash([3,4]); ctx.lineWidth=1;
+    ctx.beginPath(); ctx.moveTo(W*.06,base); ctx.lineTo(W*.94,base); ctx.stroke();
+    if(up>.02){ ctx.beginPath(); ctx.moveTo(W*.06,top); ctx.lineTo(W*.94,top); ctx.stroke(); }
+    ctx.setLineDash([]);
+    if(up>.15){ const ax=W*.9; ctx.globalAlpha=Math.min(1,(up-.15)*2); ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(ax,base-4); ctx.lineTo(ax,top+6); ctx.moveTo(ax-4,top+11); ctx.lineTo(ax,top+5); ctx.lineTo(ax+4,top+11); ctx.stroke(); }
     ctx.globalAlpha=1;
   }
 
@@ -1716,16 +2246,21 @@ show(true); requestAnimationFrame(frame);
   function frame(now){
     for(const st of states){
       if(!st.W) { st.fit(); continue; }
-      const r=st.cv.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight||getComputedStyle(st.cv.closest('.pane-inner')||st.cv).opacity==='0') continue;
+      const r=st.cv.getBoundingClientRect(); if(r.bottom<0||r.top>innerHeight||getComputedStyle(st.cv.closest('.pane-inner,[data-art-host]')||st.cv).opacity==='0') continue;
       st.ctx.setTransform(st.dpr,0,0,st.dpr,0,0); st.ctx.clearRect(0,0,st.W,st.H);
       const t=RMQ.matches?st.t0+4000:now;
-      (st.kind==='murmur'?murmur:focus)(st,t);
+      ({murmur,swirl:murmur,bars,lift,loop,gather,focus}[st.kind]||focus)(st,t);
     }
     if(!RMQ.matches) requestAnimationFrame(frame);
   }
-  if(RMQ.matches){ // settle the flock into a still shape, then draw once
-    for(const st of states){ if(st.kind==='murmur'&&st.p) murmur(st,st.t0); }
-    setTimeout(()=>frame(performance.now()),60);
+  if(RMQ.matches){ // settle the flock into a still shape, then draw each canvas once it becomes visible
+    for(const st of states){ if((st.kind==='murmur'||st.kind==='swirl')&&st.p) murmur(st,st.t0); }
+    const once=()=>{ const left=states.filter(st=>!st.done); if(!left.length) return;
+      const keep=states.slice(); states.length=0; states.push(...left); frame(performance.now());
+      left.forEach(st=>{ const r=st.cv.getBoundingClientRect(), h=st.cv.closest('.pane-inner,[data-art-host]')||st.cv;
+        if(st.W&&!(r.bottom<0||r.top>innerHeight||getComputedStyle(h).opacity==='0')) st.done=true; });
+      states.length=0; states.push(...keep); };
+    setTimeout(once,60); setInterval(once,400); addEventListener('scroll',once,{passive:true});
   } else requestAnimationFrame(frame);
 })();
 </script>
@@ -1793,5 +2328,4 @@ const JOIN_ENDPOINT='';
   form.addEventListener('input',clear); form.addEventListener('change',clear);
 })();
 </script>
-</body>
-</html>
+</body></html>
