@@ -1186,6 +1186,16 @@ html.join-open{overflow:hidden}
   .split-stage .pp-trio,.split-stage .pr{transform:scale(.86)}
 }
 @media (prefers-reduced-motion:reduce){.fw-num{transition:none}}
+
+@media (max-width:760px){
+  .fw-num:last-child{width:46px;height:46px;font-size:20px;background:#1a1a17;color:#d2ff00;border:3px solid #fffcf7;box-shadow:0 0 0 5px rgba(26,26,23,.35)}
+  .fw-num:last-child.on{background:#1a1a17;color:#d2ff00;border-color:#fffcf7;box-shadow:0 0 0 5px rgba(26,26,23,.35),0 0 24px 6px rgba(210,255,0,.45)}
+  .fw-num.pulse::before,.fw-num.pulse::after{content:"";position:absolute;inset:-3px;border-radius:50%;border:3px solid #fffcf7;animation:fwPulse 2.2s cubic-bezier(.2,.6,.3,1) infinite;pointer-events:none}
+  .fw-num.pulse::after{animation-delay:1.1s}
+}
+@keyframes fwPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
+@media (prefers-reduced-motion:reduce){.fw-num.pulse::before,.fw-num.pulse::after{animation:none;opacity:.4;transform:scale(1.5)}}
+@media (max-width:760px){.fw-cnum.r{background:#1a1a17;color:#d2ff00;box-shadow:0 0 0 2px #fffcf7}}
 </style>
 
 <main>
@@ -2053,6 +2063,9 @@ function wheelScene(el){
     const m=ease(seg(p,.68,.735)), stP=ease(seg(p,.915,.945));
     let y=lerp(mobile?-H*.08:0,-H*.13,stP);
     let s=lerp(.3,mobile?1.1:1.08,m); s=lerp(s,.62,stP);
+    if(mobile){ // fit the wheel in the space between the title and the caption, however short the screen
+      const tb=ttl?ttl.offsetTop+ttl.offsetHeight:80, W0=wrap.offsetWidth||1, capH=Math.max(140,cap.offsetHeight||0);
+      const sMax=Math.max(.5,Math.min(1.1,(H-tb-28-capH-22)/W0)); s=lerp(.3,sMax,m); y=tb+16+W0*sMax/2-H/2; }
     wrap.style.transform=`translate(-50%,-50%) translate(0px,${y}px)`;
     wrap.style.opacity=m*(1-seg(p,.965,.995));
     const rot=RM?0:((t*.024)-(1-m)*140)%360;
@@ -2068,9 +2081,13 @@ function wheelScene(el){
       if(r>.5)cur=i;
       if(d.k==='intelligence'){core.style.opacity=r*fade;core.style.transform=`translate(-50%,-50%) scale(${lerp(.2,1,r)})`;leader.style.transform=`translateY(-50%) scaleX(${r*fade})`}
     });
-    if(cur!==capIdx){capIdx=cur; if(cur>=0){$('[data-cap-h]',cap).innerHTML=`<span class="fw-cnum">${cur+1}</span>${PARTS[cur].h}`;$('[data-cap-p]',cap).textContent=PARTS[cur].p} dots.forEach((d,i)=>d.classList.toggle('on',i<=cur))}
+    if(cur!==capIdx){capIdx=cur; if(cur>=0){$('[data-cap-h]',cap).innerHTML=`<span class="fw-cnum${cur===3?' r':''}">${cur+1}</span>${PARTS[cur].h}`;$('[data-cap-p]',cap).textContent=PARTS[cur].p} dots.forEach((d,i)=>d.classList.toggle('on',i<=cur))}
     cap.style.opacity=(cur>=0?1:0)*fade;
-    nums.forEach((n,i)=>{ n.style.opacity=m*fade; n.classList.toggle('on',i===cur); n.classList.toggle('seen',i<cur); n.style.transform=`translate(-50%,-50%) rotate(${-rot}deg)`; });
+    const rI=ease(seg(p,FLY_S[3],FLY_S[3]+.03)), all=cur===3;
+    nums.forEach((n,i)=>{ const last=i===3;
+      n.style.opacity=(last?rI:m)*fade;
+      n.classList.toggle('on',last?all:(i===cur||all)); n.classList.toggle('seen',!last&&i<cur&&!all); n.classList.toggle('pulse',last&&all);
+      n.style.transform=`translate(-50%,-50%) rotate(${-rot}deg) scale(${last?lerp(.3,1,rI):1})`; });
     if(mobile){ cap.style.top=(H/2+y+wrap.offsetWidth*s/2+18)+'px'; cap.style.bottom='auto'; } else { cap.style.top=''; cap.style.bottom=''; }
     const so=seg(p,.92,.95)*(1-seg(p,.97,.995)); st.style.opacity=so; if(so>.85) st.classList.add('hl-on'); else if(so<.15) st.classList.remove('hl-on'); st.style.transform=`translateY(${(1-seg(p,.92,.95))*24}px)`;
   }};
