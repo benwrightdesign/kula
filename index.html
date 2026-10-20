@@ -1165,6 +1165,27 @@ html.join-open{overflow:hidden}
 .legal-table>div{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--line)}
 .legal-table .lt-head{font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
 @media (max-width:600px){.legal-table>div{grid-template-columns:1fr;gap:4px}.legal-table .lt-head{display:none}.legal-table span[role=cell]:last-child{color:var(--mute)}}
+
+/* flywheel numbers (phones): badges in the loops, matched by the caption number */
+.fw-num{display:none}
+.fw-cnum{display:none}
+@media (max-width:760px){
+  .fw-num{display:flex;position:absolute;z-index:3;width:30px;height:30px;margin:0;align-items:center;justify-content:center;border-radius:50%;
+    font:700 14px/1 var(--f-display);color:#d2ff00;border:2px solid rgba(210,255,0,.55);background:#335900;opacity:0;transition:background .3s,color .3s,border-color .3s,box-shadow .3s}
+  .fw-num.seen{border-color:#d2ff00}
+  .fw-num.on{background:#d2ff00;color:#335900;border-color:#d2ff00;box-shadow:0 0 0 6px rgba(210,255,0,.25),0 0 0 12px rgba(210,255,0,.1)}
+  [data-scene="wheel"] .fw-core{display:none}
+  .fw-cnum{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;background:#d2ff00;color:#335900;font-size:15px;font-weight:700;margin-right:10px;vertical-align:3px}
+  .fw-caption .dots{display:none}
+  .eq2{display:block;margin-top:.2em}
+  /* We create / What works on phones: graphic and copy grouped and centred in each half, supporting line shown */
+  .split-stage .pane-inner{justify-content:center;align-items:center;gap:8px}
+  .split-stage .pane-art{flex:none;width:100%;height:58%}
+  .split-stage .pane-copy h2{margin-bottom:4px}
+  .split-stage .pane-copy p.lede{display:block;font-size:14px;line-height:1.4;max-width:300px;margin:0 auto;min-height:0}
+  .split-stage .pp-trio,.split-stage .pr{transform:scale(.86)}
+}
+@media (prefers-reduced-motion:reduce){.fw-num{transition:none}}
 </style>
 
 <main>
@@ -1179,10 +1200,8 @@ html.join-open{overflow:hidden}
   <button class="tool-btn menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu">Menu</button>
 </header>
 <div class="mmenu" id="mobileMenu" hidden>
-  <a href="#home"><small>Start</small>Home</a>
-  <a href="#work"><small>We create</small>Work</a>
-  <a href="#how"><small>What works</small>How it works</a>
   <a href="#about"><small>Why Kula</small>About</a>
+  <a href="#join" data-join><small>For creators</small>Creators – Join us</a>
   <a href="#contact"><small>Let's talk</small>Contact</a>
 </div>
 <div class="xfade" id="xfade" aria-hidden="true"><div class="xf-fw" data-fw></div></div>
@@ -1249,7 +1268,7 @@ html.join-open{overflow:hidden}
     <div class="stage split-stage">
       <div class="conv">
         <h2 class="conv-h"><span class="cw-l">We create</span><span class="cw-r">what works.</span></h2>
-        <p class="eq">Creativity <span class="x">×</span> Intelligence <span class="x">=</span> <b>Predictable Growth</b></p>
+        <p class="eq">Creativity <span class="x">×</span> Intelligence <span class="eq2"><span class="x">=</span> <b>Predictable Growth</b></span></p>
       </div>
       <div class="pane pane-l on-lime"><div class="pane-inner">
         <div class="pane-art pp-trio" aria-label="Creator ads made with Kula" role="img">
@@ -2026,6 +2045,9 @@ function wheelScene(el){
   wrap.insertAdjacentHTML('beforeend',PARTS.map((d,i)=>`<div class="fw-label${d.r?' r':''}" style="left:${d.x*100}%;top:${d.y*100}%"><p class="k">0${i+1}</p><h3>${d.h}</h3><p>${d.p}</p></div>`).join(''));
   wrap.insertAdjacentHTML('beforeend','<div class="fw-core"></div><div class="fw-leader"></div>');
   const core=$('.fw-core',el), leader=$('.fw-leader',el), labels=$$('.fw-label',el), dots=$$('.dots i',cap); let capIdx=-2;
+  // number badges sit inside each loop of the mark (and its centre) and ride round with the wheel
+  const NUMPOS=[[.236,.443],[.679,.297],[.584,.754],[.5,.5]];      // creators, brand, media, intelligence
+  const nums=NUMPOS.map(([x,y],i)=>{ const n=document.createElement('span'); n.className='fw-num'; n.textContent=i+1; n.style.left=x*100+'%'; n.style.top=y*100+'%'; spin.append(n); return n; });
   return {el,update(q,t){
     const H=innerHeight, p=WH_START+q*(WH_END-WH_START);
     const m=ease(seg(p,.68,.735)), stP=ease(seg(p,.915,.945));
@@ -2033,7 +2055,8 @@ function wheelScene(el){
     let s=lerp(.3,mobile?1.1:1.08,m); s=lerp(s,.62,stP);
     wrap.style.transform=`translate(-50%,-50%) translate(0px,${y}px)`;
     wrap.style.opacity=m*(1-seg(p,.965,.995));
-    spin.style.transform=`scale(${s}) rotate(${RM?0:((t*.024)-(1-m)*140)%360}deg)`;
+    const rot=RM?0:((t*.024)-(1-m)*140)%360;
+    spin.style.transform=`scale(${s}) rotate(${rot}deg)`;
     spin.classList.add('centred');
     const fade=1-seg(p,.90,.915), size=wrap.offsetWidth; let cur=-1;
     if(ttl){ const ti=ease(seg(p,.715,.75)); ttl.style.opacity=ti*fade; ttl.style.transform=`translateY(${(1-ti)*18}px)`; }
@@ -2045,8 +2068,10 @@ function wheelScene(el){
       if(r>.5)cur=i;
       if(d.k==='intelligence'){core.style.opacity=r*fade;core.style.transform=`translate(-50%,-50%) scale(${lerp(.2,1,r)})`;leader.style.transform=`translateY(-50%) scaleX(${r*fade})`}
     });
-    if(cur!==capIdx){capIdx=cur; if(cur>=0){$('[data-cap-h]',cap).textContent=PARTS[cur].h;$('[data-cap-p]',cap).textContent=PARTS[cur].p} dots.forEach((d,i)=>d.classList.toggle('on',i<=cur))}
+    if(cur!==capIdx){capIdx=cur; if(cur>=0){$('[data-cap-h]',cap).innerHTML=`<span class="fw-cnum">${cur+1}</span>${PARTS[cur].h}`;$('[data-cap-p]',cap).textContent=PARTS[cur].p} dots.forEach((d,i)=>d.classList.toggle('on',i<=cur))}
     cap.style.opacity=(cur>=0?1:0)*fade;
+    nums.forEach((n,i)=>{ n.style.opacity=m*fade; n.classList.toggle('on',i===cur); n.classList.toggle('seen',i<cur); n.style.transform=`translate(-50%,-50%) rotate(${-rot}deg)`; });
+    if(mobile){ cap.style.top=(H/2+y+wrap.offsetWidth*s/2+18)+'px'; cap.style.bottom='auto'; } else { cap.style.top=''; cap.style.bottom=''; }
     const so=seg(p,.92,.95)*(1-seg(p,.97,.995)); st.style.opacity=so; if(so>.85) st.classList.add('hl-on'); else if(so<.15) st.classList.remove('hl-on'); st.style.transform=`translateY(${(1-seg(p,.92,.95))*24}px)`;
   }};
 }
@@ -2299,7 +2324,8 @@ let scenes=[], lines=[], spins=[];
         for(const [at,len] of c.holds){ const y0=top+(at*c.base+accv)/T*run; push(y0+6, y0+len/T*run-6); accv+=len; }
         if(!c.holds.length) push(top);
       } else {
-        push(top);
+        const off=el.matches('.logos,.final')?(($('header.nav')||{}).offsetHeight||0):0;   // land these bands just under the fixed nav, not behind it
+        push(top-off);
         for(let y=top+ih*.85;y<top+h-ih*.5;y+=ih*.85) push(y);
       }
     }
