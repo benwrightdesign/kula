@@ -538,7 +538,7 @@ fieldset{border:0;padding:0;margin:0}
 
 /* ================= KULA BRAND LAYER ================= */
 /* Scene themes: green (hero, final CTA, loader, menu) and dark (process, footer). Lime only ever as a fill or on green/dark. */
-[data-scene="fly"],[data-scene="manifesto"],.pane-r,.route-r,.c-hero,.final,.mmenu,.xfade,.t-green{
+[data-scene="fly"],[data-scene="wheel"],[data-scene="manifesto"],.pane-r,.route-r,.c-hero,.final,.mmenu,.xfade,.t-green{
   --ink:#335900; --ink-2:#2d4f00; --ink-3:#3f6510; --line:rgba(255,252,247,.2); --mute:#cdd8bc; --paper:#fffcf7;
   --lime:#d2ff00; --lime-dim:#99ac80; --moss:#335900; --lime-2:rgba(210,255,0,.14); --grid:rgba(255,252,247,.07); --glow:rgba(210,255,0,.16);
   background:var(--ink); color:var(--paper)}
@@ -582,10 +582,10 @@ h1 em,h2 em{font-size:1.04em}
 .tile.note-t.lime small{color:var(--green)}
 
 /* Hero: lime mark on green, like the guide cover */
-[data-scene="fly"] .fw-spin,[data-scene="fly"] .fw-spin.centred{color:var(--lime)}
-[data-scene="fly"] .fw-core{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 10px rgba(210,255,0,.15)}
-[data-scene="fly"] .fw-core::after{background:var(--green)}
-[data-scene="fly"] .fw-leader{background:var(--accent)}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-spin,:is([data-scene="fly"],[data-scene="wheel"]) .fw-spin.centred{color:var(--lime)}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-core{background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 10px rgba(210,255,0,.15)}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-core::after{background:var(--green)}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-leader{background:var(--accent)}
 
 /* Faint oversized mark behind the manifesto (guide p.2) */
 .m-fw{color:rgba(255,252,247,.045)}
@@ -733,13 +733,13 @@ h1 em,h2 em{font-size:1.04em}
 ::selection{background:var(--accent);color:var(--green)}
 [hidden]:not([hidden=until-found i]){display:none!important}
 /* Intelligence marker: Dark core ringed in Light, Light pulse and leader, so it separates from both the lime mark and the green ground */
-[data-scene="fly"] .fw-core{width:13%;background:var(--dark);border:3px solid var(--light);box-shadow:0 0 0 6px rgba(26,26,23,.35)}
-[data-scene="fly"] .fw-core::after{inset:32%;background:var(--light)}
-[data-scene="fly"] .fw-core::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--light);animation:kpulse 2.4s cubic-bezier(.2,.6,.3,1) infinite}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-core{width:13%;background:var(--dark);border:3px solid var(--light);box-shadow:0 0 0 6px rgba(26,26,23,.35)}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-core::after{inset:32%;background:var(--light)}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-core::before{content:"";position:absolute;inset:-3px;border-radius:50%;border:2px solid var(--light);animation:kpulse 2.4s cubic-bezier(.2,.6,.3,1) infinite}
 @keyframes kpulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.6);opacity:0}}
-[data-scene="fly"] .fw-leader{background:var(--light);height:2px;width:51%}
-[data-scene="fly"] .fw-leader::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--light)}
-@media (prefers-reduced-motion:reduce){[data-scene="fly"] .fw-core::before{animation:none;opacity:.5;transform:scale(1.6)}}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-leader{background:var(--light);height:2px;width:51%}
+:is([data-scene="fly"],[data-scene="wheel"]) .fw-leader::after{content:"";position:absolute;right:-4px;top:50%;width:8px;height:8px;margin-top:-4px;border-radius:50%;background:var(--light)}
+@media (prefers-reduced-motion:reduce){:is([data-scene="fly"],[data-scene="wheel"]) .fw-core::before{animation:none;opacity:.5;transform:scale(1.6)}}
 /* Long emphasis (case headlines): keep green, drop to Jakarta light so the serif stays sparing */
 .c-h em{font-family:var(--f-display);font-style:normal;font-weight:300;font-size:1em;letter-spacing:-.045em}
 .prob .eyebrow{color:var(--lime)}
@@ -909,7 +909,7 @@ html.join-open{overflow:hidden}
 .lg-heads{position:relative;flex:none;width:100%;height:var(--lh);--lh:clamp(34px,min(6.2vh,6.2vw),80px);margin-bottom:clamp(26px,5.5vh,64px)}
 .lg-h{position:absolute;left:0;right:0;top:0;text-align:center;font-size:var(--lh);font-weight:600;letter-spacing:-.045em;line-height:1;color:var(--lime);opacity:0;will-change:transform,opacity}
 .lg-mid{position:relative;flex:none;display:flex;justify-content:center}
-.lg-card{--w:min(310px,27vh,54vw);position:relative;z-index:3;width:var(--w);background:#fffcf7;color:#1a1a17;border-radius:calc(var(--w)*.075);
+.lg-card,.pr-card{--w:min(310px,27vh,54vw);position:relative;z-index:3;width:var(--w);background:#fffcf7;color:#1a1a17;border-radius:calc(var(--w)*.075);
   padding:calc(var(--w)*.055);box-shadow:0 30px 60px -28px rgba(0,0,0,.55),0 0 0 1px rgba(255,252,247,.25);opacity:0;will-change:transform,opacity;
   font-size:calc(var(--w)*.042);line-height:1.25;display:flex;flex-direction:column;gap:calc(var(--w)*.04)}
 .pc-top{display:flex;justify-content:space-between;align-items:center;gap:6px}
@@ -1060,16 +1060,118 @@ html.join-open{overflow:hidden}
 @media (prefers-reduced-motion:reduce){.sc-ad{transition:none}}
 .sc-screen::after{content:"";position:absolute;left:0;right:0;top:0;height:34%;z-index:1;pointer-events:none;background:linear-gradient(rgba(26,26,23,.62),transparent)}
 [data-scene="showcase"] + .final, [data-scene="showcase"] ~ .final{margin-top:0;border-top:1px solid var(--line)}
+.logos + .final{border-top:0}
+
+/* ================= Split panes: creator ads (We create) + tagged profile (What works) ================= */
+.pp-trio{display:flex;align-items:center;justify-content:center;gap:3cqw;overflow:visible;container-type:size;--c:min(calc(94cqh*9/19),35cqw)}
+.pp{--pw:calc(var(--c)*.76);container-type:inline-size;width:var(--pw);height:calc(var(--pw)*19/9);border-radius:calc(var(--pw)*.15);background:#1a1a17;padding:calc(var(--pw)*.035);box-sizing:border-box;flex:none;
+  box-shadow:0 30px 60px -30px rgba(0,0,0,.55);position:relative}
+.pp-c{--pw:var(--c);z-index:2}
+.pp-s.l{transform:rotate(-4deg)}.pp-s.r{transform:rotate(4deg)}
+.pp::before{content:"";position:absolute;top:calc(var(--pw)*.06);left:50%;width:28%;height:calc(var(--pw)*.07);transform:translateX(-50%);background:#1a1a17;border-radius:999px;z-index:3}
+.pp-scr{position:relative;width:100%;height:100%;border-radius:12cqw;overflow:hidden;background:#23231f}
+.pp-scr video{width:100%;height:100%;object-fit:cover;display:block}
+.pp-scr::after{content:"";position:absolute;inset:0 0 auto;height:32%;background:linear-gradient(rgba(26,26,23,.6),transparent);pointer-events:none}
+.pp-bars{position:absolute;left:5%;right:5%;top:15cqw;display:flex;gap:1.5cqw;z-index:2}
+.pp-bars i{flex:1;height:1.1cqw;min-height:2px;border-radius:2px;background:rgba(255,252,247,.35);overflow:hidden}
+.pp-bars b{display:block;height:100%;width:0;background:#fffcf7}
+.pp-top{position:absolute;left:5%;right:5%;top:20cqw;display:flex;align-items:center;gap:2.4cqw;z-index:2;color:#fffcf7;font-size:4.4cqw;white-space:nowrap}
+.pp-top span{opacity:.8;font-size:.88em}
+.pp-av{width:10cqw;height:10cqw;border-radius:50%;background:#335900;color:#d2ff00;padding:1.8cqw;box-sizing:border-box;flex:none;opacity:1!important}
+.pp-av svg{width:100%;height:100%;display:block;fill:currentColor}
+.pp-bot{position:absolute;inset:auto 0 0;padding:20% 6% 7%;z-index:2;background:linear-gradient(transparent,rgba(26,26,23,.75));display:flex;flex-direction:column;gap:3cqw}
+.pp-bot p{margin:0;color:#fffcf7;font-size:4.2cqw;opacity:.9}
+.pp-bot span{display:block;text-align:center;background:#d2ff00;color:#335900;font-weight:700;font-size:4.6cqw;padding:.7em;border-radius:.7em}
+
+.pr{container-type:size;overflow:visible}
+/* card height matches the main phone in the We create panel (card is ~1.73× taller than wide) */
+.pr-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;opacity:1!important;--w:min(calc(min(94cqh,73.9cqw)/1.73*.97),46cqw)}
+.pr-orbit{position:absolute;left:50%;top:50%;width:0;height:0;z-index:auto}
+.pr-lines{position:absolute;left:-50cqw;top:-50cqh;width:100cqw;height:100cqh;overflow:visible;z-index:4}
+.pr-lines line{stroke:#d2ff00;stroke-width:1;stroke-dasharray:3 3;opacity:.9}
+.pr-lines circle{fill:#d2ff00}
+.pr .lg-tag{opacity:1;z-index:5}
+.pr .lg-tag.lg-ghost{z-index:0}
+.pr-ghosts{position:absolute;left:0;top:0;width:0;height:0;z-index:0}
+@media (max-width:760px){
+  .pr .lg-tag{font-size:9.5px;padding:4px 7px 4px 5px}
+}
+
+/* headings and copy centred under each visual */
+.split-stage .pane-copy{text-align:center}
+.split-stage .pane-copy p.lede{margin-left:auto;margin-right:auto}
+/* both graphics drawn at 72% of the panel's art area */
+.split-stage .pp-trio,.split-stage .pr{transform:scale(.72);transform-origin:50% 50%}
+
+.tick-item:hover,.tick-item:focus-visible{background:var(--ink-2)}
+.tick-item:hover img,.tick-item:focus-visible img{transform:none}
+@media (max-width:760px){.tick-item:hover img,.tick-item:focus-visible img{transform:scale(.8)}}
+
+/* About: "solves these problems" + We create what works */
+.ab-solve{padding-top:clamp(56px,9vh,110px);text-align:center}
+.ab-intro{margin:0 auto;max-width:900px;font-size:clamp(20px,1.9vw,28px);font-weight:600;letter-spacing:-.02em;line-height:1.25;color:inherit}
+.ab-intro span{display:block;font-weight:400;color:var(--mute);margin-top:.35em}
+.ab-h{margin:clamp(22px,4vh,44px) 0 0;font-size:clamp(46px,8vw,128px);letter-spacing:-.045em;line-height:.95}
+.ab-h b{font-weight:600}.ab-h span{font-weight:300}
+.ab-solve .duo-explain{text-align:left;border-top:0;padding-top:clamp(36px,6vh,64px);align-items:start}
+@media (max-width:560px){.ab-solve .duo-explain{text-align:center}.duo-explain h3 br{display:none}}
+/* What Kula believes: moving image behind, tinted green so the copy stays legible */
+.m-stage{position:sticky;overflow:hidden}
+.m-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
+.m-bg video{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.2)}
+.m-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(51,89,0,.92) 0%,rgba(51,89,0,.82) 45%,rgba(51,89,0,.7) 100%)}
+.m-stage .manifesto{position:relative;z-index:1}
+@media (max-width:760px){.m-stage{position:relative}.m-bg::after{background:rgba(51,89,0,.86)}}
+
+/* About: We create what works — its own full-screen band, animated on arrival */
+.ab-solve{min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding-block:calc(84px + 4vh) 8vh;margin-top:clamp(40px,7vh,90px);
+  box-shadow:0 0 0 100vmax #f1ede2;clip-path:inset(0 -100vmax);background:#f1ede2}
+.ab-intro .ab-i1{display:block;font-weight:600;color:inherit;margin-top:0}
+.ab-intro .ab-i2{display:block;font-weight:400;color:var(--mute);margin-top:.35em}
+.ab-solve .ab-i1,.ab-solve .ab-i2,.ab-solve .duo-explain>div,.ab-solve .duo-explain .x{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.ab-solve .ab-h b,.ab-solve .ab-h span{display:inline-block;opacity:0;transition:opacity .9s ease,transform 1.15s cubic-bezier(.16,.84,.24,1)}
+.ab-solve .ab-h b{transform:translateX(-28vw)}.ab-solve .ab-h span{transform:translateX(28vw)}
+.ab-solve .duo-explain .x{transform:scale(0) rotate(-135deg);transition-duration:.7s}
+.ab-solve.in .ab-i1{opacity:1;transform:none}
+.ab-solve.in .ab-i2{opacity:1;transform:none;transition-delay:.15s}
+.ab-solve.in .ab-h b,.ab-solve.in .ab-h span{opacity:1;transform:none;transition-delay:.35s}
+.ab-solve.in .duo-explain>div:first-child{opacity:1;transform:none;transition-delay:1.05s}
+.ab-solve.in .duo-explain .x{opacity:1;transform:none;transition-delay:1.25s}
+.ab-solve.in .duo-explain>div:last-child{opacity:1;transform:none;transition-delay:1.4s}
+@media (prefers-reduced-motion:reduce){.ab-solve *{transition:none!important;opacity:1!important;transform:none!important}}
+
+.ab-solve .duo-explain>div:first-child{text-align:right}
+@media (max-width:560px){.ab-solve .duo-explain>div:first-child{text-align:center}}
+
+/* What Kula believes: Talk to the team arrives in the empty space bottom right once the lines have lit */
+.m-stage .manifesto{position:relative}
+.m-cta{position:absolute;left:0;top:0;display:inline-flex;z-index:2;opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+.m-cta.on{opacity:1;transform:none;pointer-events:auto}
+@media (max-width:760px){.m-cta{position:relative;left:auto!important;top:auto!important;margin-top:28px;opacity:1;transform:none;pointer-events:auto}}
+@media (prefers-reduced-motion:reduce){.m-cta{transition:none}}
+
+/* Legal pages */
+.legal{max-width:760px;margin-inline:auto 0;margin-left:0;padding-bottom:clamp(70px,12vh,140px);font-size:17px;line-height:1.65}
+@media (min-width:900px){.legal{margin-left:max(var(--gut),calc((100% - 1440px)/2 + var(--gut)));padding-inline:0}}
+.legal h2{font-size:clamp(22px,2vw,28px);font-weight:600;letter-spacing:-.02em;margin:2.2em 0 .5em}
+.legal h3{font-size:18px;font-weight:600;margin:1.4em 0 .3em}
+.legal p,.legal li{color:inherit}
+.legal p{margin:0 0 1em}
+.legal ul{margin:0 0 1em;padding-left:1.2em}
+.legal li{margin:.35em 0}
+.legal a{color:var(--green,#335900);text-underline-offset:3px}
+.legal mark.ph{background:rgba(210,255,0,.55);color:inherit;padding:0 .2em;border-radius:3px}
+.legal-table{border-top:1px solid var(--line);margin:1em 0 1.4em;font-size:15.5px}
+.legal-table>div{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:12px 0;border-bottom:1px solid var(--line)}
+.legal-table .lt-head{font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+@media (max-width:600px){.legal-table>div{grid-template-columns:1fr;gap:4px}.legal-table .lt-head{display:none}.legal-table span[role=cell]:last-child{color:var(--mute)}}
 </style>
 
 <main>
 <header class="nav">
   <a href="#home" class="brand" aria-label="Kula home" data-reload><svg class="logo" viewBox="0 236 1060 536" role="img" aria-label="Kula"><g class="logo-mark" id="navFw"><path d="M451.48,405.06c13.13-44.23,4.12-97.57-41.61-118.7-45.41-20.99-97.67-.38-123.42,40.53-21.31,33.85-23.59,71.92-14.83,108.38-53.6-40.95-123.22-61.87-188.94-46.14C37.81,399.87-3.88,434.36.69,484.52c4.53,49.82,48.5,84.77,96.81,86.62,39.97,1.53,74.08-15.53,101.28-41.35-8.66,66.89,8.03,137.65,54.51,186.7,31.73,33.49,82.44,52.35,123.6,23.32,40.88-28.84,49.16-84.39,26.61-127.15-18.66-35.38-50.5-56.39-86.45-67.03,62.27-25.94,115.2-75.78,134.44-140.56ZM225.34,538.01c3.06-29.24,11.81-57.63,25.89-83.83,23.79,17.27,44,39.04,59.66,64.34-26.85,11.97-55.81,18.59-85.55,19.49ZM215.71,463.33c-26.69,47.61-76.19,92.76-135.21,77.94-56.3-14.14-71.42-86.89-18.31-115.54,43.92-23.69,101.43-15.33,145.42,3.63,7.02,3.03,13.84,6.39,20.45,10.05-3.81,6.86-7.29,13.95-10.43,21.22-.7.79-1.35,1.68-1.92,2.7ZM251.02,564.19c54.58-.69,118.43,19.6,135.11,78.12,15.9,55.82-39.54,105.3-90.91,73.63-42.48-26.19-63.99-80.18-69.56-127.75-.89-7.59-1.39-15.17-1.52-22.73,7.85-.13,25.72-1.26,26.88-1.27ZM354.19,493.14c-6.13,4.57-12.45,8.79-18.93,12.68-4.04-6.73-13.95-21.64-14.54-22.65-27.89-46.93-42.24-112.37.11-156.07,40.39-41.68,110.96-18.4,109.22,41.92-1.44,49.88-37.44,95.5-75.85,124.11Z"/></g><path transform="translate(32 0)" d="M984.52,551.31c0,23.61-15.18,37.88-35.03,37.88-12.46,0-22.31-6.75-22.31-19.33,0-9.6,6.1-19.85,22.19-24.65,8.69-2.59,19.07-3.63,32.69-3.63,1.82,0,2.47,2.59,2.47,9.73M939.5,534.05c-23.35,6.23-38.4,19.72-38.4,39.96s17.13,32.18,39.05,32.18c15.83,0,30.1-6.36,38.79-15.05,1.04-1.03,2.08-2.72,2.98-2.72s1.69.91,2.08,2.21c3.63,10.25,10.9,14.27,20.89,14.27,11.29,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.07-4.02-2.08,0-3.25,1.3-6.75,1.3-5.58,0-7.66-5.58-7.66-11.55,0-10.64,1.43-34.12,1.43-51.38,0-31.14-18.29-52.16-52.81-52.16-30.49,0-48.52,15.83-48.52,30.23,0,10.25,7.53,14.53,13.37,14.53s8.04-3.24,9.34-9.08c2.47-11.41,9.21-23.48,25.3-23.48,20.11,0,28.02,15.7,28.02,34.77,0,7.66-1.3,9.34-2.33,10.12-2.86,1.94-25.3,2.33-42.82,6.75M870.1,433.9c0-5.19-2.21-7.53-6.62-7.53s-9.34,3.76-21.02,8.43c-7.01,2.72-12.33,3.76-12.33,8.56,0,2.59,2.59,4.28,5.19,5.32,5.19,1.69,8.82,4.41,8.82,9.86v116.5c0,6.49-1.04,11.16-7.4,15.7-2.46,1.81-6.75,3.37-6.75,7.66,0,2.85,1.56,5.32,7.53,5.32,7.4,0,12.59-.65,19.46-.65,5.97,0,12.97.65,17.9.65,6.49,0,8.18-2.47,8.18-5.58,0-4.28-4.02-5.06-7.78-7.78-3.89-2.85-6.23-6.23-6.23-14.14v-102.1c0-27.11,1.04-32.04,1.04-40.22M797.06,513.55c0-22.57,2.98-28.67,2.98-35.68,0-4.02-2.21-6.75-6.23-6.75-4.54,0-14.92,3.37-28.54,4.8-4.93.65-7.66,2.47-7.66,6.36,0,4.15,3.89,5.84,7,8.04,6.1,3.63,7.66,8.31,7.66,16.35v42.03c0,26.47-13.75,39.44-33.21,39.44-22.58,0-28.67-19.46-28.67-40.87,0-42.56,6.35-59.68,6.35-69.28,0-3.37-1.69-6.88-6.75-6.88-5.32,0-11.03,2.47-28.54,4.54-5.84.78-8.82,2.59-8.82,6.62,0,5.19,6.49,6.23,9.86,9.34,2.86,2.86,4.54,5.58,4.54,12.84,0,6.75-2.47,30.36-2.47,50.73,0,27.25,12.32,50.47,43.72,50.47,22.71,0,33.86-11.28,38.14-15.18,1.3-1.3,2.72-2.85,3.5-2.85,1.3,0,1.95,1.43,2.34,2.33,2.47,5.97,7.13,14.92,21.41,14.92,11.16,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.21-4.02-1.95,0-3.12,1.3-6.75,1.3-5.58,0-7.78-5.58-7.78-11.55v-60.2ZM551.33,510.7c-.78,0-1.17-2.98-1.17-29.45,0-13.88,1.04-29.06,1.95-32.44,1.56-10.77,12.32-10.12,12.32-17.13,0-2.99-1.56-5.71-7.66-5.71-4.54,0-12.97.65-19.33.65s-14.79-.65-19.59-.65c-6.35,0-7.78,2.86-7.78,5.71,0,7.78,12.45,6.22,13.62,21.41.26,4.28.26,46.58.26,59.94,0,18.94-.26,63.05-1.04,68.5-1.43,11.16-13.62,9.86-13.62,16.87,0,2.85,2.21,5.32,8.3,5.32,4.93,0,13.36-.65,19.85-.65s16.48.65,21.8.65c5.71,0,8.17-2.21,8.17-5.32,0-4.15-4.8-5.71-9.08-8.56-4.8-2.98-7.91-6.88-7.91-14.79v-38.53c0-5.58,3.37-8.18,9.21-8.18,33.86,0,59.42,40.87,59.42,59.29,0,6.22-3.25,6.75-3.25,10.77,0,2.72,3.12,5.32,7.53,5.32,3.11,0,9.86-.65,19.2-.65,5.84,0,16.09.65,21.15.65,3.37,0,6.62-1.56,6.62-5.71s-3.63-5.19-9.08-8.95c-7.53-5.06-11.16-11.29-15.96-20.24-18.94-34.12-37.24-50.6-65.78-59.16-1.3-.39-1.69-1.04-1.69-1.56,0-.91.65-1.56,1.3-2.34,27.63-27.89,51.64-49.82,60.85-56.57,10.77-7.91,21.53-10.64,21.53-17.51,0-4.15-2.85-5.45-8.56-5.45-4.15,0-19.46.39-23.48.39-4.41,0-13.63-.65-17.52-.65-5.45,0-7.53,2.72-7.53,5.58,0,7,9.08,8.04,9.08,14.14,0,6.75-59.16,65-62.14,65"/></svg></a>
   <nav class="nav-links" aria-label="Main">
-    <div class="duo" role="group" aria-label="We create, What works">
-      <a href="#work" data-nav="work"><b>We create</b><small>Creativity</small></a>
-      <a href="#how" data-nav="how"><span class="light">What works</span><small>Intelligence</small></a>
-    </div>
+    <a href="#about" data-nav="about">About</a>
     <button class="nav-join" type="button" data-join aria-haspopup="dialog" aria-controls="joinPanel" aria-expanded="false"><span class="nj-mark" data-fw aria-hidden="true"></span><span>Creators – <b>Join us</b></span></button>
     <a href="#contact" data-nav="contact" class="nav-cta">Contact</a>
   </nav>
@@ -1080,6 +1182,7 @@ html.join-open{overflow:hidden}
   <a href="#home"><small>Start</small>Home</a>
   <a href="#work"><small>We create</small>Work</a>
   <a href="#how"><small>What works</small>How it works</a>
+  <a href="#about"><small>Why Kula</small>About</a>
   <a href="#contact"><small>Let's talk</small>Contact</a>
 </div>
 <div class="xfade" id="xfade" aria-hidden="true"><div class="xf-fw" data-fw></div></div>
@@ -1137,65 +1240,7 @@ html.join-open{overflow:hidden}
       <div class="hero-copy">
         <h1 class="hero-h">Not another<br>creator agency.</h1>
         <p class="hero-mission">We're on a mission to turn creators into a grown-up marketing channel.</p>
-        <p class="hero-sub">We create <em>what works.</em></p>
         <p class="scroll-cue" aria-hidden="true"><svg viewBox="0 0 24 36" width="24" height="36"><path d="M12 2v30M3 23l9 9 9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
-      </div>
-      <div class="lg" aria-hidden="false">
-        <div class="lg-heads">
-          <h2 class="lg-h lg-h1">Less guesswork.</h2>
-          <h2 class="lg-h lg-h2">More confidence.</h2>
-          <h2 class="lg-h lg-h3">More growth.</h2>
-        </div>
-        <div class="lg-mid">
-          <div class="lg-orbit" aria-hidden="true">
-            <svg class="lg-lines"></svg>
-            <span class="lg-tag" data-x="-1.62" data-y="-0.84" data-mx="-1" data-my="-0.78"><i></i>Face to camera</span>
-            <span class="lg-tag" data-x="1.62" data-y="-0.86" data-mx="1" data-my="-0.78"><i></i>Comments <b>1.2k</b></span>
-            <span class="lg-tag" data-x="-1.98" data-y="-0.4" data-mx="-1" data-my="-0.26"><i></i>Engagement <b>6.4%</b></span>
-            <span class="lg-tag" data-x="1.98" data-y="-0.42" data-mx="1" data-my="-0.26"><i></i>Hook <b>Question</b></span>
-            <span class="lg-tag" data-x="-2.08" data-y="0.08" data-mx="-1" data-my="0.26"><i></i>Tone <b>Conversational</b></span>
-            <span class="lg-tag" data-x="2.08" data-y="0.06" data-mx="1" data-my="0.26"><i></i>Saves &amp; shares</span>
-            <span class="lg-tag" data-x="-1.88" data-y="0.54" data-mx="-1" data-my="0.78"><i></i>Watch time <b>0:21</b></span>
-            <span class="lg-tag" data-x="1.86" data-y="0.5" data-mx="1" data-my="0.78"><i></i>Audience <b>25–34</b></span>
-            <span class="lg-tag d-only" data-x="-1.62" data-y="0.95"><i></i>Format <b>Tutorial</b></span>
-            <span class="lg-tag d-only" data-x="1.62" data-y="0.93"><i></i>Brand fit <b>High</b></span>
-            <p class="lg-lbl l">Product demonstration</p>
-            <p class="lg-lbl r">Lifestyle</p>
-            <div class="lg-shot" data-x="-1.78" data-y="-0.36" data-r="-6" data-src="lg/s1"><video muted loop playsinline preload="none" poster="lg/s1.jpg"></video></div>
-            <div class="lg-shot" data-x="-2.62" data-y="0.06" data-r="4" data-src="lg/s2"><video muted loop playsinline preload="none" poster="lg/s2.jpg"></video></div>
-            <div class="lg-shot" data-x="-1.86" data-y="0.5" data-r="-2" data-src="lg/s3"><video muted loop playsinline preload="none" poster="lg/s3.jpg"></video></div>
-            <div class="lg-shot" data-x="1.78" data-y="-0.38" data-r="5" data-src="lg/s4"><video muted loop playsinline preload="none" poster="lg/s4.jpg"></video></div>
-            <div class="lg-shot" data-x="2.62" data-y="0.04" data-r="-4" data-src="lg/s5"><video muted loop playsinline preload="none" poster="lg/s5.jpg"></video></div>
-            <div class="lg-shot" data-x="1.86" data-y="0.5" data-r="3" data-src="lg/s6"><video muted loop playsinline preload="none" poster="lg/s6.jpg"></video></div>
-          </div>
-          <article class="lg-card" aria-label="Example creator profile, tagged by Kula">
-            <div class="pc-top"><span class="pc-handle">@sofia.makes</span><span class="pc-kula"><span class="pc-k" data-fw></span>Kula profile</span></div>
-            <div class="pc-head"><img class="pc-ava" src="lg/avatar.jpg" alt="">
-              <div class="pc-stats"><div><b>312</b><span>posts</span></div><div><b>84.2k</b><span>followers</span></div><div><b>418</b><span>following</span></div></div></div>
-            <div class="pc-bio"><b>Sofia Marlow</b><span>Style, home and everyday finds. London.</span></div>
-            <div class="pc-btns"><span>Follow</span><span>Message</span></div>
-            <div class="pc-grid"><img src="lg/g1.jpg" alt=""><img src="lg/g2.jpg" alt=""><img src="lg/g3.jpg" alt=""><img src="lg/g4.jpg" alt=""><img src="lg/g5.jpg" alt=""><img src="lg/g6.jpg" alt=""><img src="lg/g7.jpg" alt=""><img src="lg/g8.jpg" alt=""><img src="lg/g9.jpg" alt=""></div>
-          </article>
-        </div>
-        <div class="lg-meas" data-art-host>
-          <p class="lg-meas-k">With measurement</p>
-          <div class="lg-cols">
-            <div class="lg-col"><div class="lg-art"><canvas data-art="swirl" role="img" aria-label="A flock of pixels looping round in a circle, for time spent with content"></canvas></div><h3>Social</h3><ul><li>Content dwell time</li><li>Comment sentiment analysis</li></ul></div>
-            <div class="lg-col"><div class="lg-art"><canvas data-art="gather" role="img" aria-label="Pixels drifting in and gathering into a cluster marked by a ring, for business results"></canvas></div><h3>Business</h3><ul><li>Website visits</li><li>Purchases</li><li>Customer loyalty</li></ul></div>
-            <div class="lg-col"><div class="lg-art"><canvas data-art="focus" role="img" aria-label="A cluster of pixels with rings picking out individual points, for independent measurement"></canvas></div><h3>Independent</h3><ul><li>MMM</li><li>Lift study</li></ul></div>
-          </div>
-        </div>
-        <h2 class="fw-title">Kula is a <em>platform&#8209;powered</em> creator agency.</h2>
-        <div class="lg-copy">
-          <p class="lg-c lg-c1">Every creator we work with is profiled across 48 content attributes, from hook and format to tone of voice and how their audience responds. So we match the right creator to your brief before a single post goes live.</p>
-          <p class="lg-c lg-c2">We know what each creator does best, from product demonstrations to everyday lifestyle moments, and what it delivers. So every brief starts from evidence, not instinct.</p>
-        </div>
-      </div>
-      <div class="fw-wrap"><div class="fw-spin" data-fw></div></div>
-      <div class="fw-caption" aria-live="polite"><div class="dots"><i></i><i></i><i></i><i></i></div><h3 data-cap-h></h3><p data-cap-p></p></div>
-      <div class="fw-statement">
-        <h2>Closed loops are fixed;<br><em>a flywheel builds momentum.</em></h2>
-        <p>The combination of creators, brand, media and intelligence produces exceptional and <span class="hl">predictable growth</span>.</p>
       </div>
     </div>
   </section>
@@ -1205,24 +1250,60 @@ html.join-open{overflow:hidden}
       <div class="conv">
         <h2 class="conv-h"><span class="cw-l">We create</span><span class="cw-r">what works.</span></h2>
         <p class="eq">Creativity <span class="x">×</span> Intelligence <span class="x">=</span> <b>Predictable Growth</b></p>
-        <p class="conv-sub">Kula fuses <span class="hlm">social content expertise with predictive marketing technology</span> to make creator-led marketing more intelligent, measurable and predictable.</p>
       </div>
       <div class="pane pane-l on-lime"><div class="pane-inner">
-        <div class="pane-art"><canvas data-art="murmur" role="img" aria-label="Pixels flowing together like a murmuration"></canvas></div>
+        <div class="pane-art pp-trio" aria-label="Creator ads made with Kula" role="img">
+          <div class="pp pp-s l" data-src="sc/v3"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video>
+            <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
+            <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
+          <div class="pp pp-c" data-src="sc/v1"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video>
+            <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
+            <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
+          <div class="pp pp-s r" data-src="sc/v5"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video>
+            <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
+            <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
+        </div>
         <div class="pane-copy">
           <h2>We create</h2>
           <p class="lede">Powerful, authentic brand stories. Told through creators.</p>
-          <a class="btn btn-moss" href="#work">Explore our work <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div></div>
       <div class="pane pane-r"><div class="pane-inner">
-        <div class="pane-art"><canvas data-art="focus" role="img" aria-label="A cluster of pixels, with individual pixels circled and scored"></canvas></div>
+        <div class="pane-art pr" aria-label="A creator profile tagged with Kula content attributes" role="img">
+          <div class="pr-orbit"><svg class="pr-lines" aria-hidden="true"></svg><div class="pr-ghosts" aria-hidden="true"></div>
+            <span class="lg-tag pr-tag" data-x="-1.62" data-y="-0.84" data-mx="-1" data-my="-0.78"><i></i>Face to camera</span>
+            <span class="lg-tag pr-tag" data-x="1.62" data-y="-0.86" data-mx="1" data-my="-0.78"><i></i>Comments <b>1.2k</b></span>
+            <span class="lg-tag pr-tag" data-x="-1.98" data-y="-0.4" data-mx="-1" data-my="-0.26"><i></i>Engagement <b>6.4%</b></span>
+            <span class="lg-tag pr-tag" data-x="1.98" data-y="-0.42" data-mx="1" data-my="-0.26"><i></i>Hook <b>Question</b></span>
+            <span class="lg-tag pr-tag" data-x="-2.08" data-y="0.08" data-mx="-1" data-my="0.26"><i></i>Tone <b>Conversational</b></span>
+            <span class="lg-tag pr-tag" data-x="2.08" data-y="0.06" data-mx="1" data-my="0.26"><i></i>Saves &amp; shares</span>
+            <span class="lg-tag pr-tag" data-x="-1.88" data-y="0.54" data-mx="-1" data-my="0.78"><i></i>Watch time <b>0:21</b></span>
+            <span class="lg-tag pr-tag" data-x="1.86" data-y="0.5" data-mx="1" data-my="0.78"><i></i>Audience <b>25–34</b></span>
+            <span class="lg-tag pr-tag d-only" data-x="-1.62" data-y="0.95"><i></i>Format <b>Tutorial</b></span>
+            <span class="lg-tag pr-tag d-only" data-x="1.62" data-y="0.93"><i></i>Brand fit <b>High</b></span>
+          </div>
+          <article class="pr-card" aria-label="Example creator profile, tagged by Kula">
+            <div class="pc-top"><span class="pc-handle">@sofia.makes</span><span class="pc-kula"><span class="pc-k" data-fw></span>Kula profile</span></div>
+            <div class="pc-head"><img class="pc-ava" src="lg/avatar.jpg" alt="">
+              <div class="pc-stats"><div><b>312</b><span>posts</span></div><div><b>84.2k</b><span>followers</span></div><div><b>418</b><span>following</span></div></div></div>
+            <div class="pc-bio"><b>Sofia Marlow</b><span>Style, home and everyday finds. London.</span></div>
+            <div class="pc-btns"><span>Follow</span><span>Message</span></div>
+            <div class="pc-grid"><img src="lg/g1.jpg" alt=""><img src="lg/g2.jpg" alt=""><img src="lg/g3.jpg" alt=""><img src="lg/g4.jpg" alt=""><img src="lg/g5.jpg" alt=""><img src="lg/g6.jpg" alt=""><img src="lg/g7.jpg" alt=""><img src="lg/g8.jpg" alt=""><img src="lg/g9.jpg" alt=""></div>
+          </article>
+        </div>
         <div class="pane-copy">
           <h2>What works</h2>
           <p class="lede">Predictive technology that connects creator content to business results.</p>
-          <a class="btn btn-ghost" href="#how">See how it works <span class="arr" aria-hidden="true">→</span></a>
         </div>
       </div></div>
+    </div>
+  </section>
+
+  <section class="scene" data-scene="wheel" aria-label="Kula is a platform-powered creator agency">
+    <div class="stage fly-stage wheel-stage">
+      <h2 class="fw-title">Kula is a <em>platform&#8209;powered</em> creator agency.</h2>
+      <div class="fw-wrap"><div class="fw-spin" data-fw></div></div>
+      <div class="fw-caption" aria-live="polite"><div class="dots"><i></i><i></i><i></i><i></i></div><h3 data-cap-h></h3><p data-cap-p></p></div>
     </div>
   </section>
 
@@ -1234,22 +1315,20 @@ html.join-open{overflow:hidden}
           <div class="sc-big" aria-live="polite"><span class="sc-n">40k</span><span class="sc-l">UK creators assessed</span></div>
           <ol class="sc-list">
             <li data-to="40" data-suf="k"><button type="button"><i>01</i><b>40k</b><span>UK creators assessed</span></button></li>
-            <li data-to="3" data-suf="k"><button type="button"><i>02</i><b>3k</b><span>Creators briefed</span></button></li>
-            <li data-to="50" data-suf="+"><button type="button"><i>03</i><b>50+</b><span>Years of content consumed</span></button></li>
-            <li data-to="100" data-pre="$" data-suf="m"><button type="button"><i>04</i><b>$100m</b><span>Raised for expansion</span></button></li>
-            <li data-to="6.5" data-dec="1" data-suf="x"><button type="button"><i>05</i><b>6.5x</b><span>ROI achieved</span></button></li>
+            <li data-to="50" data-suf="+"><button type="button"><i>02</i><b>50+</b><span>Years of content consumed</span></button></li>
+            <li data-to="100" data-pre="$" data-suf="m"><button type="button"><i>03</i><b>$100m</b><span>Raised for expansion</span></button></li>
+            <li data-to="6.5" data-dec="1" data-suf="x"><button type="button"><i>04</i><b>6.5x</b><span>ROI achieved</span></button></li>
           </ol>
         </div>
         <div class="sc-right">
           <div class="sc-phone" role="img" aria-label="Creator ads made with Kula">
             <div class="sc-screen">
               <div class="sc-ad" data-brand="Clays" data-src="sc/v1"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video></div>
-              <div class="sc-ad" data-brand="Savernack" data-src="sc/v2"><video muted loop playsinline preload="none" poster="sc/v2.jpg"></video></div>
               <div class="sc-ad" data-brand="R.M.Williams" data-src="sc/v3"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video></div>
               <div class="sc-ad" data-brand="Charlie Bigham's" data-src="sc/v4"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video></div>
               <div class="sc-ad" data-brand="The Jolly Hog" data-src="sc/v5"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video></div>
-              <div class="sc-bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
-              <div class="sc-top"><span class="sc-av" data-fw></span><span class="sc-brand">Clays</span><span class="sc-sp">Sponsored</span></div>
+              <div class="sc-bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
+              <div class="sc-top"><span class="sc-av" data-fw></span><span class="sc-sp">Sponsored</span></div>
               <div class="sc-bot"><p class="sc-cap">Creator ad · made with Kula</p><span class="sc-cta">Shop now</span></div>
             </div>
           </div>
@@ -1258,7 +1337,7 @@ html.join-open{overflow:hidden}
     </div>
   </section>
 
-  <!-- PARKED: "Brands we've grown" logo ticker. Restore with <div data-include="routes"></div> -->
+  <div data-include="routes"></div>
   <div data-include="cta"></div>
 </div>
 
@@ -1383,22 +1462,24 @@ html.join-open{overflow:hidden}
   </section>
   <section class="problems wrap" aria-label="The state of creator marketing">
     <div class="prob-grid">
-      <div class="prob"><p class="eyebrow">Investment</p><b>+26%</b><p>YoY growth in creator marketing spend globally</p><i>yet only</i><b class="hi">14.3%</b><p>of marketing budgets are spent on social</p></div>
-      <div class="prob"><p class="eyebrow">Creative</p><b>12.9hrs</b><p>a week of adult time is spent watching creator content</p><i>yet only</i><b class="hi">56%</b><p>of people think what brands produce is any good</p></div>
-      <div class="prob"><p class="eyebrow">Measurement</p><b>92%</b><p>of marketing leaders use creator content in paid media</p><i>yet</i><b class="hi">58%</b><p>aren't confident they can prove its business impact</p></div>
-      <div class="prob"><p class="eyebrow">Execution</p><b>80%</b><p>of marketers plan to increase their creator spend</p><i>yet</i><b class="hi">52%</b><p>say internal structures and systems are a barrier to scaling</p></div>
+      <div class="prob"><p class="eyebrow">Investment problem</p><b>+26%</b><p>YoY growth in creator marketing spend globally</p><i>yet only</i><b class="hi">14.3%</b><p>of marketing budgets are spent on social</p></div>
+      <div class="prob"><p class="eyebrow">Creative problem</p><b>12.9hrs</b><p>a week of adult time is spent watching creator content</p><i>yet only</i><b class="hi">56%</b><p>of people think what brands produce is any good</p></div>
+      <div class="prob"><p class="eyebrow">Measurement problem</p><b>92%</b><p>of marketing leaders use creator content in paid media</p><i>yet</i><b class="hi">58%</b><p>aren't confident they can prove its business impact</p></div>
+      <div class="prob"><p class="eyebrow">Execution problem</p><b>80%</b><p>of marketers plan to increase their creator spend</p><i>yet</i><b class="hi">52%</b><p>say internal structures and systems are a barrier to scaling</p></div>
     </div>
     <p class="sources">Sources: WARC Marketer's Toolkit 2026; The CMO Survey 2026; CreatorIQ Creator-Powered Funnel Report 2026; Sprout Social Content Strategy Report 2026; Medill Spiegel Research Center, Creator Marketing 2026.</p>
   </section>
-  <section class="wrap">
+  <section class="wrap ab-solve" aria-label="We create what works">
+    <p class="ab-intro"><span class="ab-i1">Our platform-powered agency model solves these problems.</span><span class="ab-i2">Making creator-led marketing more intelligent, measurable and predictable.</span></p>
+    <h2 class="ab-h"><b>We create</b> <span>what works.</span></h2>
     <div class="duo-explain">
-      <div><h3 style="font-weight:600">Social content expertise</h3><p>Creators, ideas and formats people choose to watch.</p></div>
+      <div><h3 style="font-weight:600">Social content <br>expertise</h3><p>Creators, ideas and formats people choose to watch.</p></div>
       <span class="x">×</span>
-      <div><h3 style="font-weight:300">Predictive marketing technology</h3><p>AI, data and human insight that removes guesswork.</p></div>
+      <div><h3 style="font-weight:300">Predictive marketing <br>technology</h3><p>AI, data and human insight that removes guesswork.</p></div>
     </div>
   </section>
   <div data-include="manifesto"></div>
-  <div data-include="cta"></div>
+  
 </div>
 
 <!-- =============== CONTACT =============== -->
@@ -1432,9 +1513,156 @@ html.join-open{overflow:hidden}
   </section>
 </div>
 
+
+<!-- =============== TERMS =============== -->
+<div data-view="terms" hidden>
+  <section class="page-head wrap">
+    <p class="eyebrow">Legal</p>
+    <h1 class="ph1">Website <em>terms of use.</em></h1>
+    <p class="lede">Last updated 20 October 2026</p>
+  </section>
+  <article class="legal wrap">
+    <p>These terms apply to your use of this website. By using the site you agree to them. If you don't agree, please don't use the site.</p>
+
+    <h2>1. Who we are</h2>
+    <p>This website is run by <mark class="ph">[Kula legal entity name]</mark> ("Kula", "we", "us"), a company registered in England and Wales under company number <mark class="ph">[number]</mark>, with its registered office at <mark class="ph">[registered address]</mark>. You can contact us at <mark class="ph">[hello@kula domain]</mark>.</p>
+
+    <h2>2. Using the site</h2>
+    <p>You may use the site for lawful purposes only. You must not:</p>
+    <ul>
+      <li>use it in any way that breaks the law or infringes anyone else's rights;</li>
+      <li>try to gain unauthorised access to the site, the server it's stored on or any connected system;</li>
+      <li>introduce viruses or other harmful material, or attack the site in any way;</li>
+      <li>copy, scrape or harvest content or data from the site by automated means without our written permission.</li>
+    </ul>
+
+    <h2>3. Our content</h2>
+    <p>Unless we say otherwise, we or our licensors own the intellectual property in the site and everything on it, including text, design, graphics, video and the Kula name and flywheel mark. You may view and print pages for your own reference, but you may not reuse our content commercially without our written permission.</p>
+    <p>Brand names and logos shown on the site belong to their owners and are shown with permission, to illustrate work we have done. Creator content is shown with the permission of the creators and brands involved. Nothing on the site gives you a licence to use any of it.</p>
+
+    <h2>4. Case studies, results and statistics</h2>
+    <p>Case studies and results describe past campaigns. Every campaign is different, and past results don't guarantee future performance. Industry statistics are drawn from the third-party sources we cite, and we can't guarantee they are complete or current. Content on the site is general information, not advice, and you shouldn't rely on it as the sole basis for a business decision.</p>
+
+    <h2>5. Joining as a creator</h2>
+    <p>If you register your interest through "Creators: join us", you confirm that:</p>
+    <ul>
+      <li>you are 18 or over;</li>
+      <li>the details you give us are accurate, and the social accounts you name are yours or you are authorised to manage them.</li>
+    </ul>
+    <p>Registering doesn't guarantee you will be offered a brief or any paid work. Any campaign you take part in will be covered by a separate written agreement, which will set out the brief, fees, usage rights and disclosure requirements.</p>
+
+    <h2>6. Enquiries and our services</h2>
+    <p>Sending us an enquiry through the site doesn't create a contract. We provide our services only under a separate written agreement with each client, and those terms will apply to that work.</p>
+
+    <h2>7. Links to other sites</h2>
+    <p>Where the site links to other websites or social platforms, those links are for your information only. We have no control over those sites and aren't responsible for their content or how they use your data.</p>
+
+    <h2>8. Availability and changes</h2>
+    <p>We aim to keep the site available and accurate, but we don't guarantee that it will always be available, uninterrupted or error-free. We may update, suspend or withdraw the site, or change these terms, at any time. The version published here is the one that applies.</p>
+
+    <h2>9. Our liability</h2>
+    <p>Nothing in these terms limits or excludes our liability for death or personal injury caused by our negligence, for fraud or fraudulent misrepresentation, or for anything else that can't be limited or excluded by law.</p>
+    <p>Subject to that, we are not liable for any loss or damage arising from your use of, or inability to use, the site or any content on it. If you use the site for business purposes, we are not liable for loss of profits, revenue, business, goodwill, data or anticipated savings, or for any indirect or consequential loss.</p>
+
+    <h2>10. Your privacy</h2>
+    <p>Our <a href="#privacy">privacy policy</a> explains how we use personal information you give us through the site.</p>
+
+    <h2>11. Law and jurisdiction</h2>
+    <p>These terms are governed by the law of England and Wales, and the courts of England and Wales have jurisdiction over any dispute. If you live in Scotland or Northern Ireland you may also bring proceedings in your local courts.</p>
+
+    <h2>12. Contact</h2>
+    <p>If you have a question about these terms, email <mark class="ph">[hello@kula domain]</mark> or write to us at <mark class="ph">[registered address]</mark>.</p>
+  </article>
+</div>
+
+<!-- =============== PRIVACY =============== -->
+<div data-view="privacy" hidden>
+  <section class="page-head wrap">
+    <p class="eyebrow">Legal</p>
+    <h1 class="ph1">Privacy <em>policy.</em></h1>
+    <p class="lede">Last updated 20 October 2026</p>
+  </section>
+  <article class="legal wrap">
+    <p>This policy explains what personal information we collect through this website, how we use it, who we share it with and the rights you have. It covers people who send us an enquiry, creators who register their interest in working with us, and anyone visiting the site.</p>
+    <p>It doesn't cover personal information we process for clients as part of a campaign. That is governed by our agreement with each client.</p>
+
+    <h2>1. Who we are</h2>
+    <p><mark class="ph">[Kula legal entity name]</mark> ("Kula", "we", "us") is the controller of your personal information. We are registered in England and Wales under company number <mark class="ph">[number]</mark>, and our registered office is at <mark class="ph">[registered address]</mark>. We are registered with the Information Commissioner's Office under number <mark class="ph">[ICO registration number]</mark>.</p>
+    <p>For anything to do with your personal information, email <mark class="ph">[privacy@kula domain]</mark>.</p>
+
+    <h2>2. What we collect</h2>
+    <h3>If you contact us</h3>
+    <p>Your name, work email address, company, whether you're a brand or a creator, and anything you tell us in your message.</p>
+    <h3>If you join as a creator</h3>
+    <p>Your name, email address, social media handle, main platform, follower range, the kind of content you make, and your consent for us to contact you about briefs.</p>
+    <p>Once you've registered, we also look at the content you publish publicly on the accounts you've told us about, and the performance data those platforms make public. We profile it across a set of content attributes, such as format, hook, tone of voice and how your audience responds. If you take part in a campaign, we will also hold the details needed to brief and pay you, under your creator agreement.</p>
+    <h3>When you visit the site</h3>
+    <p>Like most websites, the services that host and run the site automatically receive technical information, such as your IP address, browser type, device and the pages you request. We don't use analytics or advertising cookies, and we don't build profiles of website visitors.</p>
+
+    <h2>3. How we use it, and our legal basis</h2>
+    <div class="legal-table" role="table" aria-label="How we use your information">
+      <div role="row" class="lt-head"><span role="columnheader">What we do</span><span role="columnheader">Legal basis</span></div>
+      <div role="row"><span role="cell">Reply to your enquiry and, if you're a potential client, discuss working together</span><span role="cell">Our legitimate interests in responding to people who contact us, or taking steps at your request before entering into a contract</span></div>
+      <div role="row"><span role="cell">Contact creators about briefs and opportunities</span><span role="cell">Your consent, which you can withdraw at any time</span></div>
+      <div role="row"><span role="cell">Analyse a registered creator's public content to match them to suitable briefs</span><span role="cell">Our legitimate interests in running a creator network and recommending the right creators to brands</span></div>
+      <div role="row"><span role="cell">Run, secure and improve the website</span><span role="cell">Our legitimate interests in operating a safe, working website</span></div>
+      <div role="row"><span role="cell">Keep records and meet legal, tax and regulatory requirements</span><span role="cell">Compliance with our legal obligations</span></div>
+    </div>
+    <p>Where we rely on legitimate interests, we have weighed them against your rights. You can object at any time (see section 8).</p>
+
+    <h2>4. Profiling and decisions about creators</h2>
+    <p>Our platform uses the content profile described in section 2 to suggest which creators might suit a brief. A member of our team always reviews those suggestions. We don't make decisions about you based solely on automated processing that have legal or similarly significant effects.</p>
+
+    <h2>5. Who we share it with</h2>
+    <p>We don't sell your personal information. We share it only with:</p>
+    <ul>
+      <li><b>Service providers</b> who help us run the site and our business, under contract and only on our instructions. They include our website host (GitHub), our font provider (Google Fonts, which receives your IP address when the site loads its typefaces), and our email and form-handling providers <mark class="ph">[name providers, e.g. form service, CRM, email]</mark>.</li>
+      <li><b>Brand clients</b>, if you're a creator we propose for a brief. We share your profile and public content data with that brand. You will always know which brand you're being briefed for before you agree to take part.</li>
+      <li><b>Professional advisers</b>, such as lawyers and accountants, where necessary.</li>
+      <li><b>Authorities</b>, where the law requires it, or to protect our rights or the safety of others.</li>
+      <li><b>A buyer or successor</b>, if all or part of our business is sold or reorganised. They will continue to protect your information in line with this policy.</li>
+    </ul>
+
+    <h2>6. International transfers</h2>
+    <p>Some of our service providers are based in, or store data in, the United States and other countries outside the UK. Where that happens, we make sure there are appropriate safeguards in place. These include the UK International Data Transfer Agreement or Addendum, or the UK Extension to the EU–US Data Privacy Framework.</p>
+
+    <h2>7. How long we keep it</h2>
+    <ul>
+      <li><b>Enquiries:</b> up to <mark class="ph">[24 months]</mark> after our last contact, unless you become a client.</li>
+      <li><b>Creator registrations and profiles:</b> for as long as you're part of our network. We delete them if you ask us to, or after <mark class="ph">[24 months]</mark> with no activity.</li>
+      <li><b>Campaign, contract and payment records:</b> for as long as the law requires, usually six years.</li>
+      <li><b>Technical logs:</b> kept by our hosting providers in line with their own retention periods.</li>
+    </ul>
+
+    <h2>8. Your rights</h2>
+    <p>Under UK data protection law you have the right to:</p>
+    <ul>
+      <li>access the personal information we hold about you;</li>
+      <li>have it corrected if it's wrong, or deleted;</li>
+      <li>restrict how we use it, or object to our using it, including for profiling;</li>
+      <li>receive it in a portable format;</li>
+      <li>withdraw your consent at any time, where we rely on it.</li>
+    </ul>
+    <p>To use any of these rights, email <mark class="ph">[privacy@kula domain]</mark>. We'll respond within one month.</p>
+    <p>If you're unhappy with how we've handled your information, please tell us first so we can put it right. You also have the right to complain to the Information Commissioner's Office at <a href="https://ico.org.uk" rel="noopener">ico.org.uk</a> or on 0303 123 1113.</p>
+
+    <h2>9. Cookies</h2>
+    <p>We don't set cookies for analytics or advertising. If we add any in future, we'll update this policy and ask for your consent where the law requires it.</p>
+
+    <h2>10. Age</h2>
+    <p>The site and our creator network are for people aged 18 and over. We don't knowingly collect personal information from anyone under 18.</p>
+
+    <h2>11. Security</h2>
+    <p>We use appropriate technical and organisational measures to protect your information, and we limit access to people who need it. No method of sending information over the internet is completely secure, but we take care to protect what you send us.</p>
+
+    <h2>12. Changes to this policy</h2>
+    <p>We may update this policy from time to time. The latest version will always be on this page, with the date it was last updated.</p>
+  </article>
+</div>
+
 <footer class="footer wrap">
   <a href="#home" class="brand"><svg class="logo" viewBox="0 236 1060 536" role="img" aria-label="Kula"><g class="logo-mark"><path d="M451.48,405.06c13.13-44.23,4.12-97.57-41.61-118.7-45.41-20.99-97.67-.38-123.42,40.53-21.31,33.85-23.59,71.92-14.83,108.38-53.6-40.95-123.22-61.87-188.94-46.14C37.81,399.87-3.88,434.36.69,484.52c4.53,49.82,48.5,84.77,96.81,86.62,39.97,1.53,74.08-15.53,101.28-41.35-8.66,66.89,8.03,137.65,54.51,186.7,31.73,33.49,82.44,52.35,123.6,23.32,40.88-28.84,49.16-84.39,26.61-127.15-18.66-35.38-50.5-56.39-86.45-67.03,62.27-25.94,115.2-75.78,134.44-140.56ZM225.34,538.01c3.06-29.24,11.81-57.63,25.89-83.83,23.79,17.27,44,39.04,59.66,64.34-26.85,11.97-55.81,18.59-85.55,19.49ZM215.71,463.33c-26.69,47.61-76.19,92.76-135.21,77.94-56.3-14.14-71.42-86.89-18.31-115.54,43.92-23.69,101.43-15.33,145.42,3.63,7.02,3.03,13.84,6.39,20.45,10.05-3.81,6.86-7.29,13.95-10.43,21.22-.7.79-1.35,1.68-1.92,2.7ZM251.02,564.19c54.58-.69,118.43,19.6,135.11,78.12,15.9,55.82-39.54,105.3-90.91,73.63-42.48-26.19-63.99-80.18-69.56-127.75-.89-7.59-1.39-15.17-1.52-22.73,7.85-.13,25.72-1.26,26.88-1.27ZM354.19,493.14c-6.13,4.57-12.45,8.79-18.93,12.68-4.04-6.73-13.95-21.64-14.54-22.65-27.89-46.93-42.24-112.37.11-156.07,40.39-41.68,110.96-18.4,109.22,41.92-1.44,49.88-37.44,95.5-75.85,124.11Z"/></g><path transform="translate(32 0)" d="M984.52,551.31c0,23.61-15.18,37.88-35.03,37.88-12.46,0-22.31-6.75-22.31-19.33,0-9.6,6.1-19.85,22.19-24.65,8.69-2.59,19.07-3.63,32.69-3.63,1.82,0,2.47,2.59,2.47,9.73M939.5,534.05c-23.35,6.23-38.4,19.72-38.4,39.96s17.13,32.18,39.05,32.18c15.83,0,30.1-6.36,38.79-15.05,1.04-1.03,2.08-2.72,2.98-2.72s1.69.91,2.08,2.21c3.63,10.25,10.9,14.27,20.89,14.27,11.29,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.07-4.02-2.08,0-3.25,1.3-6.75,1.3-5.58,0-7.66-5.58-7.66-11.55,0-10.64,1.43-34.12,1.43-51.38,0-31.14-18.29-52.16-52.81-52.16-30.49,0-48.52,15.83-48.52,30.23,0,10.25,7.53,14.53,13.37,14.53s8.04-3.24,9.34-9.08c2.47-11.41,9.21-23.48,25.3-23.48,20.11,0,28.02,15.7,28.02,34.77,0,7.66-1.3,9.34-2.33,10.12-2.86,1.94-25.3,2.33-42.82,6.75M870.1,433.9c0-5.19-2.21-7.53-6.62-7.53s-9.34,3.76-21.02,8.43c-7.01,2.72-12.33,3.76-12.33,8.56,0,2.59,2.59,4.28,5.19,5.32,5.19,1.69,8.82,4.41,8.82,9.86v116.5c0,6.49-1.04,11.16-7.4,15.7-2.46,1.81-6.75,3.37-6.75,7.66,0,2.85,1.56,5.32,7.53,5.32,7.4,0,12.59-.65,19.46-.65,5.97,0,12.97.65,17.9.65,6.49,0,8.18-2.47,8.18-5.58,0-4.28-4.02-5.06-7.78-7.78-3.89-2.85-6.23-6.23-6.23-14.14v-102.1c0-27.11,1.04-32.04,1.04-40.22M797.06,513.55c0-22.57,2.98-28.67,2.98-35.68,0-4.02-2.21-6.75-6.23-6.75-4.54,0-14.92,3.37-28.54,4.8-4.93.65-7.66,2.47-7.66,6.36,0,4.15,3.89,5.84,7,8.04,6.1,3.63,7.66,8.31,7.66,16.35v42.03c0,26.47-13.75,39.44-33.21,39.44-22.58,0-28.67-19.46-28.67-40.87,0-42.56,6.35-59.68,6.35-69.28,0-3.37-1.69-6.88-6.75-6.88-5.32,0-11.03,2.47-28.54,4.54-5.84.78-8.82,2.59-8.82,6.62,0,5.19,6.49,6.23,9.86,9.34,2.86,2.86,4.54,5.58,4.54,12.84,0,6.75-2.47,30.36-2.47,50.73,0,27.25,12.32,50.47,43.72,50.47,22.71,0,33.86-11.28,38.14-15.18,1.3-1.3,2.72-2.85,3.5-2.85,1.3,0,1.95,1.43,2.34,2.33,2.47,5.97,7.13,14.92,21.41,14.92,11.16,0,20.11-8.04,20.11-16.87,0-2.98-1.43-4.02-2.21-4.02-1.95,0-3.12,1.3-6.75,1.3-5.58,0-7.78-5.58-7.78-11.55v-60.2ZM551.33,510.7c-.78,0-1.17-2.98-1.17-29.45,0-13.88,1.04-29.06,1.95-32.44,1.56-10.77,12.32-10.12,12.32-17.13,0-2.99-1.56-5.71-7.66-5.71-4.54,0-12.97.65-19.33.65s-14.79-.65-19.59-.65c-6.35,0-7.78,2.86-7.78,5.71,0,7.78,12.45,6.22,13.62,21.41.26,4.28.26,46.58.26,59.94,0,18.94-.26,63.05-1.04,68.5-1.43,11.16-13.62,9.86-13.62,16.87,0,2.85,2.21,5.32,8.3,5.32,4.93,0,13.36-.65,19.85-.65s16.48.65,21.8.65c5.71,0,8.17-2.21,8.17-5.32,0-4.15-4.8-5.71-9.08-8.56-4.8-2.98-7.91-6.88-7.91-14.79v-38.53c0-5.58,3.37-8.18,9.21-8.18,33.86,0,59.42,40.87,59.42,59.29,0,6.22-3.25,6.75-3.25,10.77,0,2.72,3.12,5.32,7.53,5.32,3.11,0,9.86-.65,19.2-.65,5.84,0,16.09.65,21.15.65,3.37,0,6.62-1.56,6.62-5.71s-3.63-5.19-9.08-8.95c-7.53-5.06-11.16-11.29-15.96-20.24-18.94-34.12-37.24-50.6-65.78-59.16-1.3-.39-1.69-1.04-1.69-1.56,0-.91.65-1.56,1.3-2.34,27.63-27.89,51.64-49.82,60.85-56.57,10.77-7.91,21.53-10.64,21.53-17.51,0-4.15-2.85-5.45-8.56-5.45-4.15,0-19.46.39-23.48.39-4.41,0-13.63-.65-17.52-.65-5.45,0-7.53,2.72-7.53,5.58,0,7,9.08,8.04,9.08,14.14,0,6.75-59.16,65-62.14,65"/></svg></a>
-  <nav aria-label="Footer"><a href="#work">Work</a><a href="#how">How it works</a><a href="#about">About</a><a href="#contact">Contact</a><a href="#join">Creators: join us</a></nav>
+  <nav aria-label="Footer"><a href="#about">About</a><a href="#contact">Contact</a><a href="#terms">Terms</a><a href="#privacy">Privacy</a></nav>
   <span style="margin-left:auto">© 2026 Ben Wright Design</span>
 </footer>
 </main>
@@ -1459,8 +1687,8 @@ const fillFw=root=>$$('[data-fw]',root).forEach(n=>{if(!n.firstElementChild)n.in
 
 /* ---------- shared blocks ---------- */
 const BLOCKS={
-manifesto:`<section class="scene m-scene" data-scene="manifesto" aria-label="Manifesto"><div class="stage m-stage"><div class="manifesto wrap">
-  <p class="eyebrow" style="position:relative;z-index:1">Manifesto</p>
+manifesto:`<section class="scene m-scene" data-scene="manifesto" aria-label="What Kula believes"><div class="stage m-stage"><div class="m-bg" aria-hidden="true"><video class="m-vid" muted loop playsinline preload="none" poster="hero-poster.jpg" data-src="hero-desktop"></video></div><div class="manifesto wrap">
+  <p class="eyebrow" style="position:relative;z-index:1">What Kula believes</p>
   <div class="m-grid">
     <h2 class="m-lead" data-line>The best creator campaigns aren't lucky. <em>They're designed.</em></h2>
     <div class="m-body">
@@ -1471,10 +1699,10 @@ manifesto:`<section class="scene m-scene" data-scene="manifesto" aria-label="Man
   </div>
   <ul class="m-trio"><li data-line>Less guesswork.</li><li data-line>More confidence.</li><li data-line>More growth.</li></ul>
   <p class="m-sign" data-line><b>We create</b> <span>what works.</span></p>
+  <a class="btn btn-lime big m-cta" href="#contact">Talk to the team <span class="arr" aria-hidden="true">→</span></a>
 </div></div></section>`,
 routes:`<section class="logos t-dark" aria-label="Brands we have worked with">
-  <div class="wrap logos-head"><p class="eyebrow">Brands we've grown</p><a class="logos-all" href="#work">All work <span class="arr" aria-hidden="true">→</span></a></div>
-  <div class="tick"><div class="tick-track"><a class="tick-item" href="#case-bighams" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#case-clays" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#case-myclaim" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#case-bighams" aria-hidden="true" tabindex="-1" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#case-clays" aria-hidden="true" tabindex="-1" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#case-myclaim" aria-hidden="true" tabindex="-1" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"><span class="tick-cap">Read the case <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"><span class="tick-cap">See our work <span class="arr">→</span></span></a></div></div>
+  <div class="tick"><div class="tick-track"><a class="tick-item" href="#case-bighams" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-clays" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-myclaim" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-bighams" aria-hidden="true" tabindex="-1" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-clays" aria-hidden="true" tabindex="-1" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-myclaim" aria-hidden="true" tabindex="-1" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"></a></div></div>
 </section>`,
 cta:`<section class="final wrap" aria-label="Get in touch">
   <h2><b>We create</b> <span>what works.</span></h2>
@@ -1661,10 +1889,10 @@ function renderCase(id){
 
 /* ---------- scenes ---------- */
 const PARTS=[
-  {k:'creators',h:'Creators',p:'Real people with a story to tell, briefed to make content audiences choose to watch.',x:-.04,y:.46,ax:'-100%',r:1},
-  {k:'brand',h:'Brand',p:'Every piece builds the brand as well as the numbers.',x:.74,y:.0,ax:'0%'},
-  {k:'media',h:'Media',p:'Paid amplification puts the best content in front of the right people, and makes it measurable.',x:.8,y:.98,ax:'0%'},
-  {k:'intelligence',h:'Intelligence',p:'The result at the centre. Every creator, brand and media signal is captured (48 attributes per video) and fed back in, so each turn is smarter than the last.',x:1.06,y:.5,ax:'0%'}];
+  {k:'creators',h:'Creators',p:'Real people with a story to tell, briefed to make content audiences want to watch.',x:-.04,y:.46,ax:'-100%',r:1},
+  {k:'brand',h:'Brand',p:'Content that drives brand growth and sales return, with grown-up measurement and metrics.',x:.74,y:.0,ax:'0%'},
+  {k:'media',h:'Media',p:'Paid media puts the best content in front of the right people, improving efficiency and effectiveness.',x:.8,y:.98,ax:'0%'},
+  {k:'intelligence',h:'Intelligence',p:'A scalable creator system that gets smarter with every turn. Faster growth and more predictable results.',x:1.06,y:.5,ax:'0%'}];
 const S=[.16,.30,.44,.58];
 let boost=0;
 
@@ -1777,21 +2005,29 @@ function lgSetup(el){
   }};
 }
 
+/* The home story now runs: hero + Less guesswork / More confidence / More growth (fly scene) ->
+   We create / What works panes -> "We create what works" equation (split scene) -> flywheel + closing line (wheel scene).
+   Both scenes keep the original timeline maths; each maps its own 0..1 onto its slice of it. */
+const FLY_END=.07;            // fly scene covers the original .00–.72
+const WH_START=.68, WH_END=.895;   // wheel scene covers the original .68–.895 (ends with all four points on screen)
 const FLY_S=[.745,.78,.815,.85];
 function flyScene(el){
-  const wrap=$('.fw-wrap',el), spin=$('.fw-spin',el), copy=$('.hero-copy',el), st=$('.fw-statement',el), cap=$('.fw-caption',el), heroBg=$('.hero-bg',el);
-  wrap.insertAdjacentHTML('beforeend',PARTS.map((d,i)=>`<div class="fw-label${d.r?' r':''}" style="left:${d.x*100}%;top:${d.y*100}%"><p class="k">0${i+1}</p><h3>${d.h}</h3><p>${d.p}</p></div>`).join(''));
-  wrap.insertAdjacentHTML('beforeend','<div class="fw-core"></div><div class="fw-leader"></div>');
-  const core=$('.fw-core',el), leader=$('.fw-leader',el), labels=$$('.fw-label',el), dots=$$('.dots i',cap); let capIdx=-2;
+  const copy=$('.hero-copy',el), heroBg=$('.hero-bg',el);
   const LG=lgSetup(el);
-  const ttl=$('.fw-title',el);
-  return {el,update(p,t){
-    const H=innerHeight;
-    // hero
+  return {el,update(q,t){
+    const p=q*FLY_END;
     const hc=seg(p,.012,.05); copy.style.opacity=1-hc; copy.style.transform=`translateY(-50%) translateY(${-hc*90}px)`;
     if(heroBg){const bf=ease(seg(p,.005,.06));heroBg.style.opacity=1-bf;heroBg.style.transform=`scale(${1.06-.06*bf}) translateY(${-bf*4}%)`}
     LG.update(p,t);
-    // the flywheel grows out of the centre once the measurement story is done
+  }};
+}
+function wheelScene(el){
+  const wrap=$('.fw-wrap',el), spin=$('.fw-spin',el), st=$('.fw-statement',el)||document.createElement('div'), cap=$('.fw-caption',el), ttl=$('.fw-title',el);
+  wrap.insertAdjacentHTML('beforeend',PARTS.map((d,i)=>`<div class="fw-label${d.r?' r':''}" style="left:${d.x*100}%;top:${d.y*100}%"><p class="k">0${i+1}</p><h3>${d.h}</h3><p>${d.p}</p></div>`).join(''));
+  wrap.insertAdjacentHTML('beforeend','<div class="fw-core"></div><div class="fw-leader"></div>');
+  const core=$('.fw-core',el), leader=$('.fw-leader',el), labels=$$('.fw-label',el), dots=$$('.dots i',cap); let capIdx=-2;
+  return {el,update(q,t){
+    const H=innerHeight, p=WH_START+q*(WH_END-WH_START);
     const m=ease(seg(p,.68,.735)), stP=ease(seg(p,.915,.945));
     let y=lerp(mobile?-H*.08:0,-H*.13,stP);
     let s=lerp(.3,mobile?1.1:1.08,m); s=lerp(s,.62,stP);
@@ -1803,7 +2039,6 @@ function flyScene(el){
     if(ttl){ const ti=ease(seg(p,.715,.75)); ttl.style.opacity=ti*fade; ttl.style.transform=`translateY(${(1-ti)*18}px)`; }
     PARTS.forEach((d,i)=>{
       const r=ease(seg(p,FLY_S[i],FLY_S[i]+.03));
-      // Intelligence starts beside the centre rather than inside it, so it doesn't sweep across the wheel
       const tr=d.k==='intelligence'?.25:1, dx=(.5-d.x)*size*(1-r)*tr, dy=(.5-d.y)*size*(1-r)*tr;
       labels[i].style.opacity=r*fade;
       labels[i].style.transform=`translate(${d.ax},-50%) translate(${dx}px,${dy}px) scale(${lerp(.6,1,r)})`;
@@ -1816,13 +2051,82 @@ function flyScene(el){
   }};
 }
 
+/* ---------- split panes: tagged profile layout + creator-ad phones ---------- */
+function spArt(el){
+  const pr=$('.pr',el), pp=$$('.pp',el).map(n=>({n,v:$('video',n),src:n.dataset.src,bar:$('.pp-bars b',n),loaded:false}));
+  const vtype=v=>v.canPlayType('video/mp4; codecs="avc1.4D401E"')?'.mp4':v.canPlayType('video/webm; codecs="vp9"')?'.webm':'';
+  const GH=['Pacing <b>Fast</b>','Captions <b>On</b>','Music <b>Trending</b>','Setting <b>Home</b>','Lighting <b>Natural</b>','CTA <b>Soft</b>','Length <b>0:34</b>','Voiceover',
+    'Product in hand','Humour <b>Light</b>','Unboxing','First person','Trend use','Sentiment <b>+0.62</b>','Location <b>London</b>','Posting <b>Evening</b>','Colour <b>Warm</b>',
+    'Shot <b>Close-up</b>','Text overlay','Reply rate <b>38%</b>','Story arc','Before / after','Shares <b>2.3k</b>','Retention <b>71%</b>',
+    'Hook <b>0–2s</b>','Energy <b>High</b>','Duet','Outdoor','Talking head','Swipe-through','Accent <b>Northern</b>','Props <b>Kitchen</b>','Cut rate <b>Fast</b>','Saves <b>890</b>','Age <b>25–34</b>','Emoji use'];
+  let layout=()=>{}, animate=()=>{}, A=0, B=0;
+  if(pr){
+    const card=$('.pr-card',pr), svg=$('.pr-lines',pr), gw=$('.pr-ghosts',pr), NS='http://www.w3.org/2000/svg';
+    const tags=$$('.pr-tag',pr).map(n=>({n,x:+n.dataset.x,y:+n.dataset.y,mx:n.dataset.mx!=null?+n.dataset.mx:null,my:n.dataset.my!=null?+n.dataset.my:null}));
+    tags.forEach(g=>{ g.line=document.createElementNS(NS,'line'); g.dot=document.createElementNS(NS,'circle'); g.dot.setAttribute('r','2.5'); svg.append(g.line,g.dot); });
+    let seed=11; const rr=()=>(seed=(seed*16807)%2147483647)/2147483647;
+    const ghosts=GH.map(h=>{ const n=document.createElement('span'); n.className='lg-tag lg-ghost'; n.innerHTML='<i></i>'+h; gw.append(n);
+      const z=rr(); n.style.filter=`blur(${(1.4+z*2.4).toFixed(1)}px)`; n.style.opacity=0; return {n,sc:.86-z*.2,op:.6-z*.28}; });
+    layout=()=>{
+      const W=pr.clientWidth, H=pr.clientHeight; if(!W||!H) return;
+      const mob=innerWidth<=760, a=card.offsetWidth/2, b=card.offsetHeight/2;
+      svg.setAttribute('viewBox',`${-W/2} ${-H/2} ${W} ${H}`);
+      const boxes=[[-a-6,-b-6,a+6,b+6]];
+      // readable tags wrap round the card on a loose ellipse, overlapping its edge so they float over it
+      const vis=tags.filter(g=>g.n.offsetWidth), tw=Math.max(...vis.map(g=>g.n.offsetWidth)), th=vis.length?vis[0].n.offsetHeight:30;
+      const SW=W/2*1.3, SH=H/2*1.28;                                     // graphic is drawn at 72%, so the layout can use the margin that frees up
+      const rx=a*(mob?1.42:1.36)+tw*.56, ry=b*1.1+th*1.1, L=vis.filter((g,i)=>tags.indexOf(g)%2===0), R=vis.filter(g=>tags.indexOf(g)%2===1);
+      const arc=(side,k,n)=>{ const t=n>1?k/(n-1):.5, d=(side<0?250-t*140:-70+t*140)*Math.PI/180; return [Math.cos(d),Math.sin(d)]; };
+      tags.forEach(g=>{ const w=g.n.offsetWidth, h=g.n.offsetHeight; if(!w){ g.line.style.opacity=0; g.dot.style.opacity=0; g.ok=false; return; }
+        const left=L.includes(g), list=left?L:R, k=list.indexOf(g), [cx,cy]=arc(left?-1:1,k,list.length), j=1+.07*Math.sin(tags.indexOf(g)*2.3);
+        let x=cx*rx*j, y=cy*ry*j;
+        const lim=SW-6-w/2; x=Math.max(-lim,Math.min(lim,x)); y=Math.max(-SH+h,Math.min(SH-h,y));
+        g.tx=x; g.ty=y; g.ok=true;
+        boxes.push([x-w/2-8,y-h/2-5,x+w/2+8,y+h/2+5]); });
+      // background tags sit on concentric rings outside the readable ones
+      const gws=ghosts.map(g=>({w:g.n.offsetWidth*g.sc,h:g.n.offsetHeight*g.sc})); let gi=0;
+      ghosts.forEach(g=>{ g.ok=false; g.n.style.display='none'; });
+      [1.24,1.46,1.7,1.95].forEach((sc,ring)=>{
+        const ex=rx*sc, ey=ry*sc, circ=Math.PI*(3*(ex+ey)-Math.sqrt((3*ex+ey)*(ex+3*ey))), n=Math.max(6,Math.floor(circ/((mob?62:82)*(1+ring*.06))));
+        for(let k=0;k<n&&gi<ghosts.length;k++){
+          const g=ghosts[gi], {w,h}=gws[gi], d=(k+(ring%2?.5:0))/n*Math.PI*2+ring*.21, x=Math.cos(d)*ex, y=Math.sin(d)*ey;
+          if(Math.abs(x)+w/2>SW-4||Math.abs(y)+h/2>SH-2) continue;
+          const bx=[x-w/2,y-h/2,x+w/2,y+h/2]; if(boxes.some(o=>bx[0]<o[2]&&bx[2]>o[0]&&bx[1]<o[3]&&bx[3]>o[1])) continue;
+          boxes.push([bx[0]+4,bx[1]+2,bx[2]-4,bx[3]-2]); g.tx=x; g.ty=y; g.ok=true; g.n.style.display=''; gi++; }
+      });
+      A=a; B=b;
+    };
+    animate=(p,t)=>{ if(!A) layout(); const T=RM?0:t;
+      tags.forEach((g,i)=>{ if(!g.ok){ g.n.style.opacity=0; return; }
+        const e=RM?1:ease(seg(p,.12+i*.01,.17+i*.01)), fx=Math.sin(T*.0009+i*1.7)*5, fy=Math.cos(T*.0011+i*1.3)*4;
+        const x=(g.tx+fx)*e, y=(g.ty+fy)*e;
+        g.n.style.opacity=Math.min(1,e*1.5); g.n.style.transform=`translate(-50%,-50%) translate(${x}px,${y}px) scale(${lerp(.55,1,e)})`;
+        const k=Math.min(A/Math.max(1e-3,Math.abs(x)),B/Math.max(1e-3,Math.abs(y)),1), lo=k<1?Math.max(0,(e-.25)/.75):0;
+        g.line.setAttribute('x1',x*k); g.line.setAttribute('y1',y*k); g.line.setAttribute('x2',x); g.line.setAttribute('y2',y);
+        g.dot.setAttribute('cx',x*k); g.dot.setAttribute('cy',y*k); g.line.style.opacity=lo*.9; g.dot.style.opacity=lo; });
+      ghosts.forEach((g,i)=>{ if(!g.ok) return; const e=RM?1:ease(seg(p,.13+i*.004,.18+i*.004)), fx=Math.sin(T*.0006+i*2.1)*3, fy=Math.cos(T*.0007+i*1.6)*3;
+        g.n.style.opacity=g.op*Math.min(1,e*1.4); g.n.style.transform=`translate(-50%,-50%) translate(${(g.tx+fx)*e}px,${(g.ty+fy)*e}px) scale(${g.sc*lerp(.6,1,e)})`; });
+    };
+    new ResizeObserver(()=>requestAnimationFrame(layout)).observe(pr); if(document.fonts) document.fonts.ready.then(layout); setTimeout(layout,200);
+  }
+  let on=false;
+  return {update(p,t){
+    animate(p,t);
+    const r=el.getBoundingClientRect(), vis=r.top<innerHeight&&r.bottom>0&&p>.02&&p<.62;
+    if(r.top<innerHeight*2) pp.forEach(s=>{ if(!s.loaded){ const ext=vtype(s.v); if(ext) s.v.src=s.src+ext; s.loaded=true; } });
+    const want=vis&&!RM; if(want!==on){ on=want; pp.forEach(s=>{ if(want){ const q=s.v.play(); if(q&&q.catch) q.catch(()=>{}); } else s.v.pause(); }); }
+    if(on) pp.forEach(s=>{ s.bar.style.width=(s.v.duration?s.v.currentTime/s.v.duration*100:0)+'%'; });
+  }};
+}
+
 function splitScene(el){
   const L=$('.pane-l',el), R=$('.pane-r',el), conv=$('.conv',el), cwL=$('.cw-l',el), cwR=$('.cw-r',el), eq=$('.eq',el), sub=$('.conv-sub',el);
   const floats=$$('.wc-float',el).map(n=>({n,r:+n.dataset.r||0,k:+n.dataset.k||1})), cells=$$('.ww-cell',el), inL=$('.pane-inner',L), inR=$('.pane-inner',R);
-  let last=-1;
+  let last=-1; const SPA=spArt(el);
   return {el,update(p,t){
-    // statement first (.02–.30), then it lifts away as the creative and intelligence sides slide in (.42–.64)
-    const e1=ease(seg(p,.42,.64)), w=50;
+    SPA.update(p,t);
+    // the two sides slide in (.02–.20), then part to reveal "We create what works" and the equation (.50–.86)
+    const e1=ease(seg(p,.02,.2)), e2=ease(seg(p,.5,.72)), w=50*(1-e2);
     if(!mobile){
       L.style.cssText=`left:${50-w}%;width:${w}%;top:0;height:100%;transform:translateX(${-(1-e1)*110}%)`;
       R.style.cssText=`left:50%;width:${w}%;top:0;height:100%;transform:translateX(${(1-e1)*110}%)`;
@@ -1830,14 +2134,13 @@ function splitScene(el){
       L.style.cssText=`left:0;width:100%;top:${50-w}%;height:${w}%;transform:translateX(${-(1-e1)*110}%)`;
       R.style.cssText=`left:0;width:100%;top:50%;height:${w}%;transform:translateX(${(1-e1)*110}%)`;
     }
-    inL.style.opacity=1; inR.style.opacity=1;
+    const cf=1-seg(p,.5,.62); inL.style.opacity=cf; inR.style.opacity=cf;
     floats.forEach((f,i)=>{const a=RM?0:Math.sin(t*.0007*f.k+i*1.9), b=RM?0:Math.cos(t*.0006*f.k+i*1.3);f.n.style.transform=`translate(${a*14}px,${b*12 - p*60*f.k}px) rotate(${f.r+a*4}deg)`});
     if(!RM&&cells.length){const idx=Math.floor(t/320)%cells.length; if(idx!==last){if(last>=0)cells[last].classList.remove('hot');cells[idx].classList.add('hot');last=idx}}
-    const e3=ease(seg(p,.02,.17)), cOut=ease(seg(p,.38,.5));
-    conv.style.opacity=seg(p,.02,.1)*(1-cOut); conv.style.transform=`translateY(${-cOut*8}vh)`;
+    const e3=ease(seg(p,.52,.74));
+    conv.style.opacity=seg(p,.53,.64); conv.style.transform='';
     cwL.style.transform=`translateX(${-(1-e3)*42}vw)`; cwR.style.transform=`translateX(${(1-e3)*42}vw)`;
-    eq.style.opacity=seg(p,.15,.21); eq.style.transform=`translateY(${(1-seg(p,.15,.21))*16}px)`;
-    const so=seg(p,.2,.27); sub.style.opacity=so; if(so>.85) conv.classList.add('hlm-on'); else if(so<.15) conv.classList.remove('hlm-on');
+    eq.style.opacity=seg(p,.78,.86); eq.style.transform=`translateY(${(1-seg(p,.78,.86))*16}px)`;
   }};
 }
 
@@ -1921,8 +2224,14 @@ function processScene(el){
 }
 
 function manifestoScene(el){
-  const ls=$$('[data-line]',el);
-  return {el,update(p){if(mobile)return;const n=ls.length;ls.forEach((l,i)=>{l.style.opacity=.18+.82*seg(p,i/n*.8,(i+1)/n*.8)})}};
+  const ls=$$('[data-line]',el), mv=$('.m-vid',el);
+  if(mv){ const ext=mv.canPlayType('video/mp4; codecs="avc1.4D401E"')?'.mp4':mv.canPlayType('video/webm; codecs="vp9"')?'.webm':'';
+    new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting&&!RM){ if(!mv.src&&ext) mv.src=mv.dataset.src+ext; const q=mv.play(); if(q&&q.catch) q.catch(()=>{}); } else mv.pause(); }),{rootMargin:'200px'}).observe(el); }
+  const cta=$('.m-cta',el), mb=$('.m-body',el), sg=$('.m-sign',el), mf=$('.manifesto',el);
+  const place=()=>{ if(!cta||!mb||!sg||mobile) return; const r=mf.getBoundingClientRect(), b=mb.getBoundingClientRect(), g=sg.getBoundingClientRect();
+    cta.style.left=(b.left-r.left)+'px'; cta.style.top=(g.top-r.top+g.height/2-cta.offsetHeight/2)+'px'; };
+  addEventListener('resize',()=>requestAnimationFrame(place)); if(document.fonts) document.fonts.ready.then(place); setTimeout(place,100);
+  return {el,update(p){if(cta){ if(!cta.style.top) place(); cta.classList.toggle('on',mobile||p>.9); } if(mobile)return;const n=ls.length;ls.forEach((l,i)=>{l.style.opacity=.18+.82*seg(p,i/n*.8,(i+1)/n*.8)})}};
 }
 /* ---------- Home: Kula in numbers — one stat at a time, the phone plays a matching creator ad ---------- */
 function showcaseScene(el){
@@ -1934,14 +2243,14 @@ function showcaseScene(el){
   const fmt=(s,x)=>s.pre+(s.dec?x.toFixed(s.dec):Math.round(x))+s.suf;
   let cur=-1, t0=0, playing=null;
   items.forEach((li,i)=>$('button',li).addEventListener('click',()=>{ const top=el.getBoundingClientRect().top+scrollY;
-    window.scrollTo({top:top+unmap(i*.2+.1,PACE.showcase)*(el.offsetHeight-innerHeight)+2,behavior:RM?'auto':'smooth'}); }));
+    window.scrollTo({top:top+unmap((i+.5)/items.length,PACE.showcase)*(el.offsetHeight-innerHeight)+2,behavior:RM?'auto':'smooth'}); }));
   return {el,update(p,t){
-    const i=Math.max(0,Math.min(4,Math.floor(p*5)));
+    const NS=items.length, i=Math.max(0,Math.min(NS-1,Math.floor(p*NS)));
     const r=el.getBoundingClientRect(), vis=r.top<innerHeight&&r.bottom>0;
-    if(vis){ load(ads[i]); load(ads[Math.min(4,i+1)]); }
+    if(vis){ load(ads[i]); load(ads[Math.min(NS-1,i+1)]); }
     if(i!==cur){ cur=i; t0=t;
       items.forEach((li,k)=>li.classList.toggle('on',k===i)); ads.forEach((a,k)=>a.n.classList.toggle('on',k===i));
-      Lb.textContent=S[i].label; brand.textContent=ads[i].brand;
+      Lb.textContent=S[i].label;
       bars.forEach((b,k)=>{ if(k<i) b.style.width='100%'; else if(k>i) b.style.width='0'; });
     }
     // count the number up each time a new stat arrives
@@ -1952,14 +2261,15 @@ function showcaseScene(el){
     const v=ads[i].v; bars[i].style.width=(v.duration?Math.min(100,v.currentTime/v.duration*100):0)+'%';
   }};
 }
-const FACT={showcase:showcaseScene,manifesto:manifestoScene,fly:flyScene,split:splitScene,case:caseScene,pillars:pillarsScene,process:processScene};
+const FACT={wheel:wheelScene,showcase:showcaseScene,manifesto:manifestoScene,fly:flyScene,split:splitScene,case:caseScene,pillars:pillarsScene,process:processScene};
 /* Pauses: each [at, length] freezes the timeline at progress "at" for "length" vh of extra scroll (~400vh ≈ 2s at a normal pace). */
 const HP=400;
 const PACE={
-  manifesto:{base:500,holds:[[.85,HP*2]]},
-  showcase:{base:600,holds:[[.1,HP],[.3,HP],[.5,HP],[.7,HP],[.9,HP]]},
-  fly:{base:2300,holds:[[.205,HP],[.405,HP],[.61,HP*1.2],[.775,HP],[.81,HP],[.845,HP],[.88,HP*1.5],[.958,HP]]},
-  split:{base:1150,holds:[[.3,HP*1.2],[.8,HP*1.2]]},
+  manifesto:{base:500,holds:[[.83,HP*1.5],[.96,HP*1.5]]},
+  showcase:{base:480,holds:[[.125,HP],[.375,HP],[.625,HP],[.875,HP]]},
+  fly:{base:140,holds:[]},
+  wheel:{base:495,holds:[[.442,HP],[.605,HP],[.767,HP],[.93,HP*1.5]]},
+  split:{base:1150,holds:[[.3,HP*1.2],[.95,HP*1.2]]},
   pillars:{base:900,holds:[[.2,HP],[.45,HP],[.7,HP],[.95,HP]]},
   process:{base:1400,holds:[[.05,HP],[.29,HP],[.5,HP],[.605,HP],[.662,HP],[.718,HP],[.775,HP],[.832,HP],[.889,HP],[.97,HP]]},
   case:{base:600,holds:[[.2,HP],[.8,HP]]}
@@ -2039,8 +2349,11 @@ let scenes=[], lines=[], spins=[];
 if('scrollRestoration' in history) history.scrollRestoration='manual';
 document.addEventListener('click',e=>{ const a=e.target.closest('[data-reload]'); if(!a||e.metaKey||e.ctrlKey||e.shiftKey) return;
   e.preventDefault(); history.replaceState(null,'',location.pathname+location.search+'#home'); window.scrollTo(0,0); location.reload(); });
+/* About: play the We create what works sequence each time it comes into view */
+(()=>{ const sv=document.querySelector('.ab-solve'); if(!sv) return;
+  new IntersectionObserver(es=>es.forEach(e=>{ if(e.intersectionRatio>.72) sv.classList.add('in'); else if(e.intersectionRatio<.05) sv.classList.remove('in'); }),{threshold:[0,.05,.72]}).observe(sv); })();
 /* ---------- router ---------- */
-const VIEWS=['home','work','how','about','contact'];
+const VIEWS=['home','work','how','about','contact','terms','privacy'];
 function parse(){const h=location.hash.slice(1)||'home'; if(h.startsWith('case-')&&CASES[h.slice(5)])return{view:'case',id:h.slice(5)}; return{view:VIEWS.includes(h)?h:'home'}}
 function buildScenes(root){
   scenes=$$('[data-scene]',root).map(el=>{const c=PACE[el.dataset.scene];el.style.height=(total(c)+100)+'vh';const sc=FACT[el.dataset.scene](el);sc.pace=c;return sc});
