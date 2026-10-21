@@ -1205,6 +1205,17 @@ html.join-open{overflow:hidden}
   .ab-scr .ab-h{margin-top:0}
   .ab-scr .duo-explain{gap:18px}
 }
+
+.m-scr{display:contents}
+@media (max-width:760px){
+  .m-stage .manifesto{padding-block:0}
+  .m-scr{display:flex;flex-direction:column;justify-content:center;min-height:100svh;box-sizing:border-box;padding-block:calc(72px + 3vh) 5vh;position:relative;z-index:1}
+  .m-stage .m-lead,.m-stage .m-trio li{font-size:clamp(34px,9.6vw,46px);line-height:1.02}
+  .m-stage .m-lead{margin-top:10px}
+  .m-scr .m-grid{gap:22px}
+  .m-scr .m-trio{margin-top:0}
+  .m-scr .m-cta{align-self:flex-start}
+}
 </style>
 
 <main>
@@ -1728,7 +1739,7 @@ const fillFw=root=>$$('[data-fw]',root).forEach(n=>{if(!n.firstElementChild)n.in
 /* ---------- shared blocks ---------- */
 const BLOCKS={
 manifesto:`<section class="scene m-scene" data-scene="manifesto" aria-label="What Kula believes"><div class="stage m-stage"><div class="m-bg" aria-hidden="true"><video class="m-vid" muted loop playsinline preload="none" poster="hero-poster.jpg" data-src="hero-desktop"></video></div><div class="manifesto wrap">
-  <p class="eyebrow" style="position:relative;z-index:1">What Kula believes</p>
+  <div class="m-scr" data-stop><p class="eyebrow" style="position:relative;z-index:1">What Kula believes</p>
   <div class="m-grid">
     <h2 class="m-lead" data-line>The best creator campaigns aren't lucky. <em>They're designed.</em></h2>
     <div class="m-body">
@@ -1737,9 +1748,9 @@ manifesto:`<section class="scene m-scene" data-scene="manifesto" aria-label="Wha
       <p data-line>The result is creator-led campaigns that build the brand and deliver exceptional, predictable performance at the same time. Every time.</p>
     </div>
   </div>
-  <ul class="m-trio"><li data-line>Less guesswork.</li><li data-line>More confidence.</li><li data-line>More growth.</li></ul>
+  </div><div class="m-scr" data-stop><ul class="m-trio"><li data-line>Less guesswork.</li><li data-line>More confidence.</li><li data-line>More growth.</li></ul>
   <p class="m-sign" data-line><b>We create</b> <span>what works.</span></p>
-  <a class="btn btn-lime big m-cta" href="#contact">Talk to the team <span class="arr" aria-hidden="true">→</span></a>
+  <a class="btn btn-lime big m-cta" href="#contact">Talk to the team <span class="arr" aria-hidden="true">→</span></a></div>
 </div></div></section>`,
 routes:`<section class="logos t-dark" aria-label="Brands we have worked with">
   <div class="tick"><div class="tick-track"><a class="tick-item" href="#case-bighams" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-clays" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-myclaim" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-bighams" aria-hidden="true" tabindex="-1" aria-label="Charlie Bigham's: read the case study"><img src="logos/bighams.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-clays" aria-hidden="true" tabindex="-1" aria-label="Clays: read the case study"><img src="logos/clays.svg" alt="" style="width:92px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="The Jolly Hog: see our work"><img src="logos/jollyhog.svg" alt="" style="width:132px" loading="lazy" decoding="async"></a><a class="tick-item" href="#case-myclaim" aria-hidden="true" tabindex="-1" aria-label="MyClaimGroup: read the case study"><img src="logos/myclaim.svg" alt="" style="width:168px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="Little Freddie: see our work"><img src="logos/littlefreddie.svg" alt="" style="width:150px" loading="lazy" decoding="async"></a><a class="tick-item" href="#work" aria-hidden="true" tabindex="-1" aria-label="R.M. Williams: see our work"><img src="logos/rmwilliams.svg" alt="" style="width:200px" loading="lazy" decoding="async"></a></div></div>
@@ -2347,6 +2358,8 @@ let scenes=[], lines=[], spins=[];
     const ft=$('.footer'); if(ft) blocks.push(ft);
     for(const el of blocks){
       const top=el.getBoundingClientRect().top+scrollY, h=el.offsetHeight;
+      const marks=[...el.querySelectorAll('[data-stop]')].filter(n=>n.offsetHeight>=ih*.9);   // full-screen parts inside a block get a stop each
+      if(marks.length){ marks.forEach(n=>push(n.getBoundingClientRect().top+scrollY)); continue; }
       if(el.matches('[data-scene]')){
         const c=PACE[el.dataset.scene], T=total(c), run=h-ih; let accv=0;
         for(const [at,len] of c.holds){ const y0=top+(at*c.base+accv)/T*run; push(y0+6, y0+len/T*run-6); accv+=len; }
@@ -2354,9 +2367,7 @@ let scenes=[], lines=[], spins=[];
       } else {
         const off=el.matches('.logos,.final')?(($('header.nav')||{}).offsetHeight||0):0;   // land these bands just under the fixed nav, not behind it
         push(top-off);
-        const marks=[...el.querySelectorAll('[data-stop]')].filter(n=>n.offsetHeight>=ih*.9);   // full-screen parts inside a block get a stop each
-        if(marks.length) marks.forEach(n=>push(n.getBoundingClientRect().top+scrollY));
-        else for(let y=top+ih*.85;y<top+h-ih*.5;y+=ih*.85) push(y);   // tall blocks get extra stops so nothing is skipped
+        for(let y=top+ih*.85;y<top+h-ih*.5;y+=ih*.85) push(y);   // tall blocks get extra stops so nothing is skipped
       }
     }
     push(M);
