@@ -1132,12 +1132,12 @@ html.join-open{overflow:hidden}
 .ab-solve .ab-h b,.ab-solve .ab-h span{display:inline-block;opacity:0;transition:opacity .9s ease,transform 1.15s cubic-bezier(.16,.84,.24,1)}
 .ab-solve .ab-h b{transform:translateX(-28vw)}.ab-solve .ab-h span{transform:translateX(28vw)}
 .ab-solve .duo-explain .x{transform:scale(0) rotate(-135deg);transition-duration:.7s}
-.ab-solve.in .ab-i1{opacity:1;transform:none}
-.ab-solve.in .ab-i2{opacity:1;transform:none;transition-delay:.15s}
-.ab-solve.in .ab-h b,.ab-solve.in .ab-h span{opacity:1;transform:none;transition-delay:.35s}
-.ab-solve.in .duo-explain>div:first-child{opacity:1;transform:none;transition-delay:1.05s}
-.ab-solve.in .duo-explain .x{opacity:1;transform:none;transition-delay:1.25s}
-.ab-solve.in .duo-explain>div:last-child{opacity:1;transform:none;transition-delay:1.4s}
+.ab-solve.in .ab-i1,.ab-scr.in .ab-i1{opacity:1;transform:none}
+.ab-solve.in .ab-i2,.ab-scr.in .ab-i2{opacity:1;transform:none;transition-delay:.15s}
+.ab-solve.in .ab-h b,.ab-solve.in .ab-h span,.ab-scr.in .ab-h b,.ab-scr.in .ab-h span{opacity:1;transform:none;transition-delay:.35s}
+.ab-solve.in .duo-explain>div:first-child,.ab-scr.in .duo-explain>div:first-child{opacity:1;transform:none;transition-delay:1.05s}
+.ab-solve.in .duo-explain .x,.ab-scr.in .duo-explain .x{opacity:1;transform:none;transition-delay:1.25s}
+.ab-solve.in .duo-explain>div:last-child,.ab-scr.in .duo-explain>div:last-child{opacity:1;transform:none;transition-delay:1.4s}
 @media (prefers-reduced-motion:reduce){.ab-solve *{transition:none!important;opacity:1!important;transform:none!important}}
 
 .ab-solve .duo-explain>div:first-child{text-align:right}
@@ -1196,6 +1196,15 @@ html.join-open{overflow:hidden}
 @keyframes fwPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(2.6);opacity:0}}
 @media (prefers-reduced-motion:reduce){.fw-num.pulse::before,.fw-num.pulse::after{animation:none;opacity:.4;transform:scale(1.5)}}
 @media (max-width:760px){.fw-cnum.r{background:#1a1a17;color:#d2ff00;box-shadow:0 0 0 2px #fffcf7}}
+.contact-side .addr a{color:inherit;text-decoration:none;border-bottom:2px solid var(--lime)}.contact-side .addr a:hover{color:var(--lime)}
+
+@media (max-width:760px){
+  .ab-solve{min-height:0;padding-block:0;justify-content:flex-start}
+  .ab-scr{min-height:100svh;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;padding-block:calc(72px + 4vh) 6vh}
+  .ab-scr .ab-intro{font-size:clamp(24px,7vw,30px)}
+  .ab-scr .ab-h{margin-top:0}
+  .ab-scr .duo-explain{gap:18px}
+}
 </style>
 
 <main>
@@ -1499,13 +1508,14 @@ html.join-open{overflow:hidden}
     <p class="sources">Sources: WARC Marketer's Toolkit 2026; The CMO Survey 2026; CreatorIQ Creator-Powered Funnel Report 2026; Sprout Social Content Strategy Report 2026; Medill Spiegel Research Center, Creator Marketing 2026.</p>
   </section>
   <section class="wrap ab-solve" aria-label="We create what works">
-    <p class="ab-intro"><span class="ab-i1">Our platform-powered agency model solves these problems.</span><span class="ab-i2">Making creator-led marketing more intelligent, measurable and predictable.</span></p>
-    <h2 class="ab-h"><b>We create</b> <span>what works.</span></h2>
+    <div class="ab-scr" data-stop><p class="ab-intro"><span class="ab-i1">Our platform-powered agency model solves these problems.</span><span class="ab-i2">Making creator-led marketing more intelligent, measurable and predictable.</span></p>
+    </div>
+    <div class="ab-scr" data-stop><h2 class="ab-h"><b>We create</b> <span>what works.</span></h2>
     <div class="duo-explain">
       <div><h3 style="font-weight:600">Social content <br>expertise</h3><p>Creators, ideas and formats people choose to watch.</p></div>
       <span class="x">×</span>
       <div><h3 style="font-weight:300">Predictive marketing <br>technology</h3><p>AI, data and human insight that removes guesswork.</p></div>
-    </div>
+    </div></div>
   </section>
   <div data-include="manifesto"></div>
   
@@ -1523,6 +1533,7 @@ html.join-open{overflow:hidden}
         <legend class="legend">I'm a…</legend>
         <div class="seg">
           <label><input type="radio" name="who" value="brand" id="w-brand" checked><span>Brand</span></label>
+          <label><input type="radio" name="who" value="partner" id="w-partner"><span>Partner</span></label>
           <label><input type="radio" name="who" value="creator" id="w-creator"><span>Creator</span></label>
         </div>
       </fieldset>
@@ -1536,7 +1547,7 @@ html.join-open{overflow:hidden}
     <div class="contact-side">
       <div class="sent" id="sent" hidden><p class="eyebrow" style="margin:0">Received</p><h3 id="sentH">Thanks.</h3><p>This is a prototype, so nothing was sent. In the live site this confirms the enquiry and sets expectations for a reply.</p></div>
       <p>Prefer email?</p>
-      <p class="addr">[hello@kula address]</p>
+      <p class="addr"><a href="mailto:hello@joinkula.co.uk">hello@joinkula.co.uk</a></p>
       <p>[Office address] · [Phone]</p>
     </div>
   </section>
@@ -1554,7 +1565,7 @@ html.join-open{overflow:hidden}
     <p>These terms apply to your use of this website. By using the site you agree to them. If you don't agree, please don't use the site.</p>
 
     <h2>1. Who we are</h2>
-    <p>This website is run by <mark class="ph">[Kula legal entity name]</mark> ("Kula", "we", "us"), a company registered in England and Wales under company number <mark class="ph">[number]</mark>, with its registered office at <mark class="ph">[registered address]</mark>. You can contact us at <mark class="ph">[hello@kula domain]</mark>.</p>
+    <p>This website is run by <mark class="ph">[Kula legal entity name]</mark> ("Kula", "we", "us"), a company registered in England and Wales under company number <mark class="ph">[number]</mark>, with its registered office at <mark class="ph">[registered address]</mark>. You can contact us at <a href="mailto:hello@joinkula.co.uk">hello@joinkula.co.uk</a>.</p>
 
     <h2>2. Using the site</h2>
     <p>You may use the site for lawful purposes only. You must not:</p>
@@ -1600,7 +1611,7 @@ html.join-open{overflow:hidden}
     <p>These terms are governed by the law of England and Wales, and the courts of England and Wales have jurisdiction over any dispute. If you live in Scotland or Northern Ireland you may also bring proceedings in your local courts.</p>
 
     <h2>12. Contact</h2>
-    <p>If you have a question about these terms, email <mark class="ph">[hello@kula domain]</mark> or write to us at <mark class="ph">[registered address]</mark>.</p>
+    <p>If you have a question about these terms, email <a href="mailto:hello@joinkula.co.uk">hello@joinkula.co.uk</a> or write to us at <mark class="ph">[registered address]</mark>.</p>
   </article>
 </div>
 
@@ -1617,11 +1628,11 @@ html.join-open{overflow:hidden}
 
     <h2>1. Who we are</h2>
     <p><mark class="ph">[Kula legal entity name]</mark> ("Kula", "we", "us") is the controller of your personal information. We are registered in England and Wales under company number <mark class="ph">[number]</mark>, and our registered office is at <mark class="ph">[registered address]</mark>. We are registered with the Information Commissioner's Office under number <mark class="ph">[ICO registration number]</mark>.</p>
-    <p>For anything to do with your personal information, email <mark class="ph">[privacy@kula domain]</mark>.</p>
+    <p>For anything to do with your personal information, email <a href="mailto:hello@joinkula.co.uk">hello@joinkula.co.uk</a>.</p>
 
     <h2>2. What we collect</h2>
     <h3>If you contact us</h3>
-    <p>Your name, work email address, company, whether you're a brand or a creator, and anything you tell us in your message.</p>
+    <p>Your name, work email address, company, whether you're a brand, a partner or a creator, and anything you tell us in your message.</p>
     <h3>If you join as a creator</h3>
     <p>Your name, email address, social media handle, main platform, follower range, the kind of content you make, and your consent for us to contact you about briefs.</p>
     <p>Once you've registered, we also look at the content you publish publicly on the accounts you've told us about, and the performance data those platforms make public. We profile it across a set of content attributes, such as format, hook, tone of voice and how your audience responds. If you take part in a campaign, we will also hold the details needed to brief and pay you, under your creator agreement.</p>
@@ -1672,7 +1683,7 @@ html.join-open{overflow:hidden}
       <li>receive it in a portable format;</li>
       <li>withdraw your consent at any time, where we rely on it.</li>
     </ul>
-    <p>To use any of these rights, email <mark class="ph">[privacy@kula domain]</mark>. We'll respond within one month.</p>
+    <p>To use any of these rights, email <a href="mailto:hello@joinkula.co.uk">hello@joinkula.co.uk</a>. We'll respond within one month.</p>
     <p>If you're unhappy with how we've handled your information, please tell us first so we can put it right. You also have the right to complain to the Information Commissioner's Office at <a href="https://ico.org.uk" rel="noopener">ico.org.uk</a> or on 0303 123 1113.</p>
 
     <h2>9. Cookies</h2>
@@ -2343,7 +2354,9 @@ let scenes=[], lines=[], spins=[];
       } else {
         const off=el.matches('.logos,.final')?(($('header.nav')||{}).offsetHeight||0):0;   // land these bands just under the fixed nav, not behind it
         push(top-off);
-        for(let y=top+ih*.85;y<top+h-ih*.5;y+=ih*.85) push(y);
+        const marks=[...el.querySelectorAll('[data-stop]')].filter(n=>n.offsetHeight>=ih*.9);   // full-screen parts inside a block get a stop each
+        if(marks.length) marks.forEach(n=>push(n.getBoundingClientRect().top+scrollY));
+        else for(let y=top+ih*.85;y<top+h-ih*.5;y+=ih*.85) push(y);   // tall blocks get extra stops so nothing is skipped
       }
     }
     push(M);
@@ -2394,7 +2407,9 @@ document.addEventListener('click',e=>{ const a=e.target.closest('[data-reload]')
   e.preventDefault(); history.replaceState(null,'',location.pathname+location.search+'#home'); window.scrollTo(0,0); location.reload(); });
 /* About: play the We create what works sequence each time it comes into view */
 (()=>{ const sv=document.querySelector('.ab-solve'); if(!sv) return;
-  new IntersectionObserver(es=>es.forEach(e=>{ if(e.intersectionRatio>.72) sv.classList.add('in'); else if(e.intersectionRatio<.05) sv.classList.remove('in'); }),{threshold:[0,.05,.72]}).observe(sv); })();
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ const t=e.target, phone=innerWidth<=760; if((t===sv)===phone) return;
+    if(e.intersectionRatio>.72) t.classList.add('in'); else if(e.intersectionRatio<.05) t.classList.remove('in'); }),{threshold:[0,.05,.72]});
+  io.observe(sv); sv.querySelectorAll('.ab-scr').forEach(n=>io.observe(n)); })();
 /* ---------- router ---------- */
 const VIEWS=['home','work','how','about','contact','terms','privacy'];
 function parse(){const h=location.hash.slice(1)||'home'; if(h.startsWith('case-')&&CASES[h.slice(5)])return{view:'case',id:h.slice(5)}; return{view:VIEWS.includes(h)?h:'home'}}
@@ -2431,7 +2446,7 @@ $('#enquiry').addEventListener('submit',e=>{
   err.hidden=true; $('#sentH').textContent=`Thanks, ${name}.`; $('#sent').hidden=false; f.reset();
 });
 
-const COPY={brand:['Work email','Company','Message'],creator:['Email','Handle or channel','Message']};
+const COPY={brand:['Work email','Company','Message'],partner:['Work email','Company','Message'],creator:['Email','Handle or channel','Message']};
 function setWho(v){const c=COPY[v];$('#l-email').textContent=c[0];$('#l-co').textContent=c[1];$('#l-msg').textContent=c[2]}
 $$('input[name="who"]').forEach(r=>r.addEventListener('change',()=>setWho(r.value)));
 $('#enquiry').addEventListener('reset',()=>setTimeout(()=>setWho('brand')));
