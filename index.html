@@ -1024,41 +1024,45 @@ html.join-open{overflow:hidden}
 .sc-list li.on b,.sc-list li.on i{color:var(--lime);opacity:1}
 .sc-list button:hover{color:var(--paper)}
 .sc-list button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:4px}
-.sc-right{display:flex;justify-content:center}
-.sc-phone{--pw:min(330px,36vh,40vw);width:var(--pw);aspect-ratio:9/19;border-radius:calc(var(--pw)*.15);background:#1a1a17;padding:calc(var(--pw)*.035);
-  box-shadow:0 40px 80px -36px rgba(0,0,0,.65),0 0 0 1px rgba(255,252,247,.12) inset;position:relative;transform:rotate(2deg)}
-.sc-phone::before{content:"";position:absolute;top:calc(var(--pw)*.06);left:50%;width:28%;height:calc(var(--pw)*.07);transform:translateX(-50%);background:#1a1a17;border-radius:999px;z-index:3}
-.sc-screen{position:relative;width:100%;height:100%;border-radius:calc(var(--pw)*.12);overflow:hidden;background:#23231f}
-.sc-ad{position:absolute;inset:0;opacity:0;transition:opacity .5s}
-.sc-ad.on{opacity:1}
-.sc-ad video{width:100%;height:100%;object-fit:cover;display:block}
-.sc-bars{position:absolute;left:5%;right:5%;top:calc(var(--pw)*.15);display:flex;gap:4px;z-index:2}
-.sc-bars i{flex:1;height:3px;border-radius:2px;background:rgba(255,252,247,.35);overflow:hidden}
-.sc-bars b{display:block;height:100%;width:0;background:#fffcf7}
-.sc-top{position:absolute;left:5%;right:5%;top:calc(var(--pw)*.19);display:flex;align-items:center;gap:8px;z-index:2;color:#fffcf7;font-size:calc(var(--pw)*.042);text-shadow:0 1px 6px rgba(0,0,0,.4)}
-.sc-av{width:calc(var(--pw)*.1);height:calc(var(--pw)*.1);border-radius:50%;background:#335900;color:#d2ff00;padding:calc(var(--pw)*.018);box-sizing:border-box;flex:none}
-.sc-av svg{width:100%;height:100%;display:block;fill:currentColor}
-.sc-brand{font-weight:700}
-.sc-sp{opacity:.8;font-size:.88em}
-.sc-bot{position:absolute;left:0;right:0;bottom:0;padding:22% 6% 7%;z-index:2;background:linear-gradient(transparent,rgba(26,26,23,.75));display:flex;flex-direction:column;gap:10px}
-.sc-cap{margin:0;color:#fffcf7;font-size:calc(var(--pw)*.042);opacity:.9}
-.sc-cta{display:block;text-align:center;background:#d2ff00;color:#335900;font-weight:700;font-size:calc(var(--pw)*.045);padding:.7em;border-radius:.7em}
+.sc-right{display:flex;justify-content:center;min-width:0}
+/* Kula / Client labels */
+.sc-who{display:inline-flex;align-self:flex-start;align-items:center;font:700 11px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;font-style:normal;padding:5px 9px;border-radius:999px;white-space:nowrap}
+.sc-who.k{background:var(--lime);color:#1a1a17}
+.sc-who.c{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1.5px rgba(255,252,247,.6)}
+.sc-big .sc-who{margin-top:8px}
+.sc-list button{grid-template-columns:34px 78px 1fr auto}
+.sc-list .sc-who{font-size:9.5px;padding:4px 7px;opacity:.75}
+.sc-list li.on .sc-who{opacity:1}
+/* the wall: three drifting columns of creator content, unrelated to which stat is showing */
+.sc-wall{--tw:min(190px,13vw,19vh);display:flex;gap:14px;height:calc(100svh - 110px);overflow:hidden;align-items:flex-start;
+  -webkit-mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent)}
+.sc-col{display:flex;flex-direction:column;gap:14px;width:var(--tw);flex:none;animation:scDrift 26s ease-in-out infinite alternate}
+.sc-col:nth-child(2){margin-top:calc(var(--tw)*-.9);animation-duration:31s;animation-direction:alternate-reverse}
+.sc-col:nth-child(3){margin-top:calc(var(--tw)*-.35);animation-duration:28s}
+@keyframes scDrift{from{transform:translateY(0)}to{transform:translateY(calc(var(--tw)*-1.6))}}
+.sc-tile{width:100%;aspect-ratio:9/16;border-radius:16px;overflow:hidden;background:#23231f;box-shadow:0 18px 36px -20px rgba(0,0,0,.6),0 0 0 1px rgba(255,252,247,.1)}
+.sc-tile video{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width:760px){
-  .sc-wrap{grid-template-columns:1fr;gap:3vh;padding-top:calc(64px + env(safe-area-inset-top,0px));text-align:center}
-  .sc-right{order:-1}
-  .sc-phone{--pw:min(250px,26vh,64vw);transform:none}
-  .sc-left .eyebrow{margin-bottom:1.2vh}
+  .sc-wrap{grid-template-columns:1fr;padding-top:calc(64px + env(safe-area-inset-top,0px));text-align:center;position:relative;height:100%;align-items:center}
+  .sc-left,.sc-right{grid-area:1/1;transition:opacity .5s ease,transform .5s ease}
+  .sc-left{display:flex;flex-direction:column;align-items:center}
   .sc-big{min-height:0;align-items:center}
-  .sc-n{font-size:clamp(64px,19vw,96px)}
-  .sc-l{font-size:18px}
-  .sc-list{display:flex;justify-content:center;gap:8px;border:0;margin-top:2.2vh}
+  .sc-n{font-size:clamp(84px,27vw,124px)}
+  .sc-l{font-size:20px}
+  .sc-big .sc-who{align-self:center;margin-top:12px}
+  .sc-list{display:flex;justify-content:center;gap:8px;border:0;margin-top:4vh}
   .sc-list li{border:0}
   .sc-list button{width:10px;height:10px;padding:0;border-radius:50%;background:var(--line);display:block}
   .sc-list button>*{display:none}
   .sc-list li.on button{background:var(--lime)}
+  .sc-wall{--tw:min(42vw,calc((100svh - 150px)/3.6));height:calc(100svh - 110px);justify-content:center;gap:12px;align-items:center}
+  .sc-col{gap:12px;animation:none}
+  .sc-col:nth-child(2){margin-top:calc(var(--tw)*.9)}
+  .sc-col:nth-child(3),.sc-tile:nth-child(n+3){display:none}
+  [data-scene="showcase"]:not(.sc-intro) .sc-right{opacity:0;transform:translateY(-24px);pointer-events:none}
+  [data-scene="showcase"].sc-intro .sc-left{opacity:0;transform:translateY(24px);pointer-events:none}
 }
-@media (prefers-reduced-motion:reduce){.sc-ad{transition:none}}
-.sc-screen::after{content:"";position:absolute;left:0;right:0;top:0;height:34%;z-index:1;pointer-events:none;background:linear-gradient(rgba(26,26,23,.62),transparent)}
+@media (prefers-reduced-motion:reduce){.sc-col{animation:none}.sc-left,.sc-right{transition:none}}
 [data-scene="showcase"] + .final, [data-scene="showcase"] ~ .final{margin-top:0;border-top:1px solid var(--line)}
 .logos + .final{border-top:0}
 
@@ -1102,6 +1106,33 @@ html.join-open{overflow:hidden}
 .split-stage .pane-copy p.lede{margin-left:auto;margin-right:auto}
 /* both graphics drawn at 72% of the panel's art area */
 .split-stage .pp-trio,.split-stage .pr{transform:scale(.72);transform-origin:50% 50%}
+
+/* We create: creator profile bubbles around the phones, to show the size of the network */
+.pp-avs{position:absolute;inset:0;pointer-events:none;z-index:1}
+.pp-trio .pp{z-index:2}.pp-trio .pp-c{z-index:3}
+.pp-avc{position:absolute;width:var(--d);aspect-ratio:1;border-radius:50%;background:#e9eedc center/cover no-repeat;box-shadow:0 0 0 3px #fffcf7,0 10px 22px -10px rgba(0,0,0,.45);opacity:0}
+.pp-avc::after{content:"";position:absolute;right:-6%;bottom:-4%;width:38%;aspect-ratio:1;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M8.00 0.15 L8.34 0.27 L8.65 0.60 L8.91 1.06 L9.14 1.52 L9.36 1.88 L9.59 2.06 L9.88 2.03 L10.25 1.82 L10.68 1.53 L11.14 1.27 L11.57 1.14 L11.92 1.20 L12.16 1.48 L12.26 1.92 L12.26 2.45 L12.23 2.96 L12.23 3.38 L12.35 3.65 L12.62 3.77 L13.04 3.77 L13.55 3.74 L14.08 3.74 L14.52 3.84 L14.80 4.07 L14.86 4.43 L14.73 4.86 L14.47 5.32 L14.18 5.75 L13.97 6.12 L13.94 6.41 L14.12 6.64 L14.48 6.86 L14.94 7.09 L15.40 7.35 L15.73 7.66 L15.85 8.00 L15.73 8.34 L15.40 8.65 L14.94 8.91 L14.48 9.14 L14.12 9.36 L13.94 9.59 L13.97 9.88 L14.18 10.25 L14.47 10.68 L14.73 11.14 L14.86 11.57 L14.80 11.92 L14.52 12.16 L14.08 12.26 L13.55 12.26 L13.04 12.23 L12.62 12.23 L12.35 12.35 L12.23 12.62 L12.23 13.04 L12.26 13.55 L12.26 14.08 L12.16 14.52 L11.92 14.80 L11.57 14.86 L11.14 14.73 L10.68 14.47 L10.25 14.18 L9.88 13.97 L9.59 13.94 L9.36 14.12 L9.14 14.48 L8.91 14.94 L8.65 15.40 L8.34 15.73 L8.00 15.85 L7.66 15.73 L7.35 15.40 L7.09 14.94 L6.86 14.48 L6.64 14.12 L6.41 13.94 L6.12 13.97 L5.75 14.18 L5.32 14.47 L4.86 14.73 L4.43 14.86 L4.07 14.80 L3.84 14.52 L3.74 14.08 L3.74 13.55 L3.77 13.04 L3.77 12.62 L3.65 12.35 L3.38 12.23 L2.96 12.23 L2.45 12.26 L1.92 12.26 L1.48 12.16 L1.20 11.93 L1.14 11.57 L1.27 11.14 L1.53 10.68 L1.82 10.25 L2.03 9.88 L2.06 9.59 L1.88 9.36 L1.52 9.14 L1.06 8.91 L0.60 8.65 L0.27 8.34 L0.15 8.00 L0.27 7.66 L0.60 7.35 L1.06 7.09 L1.52 6.86 L1.88 6.64 L2.06 6.41 L2.03 6.12 L1.82 5.75 L1.53 5.32 L1.27 4.86 L1.14 4.43 L1.20 4.07 L1.48 3.84 L1.92 3.74 L2.45 3.74 L2.96 3.77 L3.38 3.77 L3.65 3.65 L3.77 3.38 L3.77 2.96 L3.74 2.45 L3.74 1.92 L3.84 1.48 L4.07 1.20 L4.43 1.14 L4.86 1.27 L5.32 1.53 L5.75 1.82 L6.12 2.03 L6.41 2.06 L6.64 1.88 L6.86 1.52 L7.09 1.06 L7.35 0.60 L7.66 0.27Z' fill='%23335900'/%3E%3Cpath d='M4.9 8.3l2.1 2.1 4.1-4.4' fill='none' stroke='%23d2ff00' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;filter:drop-shadow(0 0 1.5px #fffcf7) drop-shadow(0 0 1px #fffcf7)}
+/* What works: creator video at the centre, matched to the main phone opposite */
+.pr{--c:min(calc(94cqh*9/19),35cqw)}
+.pr .pr-ph{--pw:var(--c);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3}
+.eroi{position:absolute;right:-12%;top:27%;z-index:6;display:flex;flex-direction:column;align-items:flex-start;background:#d2ff00;color:#1a1a17;border-radius:12px;padding:7px 12px 8px;
+  font:600 13px/1.1 var(--f-display);box-shadow:0 14px 30px -12px rgba(0,0,0,.55);opacity:0;transform-origin:0 50%;white-space:nowrap}
+.eroi small{font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#335900;margin-bottom:2px}
+.eroi b{font-size:24px;font-weight:700;letter-spacing:-.03em;font-variant-numeric:tabular-nums;display:inline}
+.eroi.live::after{content:"";position:absolute;inset:0;border-radius:12px;border:2px solid #d2ff00;animation:eroiPulse 2.4s cubic-bezier(.2,.6,.3,1) infinite;pointer-events:none}
+@keyframes eroiPulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.35,1.6);opacity:0}}
+@media (max-width:760px){.eroi{padding:5px 9px 6px;font-size:11px;right:-14%}.eroi b{font-size:18px}.eroi small{font-size:8px}
+  .pp-avc:nth-child(2),.pp-avc:nth-child(4),.pp-avc:nth-child(6),.pp-avc:nth-child(n+8):nth-child(-n+11){display:none}}
+@media (prefers-reduced-motion:reduce){.eroi.live::after{animation:none}}
+/* eROI: a round badge above everything in the graphic, dotted lines included */
+.pr .pr-lines{z-index:3}
+.pr .pr-ph{z-index:4}
+.eroi{width:88px;height:88px;padding:0;border-radius:50%;align-items:center;justify-content:center;text-align:center;right:-26%;top:22%;transform-origin:50% 50%;box-shadow:0 0 0 3px #335900,0 14px 30px -12px rgba(0,0,0,.55)}
+.eroi small{margin-bottom:1px}
+.eroi b{line-height:1}
+.eroi.live::after{border-radius:50%;inset:-3px}
+@keyframes eroiPulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.5);opacity:0}}
+@media (max-width:760px){.eroi{width:64px;height:64px;padding:0;right:-30%}.eroi b{font-size:17px}.eroi small{font-size:7px;letter-spacing:.06em}}
 
 .tick-item:hover,.tick-item:focus-visible{background:var(--ink-2)}
 .tick-item:hover img,.tick-item:focus-visible img{transform:none}
@@ -1302,6 +1333,7 @@ html.join-open{overflow:hidden}
       </div>
       <div class="pane pane-l on-lime"><div class="pane-inner">
         <div class="pane-art pp-trio" aria-label="Creator ads made with Kula" role="img">
+          <div class="pp-avs" aria-hidden="true"><span class="pp-avc v" style="left:16%;top:-9%;--d:15cqw;background-image:url(lg/avatar.jpg)"></span><span class="pp-avc" style="left:40%;top:-12%;--d:8cqw;background-image:url(lg/g2.jpg)"></span><span class="pp-avc" style="left:60%;top:-6%;--d:10cqw;background-image:url(lg/g5.jpg)"></span><span class="pp-avc" style="left:80%;top:-11%;--d:8cqw;background-image:url(lg/g7.jpg)"></span><span class="pp-avc" style="left:95%;top:6%;--d:11cqw;background-image:url(lg/g3.jpg)"></span><span class="pp-avc" style="left:3%;top:22%;--d:9cqw;background-image:url(lg/g1.jpg)"></span><span class="pp-avc" style="left:-2%;top:62%;--d:10cqw;background-image:url(lg/g9.jpg)"></span><span class="pp-avc" style="left:8%;top:104%;--d:11cqw;background-image:url(lg/g4.jpg)"></span><span class="pp-avc" style="left:30%;top:110%;--d:8cqw;background-image:url(lg/g8.jpg)"></span><span class="pp-avc" style="left:62%;top:108%;--d:12cqw;background-image:url(lg/g6.jpg)"></span><span class="pp-avc" style="left:86%;top:104%;--d:9cqw;background-image:url(lg/g2.jpg)"></span><span class="pp-avc" style="left:101%;top:74%;--d:8cqw;background-image:url(lg/g5.jpg)"></span></div>
           <div class="pp pp-s l" data-src="sc/v3"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video>
             <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
             <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
@@ -1318,7 +1350,7 @@ html.join-open{overflow:hidden}
         </div>
       </div></div>
       <div class="pane pane-r"><div class="pane-inner">
-        <div class="pane-art pr" aria-label="A creator profile tagged with Kula content attributes" role="img">
+        <div class="pane-art pr" aria-label="A creator video tagged with Kula content attributes and a predicted eROI of 2.4x" role="img">
           <div class="pr-orbit"><svg class="pr-lines" aria-hidden="true"></svg><div class="pr-ghosts" aria-hidden="true"></div>
             <span class="lg-tag pr-tag" data-x="-1.62" data-y="-0.84" data-mx="-1" data-my="-0.78"><i></i>Face to camera</span>
             <span class="lg-tag pr-tag" data-x="1.62" data-y="-0.86" data-mx="1" data-my="-0.78"><i></i>Comments <b>1.2k</b></span>
@@ -1331,14 +1363,10 @@ html.join-open{overflow:hidden}
             <span class="lg-tag pr-tag d-only" data-x="-1.62" data-y="0.95"><i></i>Format <b>Tutorial</b></span>
             <span class="lg-tag pr-tag d-only" data-x="1.62" data-y="0.93"><i></i>Brand fit <b>High</b></span>
           </div>
-          <article class="pr-card" aria-label="Example creator profile, tagged by Kula">
-            <div class="pc-top"><span class="pc-handle">@sofia.makes</span><span class="pc-kula"><span class="pc-k" data-fw></span>Kula profile</span></div>
-            <div class="pc-head"><img class="pc-ava" src="lg/avatar.jpg" alt="">
-              <div class="pc-stats"><div><b>312</b><span>posts</span></div><div><b>84.2k</b><span>followers</span></div><div><b>418</b><span>following</span></div></div></div>
-            <div class="pc-bio"><b>Sofia Marlow</b><span>Style, home and everyday finds. London.</span></div>
-            <div class="pc-btns"><span>Follow</span><span>Message</span></div>
-            <div class="pc-grid"><img src="lg/g1.jpg" alt=""><img src="lg/g2.jpg" alt=""><img src="lg/g3.jpg" alt=""><img src="lg/g4.jpg" alt=""><img src="lg/g5.jpg" alt=""><img src="lg/g6.jpg" alt=""><img src="lg/g7.jpg" alt=""><img src="lg/g8.jpg" alt=""><img src="lg/g9.jpg" alt=""></div>
-          </article>
+          <div class="pp pr-ph" data-src="sc/v4"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video>
+            <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
+            <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div>
+            <span class="eroi" aria-label="2.4 times eROI"><b><span class="eroi-n">2.4</span>x</b> eROI</span></div>
         </div>
         <div class="pane-copy">
           <h2>What works</h2>
@@ -1361,26 +1389,16 @@ html.join-open{overflow:hidden}
       <div class="sc-wrap wrap">
         <div class="sc-left">
           <p class="eyebrow">Kula in numbers</p>
-          <div class="sc-big" aria-live="polite"><span class="sc-n">40k</span><span class="sc-l">UK creators assessed</span></div>
+          <div class="sc-big" aria-live="polite"><span class="sc-n">40k</span><span class="sc-l">UK creators assessed</span><span class="sc-who k">Kula</span></div>
           <ol class="sc-list">
-            <li data-to="40" data-suf="k"><button type="button"><i>01</i><b>40k</b><span>UK creators assessed</span></button></li>
-            <li data-to="50" data-suf="+"><button type="button"><i>02</i><b>50+</b><span>Years of content consumed</span></button></li>
-            <li data-to="100" data-pre="$" data-suf="m"><button type="button"><i>03</i><b>$100m</b><span>Raised for expansion</span></button></li>
-            <li data-to="6.5" data-dec="1" data-suf="x"><button type="button"><i>04</i><b>6.5x</b><span>ROI achieved</span></button></li>
+            <li data-to="40" data-suf="k" data-who="k"><button type="button"><i>01</i><b>40k</b><span>UK creators assessed</span><em class="sc-who k">Kula</em></button></li>
+            <li data-to="50" data-suf="+" data-who="k"><button type="button"><i>02</i><b>50+</b><span>Years of content consumed</span><em class="sc-who k">Kula</em></button></li>
+            <li data-to="100" data-pre="$" data-suf="m" data-who="c"><button type="button"><i>03</i><b>$100m</b><span>Raised for expansion</span><em class="sc-who c">Client</em></button></li>
+            <li data-to="6.5" data-dec="1" data-suf="x" data-who="c"><button type="button"><i>04</i><b>6.5x</b><span>ROI achieved</span><em class="sc-who c">Client</em></button></li>
           </ol>
         </div>
         <div class="sc-right">
-          <div class="sc-phone" role="img" aria-label="Creator ads made with Kula">
-            <div class="sc-screen">
-              <div class="sc-ad" data-brand="Clays" data-src="sc/v1"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video></div>
-              <div class="sc-ad" data-brand="R.M.Williams" data-src="sc/v3"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video></div>
-              <div class="sc-ad" data-brand="Charlie Bigham's" data-src="sc/v4"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video></div>
-              <div class="sc-ad" data-brand="The Jolly Hog" data-src="sc/v5"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video></div>
-              <div class="sc-bars"><i><b></b></i><i><b></b></i><i><b></b></i><i><b></b></i></div>
-              <div class="sc-top"><span class="sc-av" data-fw></span><span class="sc-sp">Sponsored</span></div>
-              <div class="sc-bot"><p class="sc-cap">Creator ad · made with Kula</p><span class="sc-cta">Shop now</span></div>
-            </div>
-          </div>
+          <div class="sc-wall" aria-label="Creator content made with Kula" role="img"><div class="sc-col"><div class="sc-tile" data-src="lg/s1"><video muted loop playsinline preload="none" poster="lg/s1.jpg"></video></div><div class="sc-tile" data-src="sc/v1"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video></div><div class="sc-tile" data-src="lg/s4"><video muted loop playsinline preload="none" poster="lg/s4.jpg"></video></div><div class="sc-tile" data-src="sc/v3"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video></div></div><div class="sc-col"><div class="sc-tile" data-src="sc/v4"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video></div><div class="sc-tile" data-src="lg/s2"><video muted loop playsinline preload="none" poster="lg/s2.jpg"></video></div><div class="sc-tile" data-src="sc/v5"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video></div><div class="sc-tile" data-src="lg/s6"><video muted loop playsinline preload="none" poster="lg/s6.jpg"></video></div></div><div class="sc-col"><div class="sc-tile" data-src="lg/s3"><video muted loop playsinline preload="none" poster="lg/s3.jpg"></video></div><div class="sc-tile" data-src="sc/v2"><video muted loop playsinline preload="none" poster="sc/v2.jpg"></video></div><div class="sc-tile" data-src="lg/s5"><video muted loop playsinline preload="none" poster="lg/s5.jpg"></video></div><div class="sc-tile" data-src="lg/s2"><video muted loop playsinline preload="none" poster="lg/s2.jpg"></video></div></div></div>
         </div>
       </div>
     </div>
@@ -2125,7 +2143,7 @@ function spArt(el){
     'Hook <b>0–2s</b>','Energy <b>High</b>','Duet','Outdoor','Talking head','Swipe-through','Accent <b>Northern</b>','Props <b>Kitchen</b>','Cut rate <b>Fast</b>','Saves <b>890</b>','Age <b>25–34</b>','Emoji use'];
   let layout=()=>{}, animate=()=>{}, A=0, B=0;
   if(pr){
-    const card=$('.pr-card',pr), svg=$('.pr-lines',pr), gw=$('.pr-ghosts',pr), NS='http://www.w3.org/2000/svg';
+    const card=$('.pr-ph',pr)||$('.pr-card',pr), eroi=$('.eroi',pr), eroiN=$('.eroi-n',pr), svg=$('.pr-lines',pr), gw=$('.pr-ghosts',pr), NS='http://www.w3.org/2000/svg';
     const tags=$$('.pr-tag',pr).map(n=>({n,x:+n.dataset.x,y:+n.dataset.y,mx:n.dataset.mx!=null?+n.dataset.mx:null,my:n.dataset.my!=null?+n.dataset.my:null}));
     tags.forEach(g=>{ g.line=document.createElementNS(NS,'line'); g.dot=document.createElementNS(NS,'circle'); g.dot.setAttribute('r','2.5'); svg.append(g.line,g.dot); });
     let seed=11; const rr=()=>(seed=(seed*16807)%2147483647)/2147483647;
@@ -2138,7 +2156,7 @@ function spArt(el){
       const boxes=[[-a-6,-b-6,a+6,b+6]];
       // readable tags wrap round the card on a loose ellipse, overlapping its edge so they float over it
       const vis=tags.filter(g=>g.n.offsetWidth), tw=Math.max(...vis.map(g=>g.n.offsetWidth)), th=vis.length?vis[0].n.offsetHeight:30;
-      const SW=W/2*1.3, SH=H/2*1.28;                                     // graphic is drawn at 72%, so the layout can use the margin that frees up
+      const SW=W/2*1.3, SH=H/2*(mob?1.06:1.28);          // on phones the copy sits right under the graphic, so tags stay inside its box                                     // graphic is drawn at 72%, so the layout can use the margin that frees up
       const rx=a*(mob?1.42:1.36)+tw*.56, ry=b*1.1+th*1.1, L=vis.filter((g,i)=>tags.indexOf(g)%2===0), R=vis.filter(g=>tags.indexOf(g)%2===1);
       const arc=(side,k,n)=>{ const t=n>1?k/(n-1):.5, d=(side<0?250-t*140:-70+t*140)*Math.PI/180; return [Math.cos(d),Math.sin(d)]; };
       tags.forEach(g=>{ const w=g.n.offsetWidth, h=g.n.offsetHeight; if(!w){ g.line.style.opacity=0; g.dot.style.opacity=0; g.ok=false; return; }
@@ -2161,6 +2179,7 @@ function spArt(el){
       A=a; B=b;
     };
     animate=(p,t)=>{ if(!A) layout(); const T=RM?0:t;
+      if(eroi){ const e=RM?1:ease(seg(p,.2,.26)); eroi.style.opacity=e; eroi.style.transform=`scale(${lerp(.6,1,e)})`; eroi.classList.toggle('live',e>.98); if(eroiN) eroiN.textContent=(2.4*e).toFixed(1); }
       tags.forEach((g,i)=>{ if(!g.ok){ g.n.style.opacity=0; return; }
         const e=RM?1:ease(seg(p,.12+i*.01,.17+i*.01)), fx=Math.sin(T*.0009+i*1.7)*5, fy=Math.cos(T*.0011+i*1.3)*4;
         const x=(g.tx+fx)*e, y=(g.ty+fy)*e;
@@ -2173,9 +2192,12 @@ function spArt(el){
     };
     new ResizeObserver(()=>requestAnimationFrame(layout)).observe(pr); if(document.fonts) document.fonts.ready.then(layout); setTimeout(layout,200);
   }
+  const avs=$$('.pp-avc',el);
   let on=false;
   return {update(p,t){
     animate(p,t);
+    avs.forEach((n,i)=>{ const e=RM?1:ease(seg(p,.1+i*.008,.16+i*.008)), T=RM?0:t, fy=Math.sin(T*.0012+i*1.9)*4;
+      n.style.opacity=e; n.style.transform=`translate(-50%,-50%) translateY(${fy}px) scale(${lerp(.2,1,e)})`; });
     const r=el.getBoundingClientRect(), vis=r.top<innerHeight&&r.bottom>0&&p>.02&&p<.62;
     if(r.top<innerHeight*2) pp.forEach(s=>{ if(!s.loaded){ const ext=vtype(s.v); if(ext) s.v.src=s.src+ext; s.loaded=true; } });
     const want=vis&&!RM; if(want!==on){ on=want; pp.forEach(s=>{ if(want){ const q=s.v.play(); if(q&&q.catch) q.catch(()=>{}); } else s.v.pause(); }); }
@@ -2297,32 +2319,30 @@ function manifestoScene(el){
   addEventListener('resize',()=>requestAnimationFrame(place)); if(document.fonts) document.fonts.ready.then(place); setTimeout(place,100);
   return {el,update(p){if(cta){ if(!cta.style.top) place(); cta.classList.toggle('on',mobile||p>.9); } if(mobile)return;const n=ls.length;ls.forEach((l,i)=>{l.style.opacity=.18+.82*seg(p,i/n*.8,(i+1)/n*.8)})}};
 }
-/* ---------- Home: Kula in numbers — one stat at a time, the phone plays a matching creator ad ---------- */
+/* ---------- Home: Kula in numbers — stats on one side, a wall of creator content on the other (not paired) ---------- */
 function showcaseScene(el){
-  const items=$$('.sc-list li',el), ads=$$('.sc-ad',el).map(n=>({n,v:$('video',n),src:n.dataset.src,brand:n.dataset.brand,loaded:false})),
-        bars=$$('.sc-bars b',el), N=$('.sc-n',el), Lb=$('.sc-l',el), brand=$('.sc-brand',el), stage=$('.stage',el);
-  const S=items.map(li=>({to:+li.dataset.to,pre:li.dataset.pre||'',suf:li.dataset.suf||'',dec:+li.dataset.dec||0,label:$('span',li).textContent}));
+  const items=$$('.sc-list li',el), N=$('.sc-n',el), Lb=$('.sc-l',el), W=$('.sc-big .sc-who',el), wall=$('.sc-wall',el), left=$('.sc-left',el);
+  const tiles=$$('.sc-tile',el).map(n=>({n,v:$('video',n),src:n.dataset.src,loaded:false,on:false}));
+  const S=items.map(li=>({to:+li.dataset.to,pre:li.dataset.pre||'',suf:li.dataset.suf||'',dec:+li.dataset.dec||0,label:$('span',li).textContent,who:li.dataset.who}));
   const vtype=v=>v.canPlayType('video/mp4; codecs="avc1.4D401E"')?'.mp4':v.canPlayType('video/webm; codecs="vp9"')?'.webm':'';
-  const load=a=>{ if(a&&!a.loaded){ const ext=vtype(a.v); if(ext) a.v.src=a.src+ext; a.loaded=true; } };
   const fmt=(s,x)=>s.pre+(s.dec?x.toFixed(s.dec):Math.round(x))+s.suf;
-  let cur=-1, t0=0, playing=null;
-  items.forEach((li,i)=>$('button',li).addEventListener('click',()=>{ const top=el.getBoundingClientRect().top+scrollY;
-    window.scrollTo({top:top+unmap((i+.5)/items.length,PACE.showcase)*(el.offsetHeight-innerHeight)+2,behavior:RM?'auto':'smooth'}); }));
-  return {el,update(p,t){
-    const NS=items.length, i=Math.max(0,Math.min(NS-1,Math.floor(p*NS)));
-    const r=el.getBoundingClientRect(), vis=r.top<innerHeight&&r.bottom>0;
-    if(vis){ load(ads[i]); load(ads[Math.min(NS-1,i+1)]); }
-    if(i!==cur){ cur=i; t0=t;
-      items.forEach((li,k)=>li.classList.toggle('on',k===i)); ads.forEach((a,k)=>a.n.classList.toggle('on',k===i));
-      Lb.textContent=S[i].label;
-      bars.forEach((b,k)=>{ if(k<i) b.style.width='100%'; else if(k>i) b.style.width='0'; });
-    }
-    // count the number up each time a new stat arrives
-    const k=RM?1:Math.min(1,(t-t0)/900), e=1-Math.pow(1-k,3); N.textContent=fmt(S[i],S[i].to*e);
-    // only the ad on screen plays; its story bar tracks the clip
-    const want=vis&&!RM?ads[i]:null;
-    if(want!==playing){ if(playing) playing.v.pause(); playing=want; if(want){ const pr=want.v.play(); if(pr&&pr.catch) pr.catch(()=>{}); } }
-    const v=ads[i].v; bars[i].style.width=(v.duration?Math.min(100,v.currentTime/v.duration*100):0)+'%';
+  let cur=-1, t0=0;
+  items.forEach((li,i)=>$('button',li).addEventListener('click',()=>{ const top=el.getBoundingClientRect().top+scrollY, c=PACE.showcase, at=c.holds[i+(mobile?1:0)][0];
+    window.scrollTo({top:top+unmap(at,c)*(el.offsetHeight-innerHeight)+2,behavior:RM?'auto':'smooth'}); }));
+  const layout=()=>{ el.style.height=(total(PACE.showcase)+100)+'vh'; cur=-1; };
+  return {el,layout,update(p,t){
+    const NS=items.length, steps=mobile?NS+1:NS, k=Math.max(0,Math.min(steps-1,Math.floor(p*steps))), i=mobile?Math.max(0,k-1):k, intro=mobile&&k===0;
+    const r=el.getBoundingClientRect(), vis=r.top<innerHeight*1.5&&r.bottom>-innerHeight*.5;
+    el.classList.toggle('sc-intro',intro);
+    // the wall plays whenever the section is near the screen (only the tiles actually shown on phones)
+    tiles.forEach(s=>{ const shown=s.n.offsetParent!==null, want=vis&&shown&&!RM&&(!mobile||intro);
+      if(want&&!s.loaded){ const ext=vtype(s.v); if(ext) s.v.src=s.src+ext; s.loaded=true; }
+      if(want!==s.on){ s.on=want; if(want){ const q=s.v.play(); if(q&&q.catch) q.catch(()=>{}); } else s.v.pause(); } });
+    if(i!==cur||intro){ if(i!==cur){ cur=i; t0=t; }
+      items.forEach((li,j)=>li.classList.toggle('on',j===i));
+      Lb.textContent=S[i].label; W.textContent=S[i].who==='k'?'Kula':'Client'; W.className='sc-who '+S[i].who; }
+    if(intro) t0=t;
+    const kk=RM?1:Math.min(1,(t-t0)/900), e=1-Math.pow(1-kk,3); N.textContent=fmt(S[i],S[i].to*e);
   }};
 }
 const FACT={wheel:wheelScene,showcase:showcaseScene,manifesto:manifestoScene,fly:flyScene,split:splitScene,case:caseScene,pillars:pillarsScene,process:processScene};
@@ -2339,6 +2359,9 @@ const PACE={
   case:{base:600,holds:[[.2,HP],[.8,HP]]}
 };
 const total=c=>c.base+c.holds.reduce((a,h)=>a+h[1],0);
+const SC_D={base:480,holds:[[.125,HP],[.375,HP],[.625,HP],[.875,HP]]};               // desktop: one stop per stat
+const SC_M={base:600,holds:[[.1,HP],[.3,HP],[.5,HP],[.7,HP],[.9,HP]]};               // phones: the videos first, then each stat
+Object.defineProperty(PACE,'showcase',{get:()=>mobile?SC_M:SC_D,configurable:true,enumerable:true});
 function remap(raw,c){const y=raw*total(c);let acc=0;for(const [at,len] of c.holds){const pos=at*c.base+acc;if(y<pos)return(y-acc)/c.base;if(y<pos+len)return at;acc+=len}return clamp((y-acc)/c.base)}
 function unmap(p,c){let y=p*c.base;for(const [at,len] of c.holds)if(at<p)y+=len;return y/total(c)}
 let scenes=[], lines=[], spins=[];
@@ -2348,6 +2371,7 @@ let scenes=[], lines=[], spins=[];
   const fine=matchMedia('(pointer:fine)');
   let anim=null, lastWheel=0, acc=0, quietNeeded=false, touchY=null, touchT=0;
   const maxY=()=>document.documentElement.scrollHeight-innerHeight;
+  const inUi=(e,sel)=>{ const t=e.target&&e.target.closest?e.target:null; return !!(t&&t.closest(sel)); };
   const blocked=()=>document.documentElement.classList.contains('join-open')||!$('#mobileMenu').hidden;
   // each stop is a range [s,e]: a scene pause (where nothing on screen changes) or a single point
   function stops(){
@@ -2375,41 +2399,57 @@ let scenes=[], lines=[], spins=[];
     return out.filter((r,i,a)=>!i||r.s-a[i-1].e>24);
   }
   const ease=k=>1-Math.pow(1-k,2.6);            // starts moving straight away, settles gently
-  function glide(from,to){
-    const d=to-from; if(Math.abs(d)<2) return;
-    if(RM){ window.scrollTo(0,to); return; }
-    const vh=Math.abs(d)/innerHeight*100, dur=Math.min(1500,Math.max(550,520+vh*1.1)), t0=performance.now();
+  function glide(from,to,dir){
+    const d=to-from; if(Math.abs(d)<2) return false;
+    if(RM){ window.scrollTo(0,to); tail=true; return true; }
+    const vh=Math.abs(d)/innerHeight*100, dur=Math.min(1050,Math.max(420,380+vh*.75)), t0=performance.now();
     if(anim) cancelAnimationFrame(anim.raf);
-    anim={to};
-    const step=now=>{ const k=Math.min(1,(now-t0)/dur); window.scrollTo(0,from+d*ease(k));
-      if(k<1) anim.raf=requestAnimationFrame(step); else { anim=null; quietNeeded=true; } };
-    window.scrollTo(0,from); anim.raf=requestAnimationFrame(step);
+    anim={to,dir,k:0};
+    const step=now=>{ if(!anim) return; const k=Math.min(1,(now-t0)/dur); anim.k=k; window.scrollTo(0,from+d*ease(k));
+      if(k<1) anim.raf=requestAnimationFrame(step);
+      else { anim=null; tail=true; if(queued){ const q=queued; queued=0; go(q); } } };
+    anim.raf=requestAnimationFrame(step); return true;
   }
   function go(dir){
     const y=anim?anim.to:scrollY, S=stops();
     const here=S.find(r=>y>=r.s-4&&y<=r.e+4);
-    if(dir>0){ const from=here?here.e:y, t=S.find(r=>r.s>from+4); if(t) glide(from,t.s); }
-    else { const from=here?here.s:y, t=[...S].reverse().find(r=>r.e<from-4); if(t) glide(from,t.e); }
+    if(dir>0){ const from=here?here.e:y, t=S.find(r=>r.s>from+4); if(t) return glide(anim?scrollY:from,t.s,1); }
+    else { const from=here?here.s:y, t=[...S].reverse().find(r=>r.e<from-4); if(t) return glide(anim?scrollY:from,t.e,-1); }
+    return false;
   }
+  // step scrolling only where the page is built around pinned scenes; plain content pages scroll natively
+  const stepView=()=>{ const v=$$('[data-view]').find(n=>!n.hidden); return !!v&&['home','about','how'].includes(v.dataset.view); };
+  // wheel: one gesture = one step. Works with notched mice (any browser, any delta mode), smooth mice and trackpads.
+  let lastT=0, lastMag=0, tail=false, queued=0;
+  const norm=e=>e.deltaMode===1?e.deltaY*32:e.deltaMode===2?e.deltaY*innerHeight:e.deltaY;
   addEventListener('wheel',e=>{
-    if(blocked()||e.ctrlKey||e.target.closest('.join-panel,.mmenu,textarea,select')) return;
+    if(blocked()||e.ctrlKey||!stepView()||inUi(e,'.join-panel,.mmenu,textarea,select')) return;
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY)) return;                // sideways swipes are left alone
     e.preventDefault();
-    const now=performance.now(), gap=now-lastWheel; lastWheel=now;
-    if(anim) return;
-    if(quietNeeded){ if(gap<180) return; quietNeeded=false; }   // swallow trackpad momentum from the last flick
-    if(gap>250) acc=0;
-    acc+=e.deltaY; if(Math.abs(acc)<24) return;
-    const dir=Math.sign(acc); acc=0; quietNeeded=true; go(dir);
+    const d=norm(e), mag=Math.abs(d), dir=Math.sign(d), now=performance.now(), gap=now-lastT;
+    // a new gesture starts after a pause, or when the input jumps up again (trackpad momentum only ever decays)
+    const fresh=gap>110||mag>lastMag*1.6+3; lastT=now; lastMag=mag;
+    if(!dir) return;
+    if(anim){
+      if(dir!==anim.dir&&fresh){ cancelAnimationFrame(anim.raf); anim=null; queued=0; go(dir); }   // change of mind: turn straight round
+      else if(fresh&&anim.k>.45) queued=dir;                                                      // next flick arrives while landing: chain it
+      return;
+    }
+    if(tail&&!fresh) return;                                            // the tail of the last gesture's momentum
+    tail=false;
+    if(gap>220) acc=0;
+    acc+=d; if(Math.abs(acc)<10) return;                                // ignore tiny accidental nudges
+    acc=0; if(!go(dir)) tail=true;
   },{passive:false});
   addEventListener('keydown',e=>{
-    if(blocked()||e.target.closest('input,textarea,select,[contenteditable]')) return;
+    if(blocked()||inUi(e,'input,textarea,select,[contenteditable]')) return;
     const k=e.key, dn=['ArrowDown','PageDown',' '].includes(k)&&!(k===' '&&e.shiftKey), up=['ArrowUp','PageUp'].includes(k)||(k===' '&&e.shiftKey);
-    if(!dn&&!up) return; e.preventDefault(); if(!anim) go(dn?1:-1);
+    if(!dn&&!up||!stepView()) return; e.preventDefault(); if(anim){ queued=dn?1:-1; return; } go(dn?1:-1);
   });
   addEventListener('touchstart',e=>{ if(blocked()||e.touches.length>1) return; touchY=e.touches[0].clientY; touchT=performance.now(); },{passive:true});
-  addEventListener('touchmove',e=>{ if(touchY!=null&&!e.target.closest('.join-panel,.mmenu')) e.preventDefault(); },{passive:false});
+  addEventListener('touchmove',e=>{ if(touchY!=null&&stepView()&&!inUi(e,'.join-panel,.mmenu')) e.preventDefault(); },{passive:false});
   addEventListener('touchend',e=>{ if(touchY==null) return; const dy=touchY-(e.changedTouches[0]||{}).clientY; touchY=null;
-    if(Math.abs(dy)>28&&!anim) go(Math.sign(dy)); });
+    if(Math.abs(dy)>28&&stepView()){ if(anim){ queued=Math.sign(dy); return; } go(Math.sign(dy)); } });
   addEventListener('hashchange',()=>{ if(anim){ cancelAnimationFrame(anim.raf); anim=null; } });
 })();
 
