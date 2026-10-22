@@ -122,7 +122,7 @@ body.notes-on .note{display:block}
 .fw-core::after{content:"";position:absolute;inset:30%;border-radius:50%;background:var(--paper)}
 .fw-leader{position:absolute;left:50%;top:50%;width:56%;height:2px;background:var(--paper);transform-origin:left center;transform:translateY(-50%) scaleX(0);z-index:1}
 @media (max-width:760px){.fw-leader{display:none}}
-.fw-label{position:absolute;width:min(250px,24vw);z-index:3;opacity:0;will-change:transform,opacity}
+.fw-label{position:absolute;width:min(232px,22vw);z-index:3;opacity:0;will-change:transform,opacity}
 .fw-label.r{text-align:right}
 .fw-label .k{font:500 11px var(--f-mono);color:var(--lime);letter-spacing:.1em}
 .fw-label h3{font-size:clamp(22px,2.2vw,32px);font-weight:600;letter-spacing:-.02em;margin:2px 0 6px}
@@ -1025,14 +1025,12 @@ html.join-open{overflow:hidden}
 .sc-list button:hover{color:var(--paper)}
 .sc-list button:focus-visible{outline:2px solid var(--lime);outline-offset:2px;border-radius:4px}
 .sc-right{display:flex;justify-content:center;min-width:0}
-/* Kula / Client labels */
-.sc-who{display:inline-flex;align-self:flex-start;align-items:center;font:700 11px/1 var(--f-display);letter-spacing:.1em;text-transform:uppercase;font-style:normal;padding:5px 9px;border-radius:999px;white-space:nowrap}
-.sc-who.k{background:var(--lime);color:#1a1a17}
-.sc-who.c{background:transparent;color:var(--paper);box-shadow:inset 0 0 0 1.5px rgba(255,252,247,.6)}
-.sc-big .sc-who{margin-top:8px}
-.sc-list button{grid-template-columns:34px 78px 1fr auto}
-.sc-list .sc-who{font-size:9.5px;padding:4px 7px;opacity:.75}
-.sc-list li.on .sc-who{opacity:1}
+/* the list builds up as each stat arrives: rows still to come are hidden */
+@media (min-width:761px){
+  .sc-list li{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}
+  .sc-list li.shown{opacity:1;transform:none}
+  .sc-list button:focus:not(:focus-visible){outline:0}
+}
 /* the wall: three drifting columns of creator content, unrelated to which stat is showing */
 .sc-wall{--tw:min(190px,13vw,19vh);display:flex;gap:14px;height:calc(100svh - 110px);overflow:hidden;align-items:flex-start;
   -webkit-mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(transparent,#000 9%,#000 91%,transparent)}
@@ -1049,18 +1047,23 @@ html.join-open{overflow:hidden}
   .sc-big{min-height:0;align-items:center}
   .sc-n{font-size:clamp(84px,27vw,124px)}
   .sc-l{font-size:20px}
-  .sc-big .sc-who{align-self:center;margin-top:12px}
   .sc-list{display:flex;justify-content:center;gap:8px;border:0;margin-top:4vh}
   .sc-list li{border:0}
   .sc-list button{width:10px;height:10px;padding:0;border-radius:50%;background:var(--line);display:block}
   .sc-list button>*{display:none}
   .sc-list li.on button{background:var(--lime)}
-  .sc-wall{--tw:min(42vw,calc((100svh - 150px)/3.6));height:calc(100svh - 110px);justify-content:center;gap:12px;align-items:center}
-  .sc-col{gap:12px;animation:none}
+  /* phones: the four videos centred on screen; on the next scroll they part to the sides and the stat rises between them */
+  .sc-right{position:absolute;inset:calc(7px + env(safe-area-inset-top,0px)) 0 0;display:flex;align-items:center;justify-content:center;z-index:0}
+  .sc-left{position:relative;z-index:2}
+  .sc-wall{--tw:min(38vw,calc((100svh - 200px)/4.5));height:auto;overflow:visible;justify-content:center;gap:12px;align-items:flex-start;-webkit-mask-image:none;mask-image:none}
+  .sc-col{gap:12px;animation:none;transition:transform .7s cubic-bezier(.6,0,.2,1),opacity .7s ease}
   .sc-col:nth-child(2){margin-top:calc(var(--tw)*.9)}
   .sc-col:nth-child(3),.sc-tile:nth-child(n+3){display:none}
-  [data-scene="showcase"]:not(.sc-intro) .sc-right{opacity:0;transform:translateY(-24px);pointer-events:none}
-  [data-scene="showcase"].sc-intro .sc-left{opacity:0;transform:translateY(24px);pointer-events:none}
+  [data-scene="showcase"]:not(.sc-intro) .sc-col:nth-child(1){transform:translateX(calc(-50vw + 6px + var(--tw)*.38));opacity:.5}
+  [data-scene="showcase"]:not(.sc-intro) .sc-col:nth-child(2){transform:translateX(calc(50vw - 6px - var(--tw)*.38));opacity:.5}
+  .sc-left{transition:opacity .6s ease .15s,transform .7s cubic-bezier(.2,.8,.2,1) .15s}
+  [data-scene="showcase"].sc-intro .sc-left{opacity:0;transform:scale(.72);pointer-events:none;transition-delay:0s}
+  .sc-n,.sc-l{text-shadow:0 4px 24px rgba(26,26,23,.45)}
 }
 @media (prefers-reduced-motion:reduce){.sc-col{animation:none}.sc-left,.sc-right{transition:none}}
 [data-scene="showcase"] + .final, [data-scene="showcase"] ~ .final{margin-top:0;border-top:1px solid var(--line)}
@@ -1145,7 +1148,7 @@ html.join-open{overflow:hidden}
 .ab-h{margin:clamp(22px,4vh,44px) 0 0;font-size:clamp(46px,8vw,128px);letter-spacing:-.045em;line-height:.95}
 .ab-h b{font-weight:600}.ab-h span{font-weight:300}
 .ab-solve .duo-explain{text-align:left;border-top:0;padding-top:clamp(36px,6vh,64px);align-items:start}
-@media (max-width:560px){.ab-solve .duo-explain{text-align:center}.duo-explain h3 br{display:none}}
+@media (max-width:560px){.ab-solve .duo-explain{text-align:center}}
 /* What Kula believes: moving image behind, tinted green so the copy stays legible */
 .m-stage{position:sticky;overflow:hidden}
 .m-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
@@ -1247,6 +1250,100 @@ html.join-open{overflow:hidden}
   .m-scr .m-trio{margin-top:0}
   .m-scr .m-cta{align-self:flex-start}
 }
+
+.m-br{display:none}
+@media (max-width:760px){
+  .m-br{display:inline}
+  /* We create / What works on phones: whole graphic sits below the nav, nothing cut off */
+  .split-stage .pane-l .pane-inner{padding-top:calc(71px + env(safe-area-inset-top,0px) + 2.5vh);padding-bottom:10px;justify-content:space-evenly}
+  .split-stage .pane-r .pane-inner{padding-top:10px;padding-bottom:max(14px,2.5vh);justify-content:space-evenly}
+  .split-stage .pane-l .pane-art{height:auto;flex:1 1 auto;max-height:60%;margin-top:3vh}
+  .split-stage .pane-r .pane-art{height:auto;flex:1 1 auto;max-height:66%}
+}
+/* About problems: one screen of the four cards on desktop, so the next section doesn't show as a gap */
+@media (min-width:761px){
+  [data-view="about"] .page-head{padding-bottom:clamp(14px,2.4vh,28px)}
+  [data-view="about"] .problems{box-sizing:border-box;padding-top:0;padding-bottom:clamp(24px,4vh,48px);min-height:var(--fill,0px)}
+}
+.hero-mission{text-wrap:balance;max-width:40ch}
+
+@media (max-width:760px){
+  .fw-title{font-size:clamp(32px,10.4vw,44px);line-height:1.02;top:calc(70px + env(safe-area-inset-top,0px) + 3.5vh);text-wrap:balance}
+  .fw-title em{display:inline-block}
+}
+
+.ab-fw{display:none}
+@media (max-width:760px){
+  [data-view="about"] .page-head{padding-top:calc(86px + env(safe-area-inset-top,0px));padding-bottom:16px}
+  [data-view="about"] .page-head .ph1{font-size:clamp(44px,13vw,58px)}
+  [data-view="about"] .page-head .lede{margin-top:14px;font-size:16px}
+  [data-view="about"] .problems{padding-bottom:28px}
+  /* the four problems as a swipeable stack */
+  .prob-grid.pstack{display:grid;grid-template-columns:1fr;position:relative;touch-action:pan-y}
+  .prob-grid.pstack .prob{grid-area:1/1;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s;box-shadow:0 14px 30px -18px rgba(26,26,23,.35);background:#f6f2e8;will-change:transform}
+  .prob-grid.pstack.dragging .prob[data-k="0"]{transition:none}
+  .prob-grid.pstack.nudge .prob[data-k="0"]{animation:psNudge 1.6s cubic-bezier(.4,0,.2,1) .5s 2}
+  @keyframes psNudge{0%,100%{translate:0}35%{translate:-38px;rotate:-2deg}60%{translate:6px;rotate:0deg}}
+  .pstack-nav{display:flex;align-items:center;gap:14px;margin-top:30px;position:relative}
+  .pstack-nav button{width:40px;height:40px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:#335900;font:600 16px var(--f-display);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0}
+  .pstack-nav button:focus-visible{outline:2px solid #335900;outline-offset:2px}
+  .ps-dots{display:flex;gap:7px}
+  .ps-dots i{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer;transition:background .3s,width .3s}
+  .ps-dots i.on{background:#335900;width:22px;border-radius:4px}
+  .ps-hint{margin-left:auto;font:600 12px var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);transition:opacity .4s}
+  .ps-hint b{display:inline-block;animation:psHint 1.4s ease-in-out infinite}
+  @keyframes psHint{0%,100%{transform:translateX(0)}50%{transform:translateX(6px)}}
+  .pstack-nav.used .ps-hint{opacity:0}
+  [data-view="about"] .sources{margin-top:14px;font-size:10.5px;line-height:1.4}
+  /* slow flywheel behind "solves these problems" */
+  .ab-scr{position:relative}
+  .ab-fw{display:block;position:absolute;left:50%;top:50%;width:min(92vw,400px);aspect-ratio:1;translate:-50% -50%;color:#335900;opacity:.08;z-index:0;pointer-events:none;animation:spin 60s linear infinite}
+  .ab-fw svg{width:100%;height:100%;display:block;fill:currentColor}
+  .ab-scr .ab-intro{position:relative;z-index:1}
+  /* What Kula believes: closer to the nav, larger copy */
+  .m-scr{padding-block:calc(71px + 2.5vh) 4vh}
+  .m-scr:first-of-type{justify-content:flex-start}
+  .m-stage .m-body{font-size:17px;line-height:1.5;gap:14px}
+  /* the closing screen, centred and built line by line */
+  .m-scr:last-of-type{align-items:center;text-align:center}
+  .m-scr:last-of-type .m-trio{align-items:center}
+  .m-scr:last-of-type .m-cta{align-self:center}
+  .m-scr:last-of-type .m-trio li{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+  .m-scr:last-of-type .m-trio li:nth-child(2){transition-delay:.45s}
+  .m-scr:last-of-type .m-trio li:nth-child(3){transition-delay:.9s}
+  .m-scr:last-of-type .m-sign b,.m-scr:last-of-type .m-sign span{display:inline-block;opacity:0;transition:opacity .6s ease 1.4s,transform .9s cubic-bezier(.16,.84,.24,1) 1.4s}
+  .m-scr:last-of-type .m-sign b{transform:translateX(-60vw)}.m-scr:last-of-type .m-sign span{transform:translateX(60vw)}
+  .m-scr:last-of-type .m-cta{opacity:0!important;transform:translateY(14px)!important;transition:opacity .5s ease 2.3s,transform .5s ease 2.3s!important;pointer-events:none}
+  .m-scr:last-of-type.in .m-trio li,.m-scr:last-of-type.in .m-sign b,.m-scr:last-of-type.in .m-sign span{opacity:1;transform:none}
+  .m-scr:last-of-type.in .m-cta{opacity:1!important;transform:none!important;pointer-events:auto}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.ab-fw,.ps-hint b,.prob-grid.pstack.nudge .prob{animation:none}.m-scr:last-of-type *{transition:none!important}}
+
+@media (max-width:760px){
+  [data-view="about"] .problems{padding-top:26px;padding-bottom:40px}
+  .pstack-nav{justify-content:center;flex-wrap:wrap;gap:16px;margin-top:40px;row-gap:12px}
+  .pstack-nav button svg{display:block}
+  .pstack-nav button{width:42px;height:42px;border-color:rgba(51,89,0,.35)}
+  .ps-hint{margin-left:0;flex-basis:100%;text-align:center;order:3;font-size:11px}
+  [data-view="about"] .sources{margin-top:26px;text-align:center}
+}
+
+@media (max-width:760px) and (max-height:760px){
+  [data-view="about"] .page-head{padding-top:74px;padding-bottom:0}
+  [data-view="about"] .page-head .ph1{font-size:clamp(38px,11vw,48px)}
+  [data-view="about"] .page-head .lede{font-size:15px;line-height:1.45}
+  [data-view="about"] .problems{padding-top:16px;padding-bottom:16px}
+  .prob-grid.pstack .prob{padding:20px 20px 22px}
+  .prob-grid.pstack .prob b{font-size:32px}
+  .prob-grid.pstack .prob p{font-size:13px}
+  .pstack-nav{margin-top:22px;row-gap:8px}
+  .ps-hint{display:none}
+  [data-view="about"] .page-head .ph1{margin-bottom:10px}
+  .pstack-nav button{width:38px;height:38px}
+  [data-view="about"] .sources{margin-top:16px;font-size:9.5px}
+}
+
+@media (min-width:761px){ .pstack-nav{display:none!important} }
 </style>
 
 <main>
@@ -1319,7 +1416,7 @@ html.join-open{overflow:hidden}
       <div class="hero-bg" aria-hidden="true"><video class="hero-vid" muted loop playsinline preload="metadata" poster="hero-poster.jpg" data-src-d="hero-desktop.mp4" data-src-m="hero-mobile.mp4" data-poster-m="hero-poster-m.jpg"></video></div>
       <div class="hero-copy">
         <h1 class="hero-h">Not another<br>creator agency.</h1>
-        <p class="hero-mission">We're on a mission to turn creators into a grown-up marketing channel.</p>
+        <p class="hero-mission">We're on a mission to turn creator attention into <em>business results.</em></p>
         <p class="scroll-cue" aria-hidden="true"><svg viewBox="0 0 24 36" width="24" height="36"><path d="M12 2v30M3 23l9 9 9-9" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></p>
       </div>
     </div>
@@ -1334,13 +1431,13 @@ html.join-open{overflow:hidden}
       <div class="pane pane-l on-lime"><div class="pane-inner">
         <div class="pane-art pp-trio" aria-label="Creator ads made with Kula" role="img">
           <div class="pp-avs" aria-hidden="true"><span class="pp-avc v" style="left:16%;top:-9%;--d:15cqw;background-image:url(lg/avatar.jpg)"></span><span class="pp-avc" style="left:40%;top:-12%;--d:8cqw;background-image:url(lg/g2.jpg)"></span><span class="pp-avc" style="left:60%;top:-6%;--d:10cqw;background-image:url(lg/g5.jpg)"></span><span class="pp-avc" style="left:80%;top:-11%;--d:8cqw;background-image:url(lg/g7.jpg)"></span><span class="pp-avc" style="left:95%;top:6%;--d:11cqw;background-image:url(lg/g3.jpg)"></span><span class="pp-avc" style="left:3%;top:22%;--d:9cqw;background-image:url(lg/g1.jpg)"></span><span class="pp-avc" style="left:-2%;top:62%;--d:10cqw;background-image:url(lg/g9.jpg)"></span><span class="pp-avc" style="left:8%;top:104%;--d:11cqw;background-image:url(lg/g4.jpg)"></span><span class="pp-avc" style="left:30%;top:110%;--d:8cqw;background-image:url(lg/g8.jpg)"></span><span class="pp-avc" style="left:62%;top:108%;--d:12cqw;background-image:url(lg/g6.jpg)"></span><span class="pp-avc" style="left:86%;top:104%;--d:9cqw;background-image:url(lg/g2.jpg)"></span><span class="pp-avc" style="left:101%;top:74%;--d:8cqw;background-image:url(lg/g5.jpg)"></span></div>
-          <div class="pp pp-s l" data-src="sc/v3"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video>
+          <div class="pp pp-s l" data-src="sc/kt"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/kt.jpg"></video>
             <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
             <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
-          <div class="pp pp-c" data-src="sc/v1"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video>
+          <div class="pp pp-c" data-src="sc/kj"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/kj.jpg"></video>
             <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
             <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
-          <div class="pp pp-s r" data-src="sc/v5"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video>
+          <div class="pp pp-s r" data-src="sc/kb"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/kb.jpg"></video>
             <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
             <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div></div>
         </div>
@@ -1350,7 +1447,7 @@ html.join-open{overflow:hidden}
         </div>
       </div></div>
       <div class="pane pane-r"><div class="pane-inner">
-        <div class="pane-art pr" aria-label="A creator video tagged with Kula content attributes and a predicted eROI of 2.4x" role="img">
+        <div class="pane-art pr" aria-label="A creator video tagged with Kula content attributes and an eROI of 3.4x" role="img">
           <div class="pr-orbit"><svg class="pr-lines" aria-hidden="true"></svg><div class="pr-ghosts" aria-hidden="true"></div>
             <span class="lg-tag pr-tag" data-x="-1.62" data-y="-0.84" data-mx="-1" data-my="-0.78"><i></i>Face to camera</span>
             <span class="lg-tag pr-tag" data-x="1.62" data-y="-0.86" data-mx="1" data-my="-0.78"><i></i>Comments <b>1.2k</b></span>
@@ -1363,10 +1460,10 @@ html.join-open{overflow:hidden}
             <span class="lg-tag pr-tag d-only" data-x="-1.62" data-y="0.95"><i></i>Format <b>Tutorial</b></span>
             <span class="lg-tag pr-tag d-only" data-x="1.62" data-y="0.93"><i></i>Brand fit <b>High</b></span>
           </div>
-          <div class="pp pr-ph" data-src="sc/v4"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video>
+          <div class="pp pr-ph" data-src="sc/kw"><div class="pp-scr"><video muted loop playsinline preload="none" poster="sc/kw.jpg"></video>
             <div class="pp-bars"><i><b></b></i><i></i><i></i><i></i></div><div class="pp-top"><span class="pp-av" data-fw></span><span>Sponsored</span></div>
             <div class="pp-bot"><p>Creator ad · made with Kula</p><span>Shop now</span></div></div>
-            <span class="eroi" aria-label="2.4 times eROI"><b><span class="eroi-n">2.4</span>x</b> eROI</span></div>
+            <span class="eroi" aria-label="3.4 times eROI"><b><span class="eroi-n">3.4</span>x</b> eROI</span></div>
         </div>
         <div class="pane-copy">
           <h2>What works</h2>
@@ -1384,21 +1481,21 @@ html.join-open{overflow:hidden}
     </div>
   </section>
 
-  <section class="scene sc-scene" data-scene="showcase" aria-label="Kula in numbers">
+  <section class="scene sc-scene sc-intro" data-scene="showcase" aria-label="Kula in numbers">
     <div class="stage sc-stage">
       <div class="sc-wrap wrap">
         <div class="sc-left">
           <p class="eyebrow">Kula in numbers</p>
-          <div class="sc-big" aria-live="polite"><span class="sc-n">40k</span><span class="sc-l">UK creators assessed</span><span class="sc-who k">Kula</span></div>
+          <div class="sc-big" aria-live="polite"><span class="sc-n">40k</span><span class="sc-l">UK creators assessed</span></div>
           <ol class="sc-list">
-            <li data-to="40" data-suf="k" data-who="k"><button type="button"><i>01</i><b>40k</b><span>UK creators assessed</span><em class="sc-who k">Kula</em></button></li>
-            <li data-to="50" data-suf="+" data-who="k"><button type="button"><i>02</i><b>50+</b><span>Years of content consumed</span><em class="sc-who k">Kula</em></button></li>
-            <li data-to="100" data-pre="$" data-suf="m" data-who="c"><button type="button"><i>03</i><b>$100m</b><span>Raised for expansion</span><em class="sc-who c">Client</em></button></li>
-            <li data-to="6.5" data-dec="1" data-suf="x" data-who="c"><button type="button"><i>04</i><b>6.5x</b><span>ROI achieved</span><em class="sc-who c">Client</em></button></li>
+            <li data-to="40" data-suf="k" data-who="k"><button type="button"><i>01</i><b>40k</b><span>UK creators assessed</span></button></li>
+            <li data-to="50" data-suf="+" data-who="k"><button type="button"><i>02</i><b>50+</b><span>Years of content consumed</span></button></li>
+            <li data-to="100" data-pre="$" data-suf="m" data-who="c"><button type="button"><i>03</i><b>$100m</b><span>Raised for expansion</span></button></li>
+            <li data-to="6.5" data-dec="1" data-suf="x" data-who="c"><button type="button"><i>04</i><b>6.5x</b><span>ROI achieved</span></button></li>
           </ol>
         </div>
         <div class="sc-right">
-          <div class="sc-wall" aria-label="Creator content made with Kula" role="img"><div class="sc-col"><div class="sc-tile" data-src="lg/s1"><video muted loop playsinline preload="none" poster="lg/s1.jpg"></video></div><div class="sc-tile" data-src="sc/v1"><video muted loop playsinline preload="none" poster="sc/v1.jpg"></video></div><div class="sc-tile" data-src="lg/s4"><video muted loop playsinline preload="none" poster="lg/s4.jpg"></video></div><div class="sc-tile" data-src="sc/v3"><video muted loop playsinline preload="none" poster="sc/v3.jpg"></video></div></div><div class="sc-col"><div class="sc-tile" data-src="sc/v4"><video muted loop playsinline preload="none" poster="sc/v4.jpg"></video></div><div class="sc-tile" data-src="lg/s2"><video muted loop playsinline preload="none" poster="lg/s2.jpg"></video></div><div class="sc-tile" data-src="sc/v5"><video muted loop playsinline preload="none" poster="sc/v5.jpg"></video></div><div class="sc-tile" data-src="lg/s6"><video muted loop playsinline preload="none" poster="lg/s6.jpg"></video></div></div><div class="sc-col"><div class="sc-tile" data-src="lg/s3"><video muted loop playsinline preload="none" poster="lg/s3.jpg"></video></div><div class="sc-tile" data-src="sc/v2"><video muted loop playsinline preload="none" poster="sc/v2.jpg"></video></div><div class="sc-tile" data-src="lg/s5"><video muted loop playsinline preload="none" poster="lg/s5.jpg"></video></div><div class="sc-tile" data-src="lg/s2"><video muted loop playsinline preload="none" poster="lg/s2.jpg"></video></div></div></div>
+          <div class="sc-wall" aria-label="Creator content made with Kula" role="img"><div class="sc-col"><div class="sc-tile" data-src="sc/kk"><video muted loop playsinline preload="none" poster="sc/kk.jpg"></video></div><div class="sc-tile" data-src="sc/kl"><video muted loop playsinline preload="none" poster="sc/kl.jpg"></video></div><div class="sc-tile" data-src="sc/w1"><video muted loop playsinline preload="none" poster="sc/w1.jpg"></video></div><div class="sc-tile" data-src="sc/w2"><video muted loop playsinline preload="none" poster="sc/w2.jpg"></video></div></div><div class="sc-col"><div class="sc-tile" data-src="sc/ke"><video muted loop playsinline preload="none" poster="sc/ke.jpg"></video></div><div class="sc-tile" data-src="sc/w3"><video muted loop playsinline preload="none" poster="sc/w3.jpg"></video></div><div class="sc-tile" data-src="sc/w4"><video muted loop playsinline preload="none" poster="sc/w4.jpg"></video></div><div class="sc-tile" data-src="sc/w5"><video muted loop playsinline preload="none" poster="sc/w5.jpg"></video></div></div><div class="sc-col"><div class="sc-tile" data-src="sc/kh"><video muted loop playsinline preload="none" poster="sc/kh.jpg"></video></div><div class="sc-tile" data-src="sc/w6"><video muted loop playsinline preload="none" poster="sc/w6.jpg"></video></div><div class="sc-tile" data-src="sc/w7"><video muted loop playsinline preload="none" poster="sc/w7.jpg"></video></div><div class="sc-tile" data-src="sc/w8"><video muted loop playsinline preload="none" poster="sc/w8.jpg"></video></div></div></div>
         </div>
       </div>
     </div>
@@ -1527,7 +1624,7 @@ html.join-open{overflow:hidden}
     <h1 class="ph1">Why Kula <em>exists.</em></h1>
     <p class="lede">Creator-led social is the big opportunity. It also has big problems: creative effectiveness, measurement, execution and scale. Everyone's investing. Few have cracked it.</p>
   </section>
-  <section class="problems wrap" aria-label="The state of creator marketing">
+  <section class="problems wrap" data-nostop aria-label="The state of creator marketing">
     <div class="prob-grid">
       <div class="prob"><p class="eyebrow">Investment problem</p><b>+26%</b><p>YoY growth in creator marketing spend globally</p><i>yet only</i><b class="hi">14.3%</b><p>of marketing budgets are spent on social</p></div>
       <div class="prob"><p class="eyebrow">Creative problem</p><b>12.9hrs</b><p>a week of adult time is spent watching creator content</p><i>yet only</i><b class="hi">56%</b><p>of people think what brands produce is any good</p></div>
@@ -1537,13 +1634,13 @@ html.join-open{overflow:hidden}
     <p class="sources">Sources: WARC Marketer's Toolkit 2026; The CMO Survey 2026; CreatorIQ Creator-Powered Funnel Report 2026; Sprout Social Content Strategy Report 2026; Medill Spiegel Research Center, Creator Marketing 2026.</p>
   </section>
   <section class="wrap ab-solve" aria-label="We create what works">
-    <div class="ab-scr" data-stop><p class="ab-intro"><span class="ab-i1">Our platform-powered agency model solves these problems.</span><span class="ab-i2">Making creator-led marketing more intelligent, measurable and predictable.</span></p>
+    <div class="ab-scr" data-stop><span class="ab-fw" data-fw aria-hidden="true"></span><p class="ab-intro"><span class="ab-i1">Our platform-powered agency model solves <br class="m-br">these problems.</span><span class="ab-i2">Making creator-led marketing more intelligent, measurable and predictable.</span></p>
     </div>
     <div class="ab-scr" data-stop><h2 class="ab-h"><b>We create</b> <span>what works.</span></h2>
     <div class="duo-explain">
-      <div><h3 style="font-weight:600">Social content <br>expertise</h3><p>Creators, ideas and formats people choose to watch.</p></div>
+      <div><h3 style="font-weight:600">Social content <br>expertise</h3><p>Creators, ideas and formats people choose to&nbsp;watch.</p></div>
       <span class="x">×</span>
-      <div><h3 style="font-weight:300">Predictive marketing <br>technology</h3><p>AI, data and human insight that removes guesswork.</p></div>
+      <div><h3 style="font-weight:300">Predictive marketing <br>technology</h3><p>AI, data and human insight that removes&nbsp;guesswork.</p></div>
     </div></div>
   </section>
   <div data-include="manifesto"></div>
@@ -1958,8 +2055,8 @@ function renderCase(id){
 
 /* ---------- scenes ---------- */
 const PARTS=[
-  {k:'creators',h:'Creators',p:'Real people with a story to tell, briefed to make content audiences want to watch.',x:-.04,y:.46,ax:'-100%',r:1},
-  {k:'brand',h:'Brand',p:'Content that drives brand growth and sales return, with grown-up measurement and metrics.',x:.74,y:.0,ax:'0%'},
+  {k:'creators',h:'Creators',p:'Real people with a story to tell, briefed to make content audiences want\u00a0to\u00a0watch.',x:-.04,y:.46,ax:'-100%',r:1},
+  {k:'brand',h:'Brand',p:'Content that drives brand growth and sales return, with business measurement and metrics.',x:.74,y:.0,ax:'0%'},
   {k:'media',h:'Media',p:'Paid media puts the best content in front of the right people, improving efficiency and effectiveness.',x:.8,y:.98,ax:'0%'},
   {k:'intelligence',h:'Intelligence',p:'A scalable creator system that gets smarter with every turn. Faster growth and more predictable results.',x:1.06,y:.5,ax:'0%'}];
 const S=[.16,.30,.44,.58];
@@ -2099,13 +2196,15 @@ function wheelScene(el){
   const NUMPOS=[[.236,.443],[.679,.297],[.584,.754],[.5,.5]];      // creators, brand, media, intelligence
   const nums=NUMPOS.map(([x,y],i)=>{ const n=document.createElement('span'); n.className='fw-num'; n.textContent=i+1; n.style.left=x*100+'%'; n.style.top=y*100+'%'; spin.append(n); return n; });
   return {el,update(q,t){
-    const H=innerHeight, p=WH_START+q*(WH_END-WH_START);
+    const H=innerHeight, p=WH_START+q*(WH_END-WH_START); let mobCapTop=0;
     const m=ease(seg(p,.68,.735)), stP=ease(seg(p,.915,.945));
     let y=lerp(mobile?-H*.08:0,-H*.13,stP);
     let s=lerp(.3,mobile?1.1:1.08,m); s=lerp(s,.62,stP);
     if(mobile){ // fit the wheel in the space between the title and the caption, however short the screen
       const tb=ttl?ttl.offsetTop+ttl.offsetHeight:80, W0=wrap.offsetWidth||1, capH=Math.max(140,cap.offsetHeight||0);
-      const sMax=Math.max(.5,Math.min(1.1,(H-tb-28-capH-22)/W0)); s=lerp(.3,sMax,m); y=tb+16+W0*sMax/2-H/2; }
+      const avail=H-tb-capH-Math.max(30,H*.13), VIS=.88;                                          // the drawn mark fills ~88% of its box
+      const sMax=Math.max(.5,Math.min(1.02,(avail-2*26)/(W0*VIS))); s=lerp(.3,sMax,m);
+      y=tb+avail/2-H/2; mobCapTop=tb+avail; }          // same gap above and below the wheel
     wrap.style.transform=`translate(-50%,-50%) translate(0px,${y}px)`;
     wrap.style.opacity=m*(1-seg(p,.965,.995));
     const rot=RM?0:((t*.024)-(1-m)*140)%360;
@@ -2128,7 +2227,7 @@ function wheelScene(el){
       n.style.opacity=(last?rI:m)*fade;
       n.classList.toggle('on',last?all:(i===cur||all)); n.classList.toggle('seen',!last&&i<cur&&!all); n.classList.toggle('pulse',last&&all);
       n.style.transform=`translate(-50%,-50%) rotate(${-rot}deg) scale(${last?lerp(.3,1,rI):1})`; });
-    if(mobile){ cap.style.top=(H/2+y+wrap.offsetWidth*s/2+18)+'px'; cap.style.bottom='auto'; } else { cap.style.top=''; cap.style.bottom=''; }
+    if(mobile){ cap.style.top=mobCapTop+'px'; cap.style.bottom='auto'; } else { cap.style.top=''; cap.style.bottom=''; }
     const so=seg(p,.92,.95)*(1-seg(p,.97,.995)); st.style.opacity=so; if(so>.85) st.classList.add('hl-on'); else if(so<.15) st.classList.remove('hl-on'); st.style.transform=`translateY(${(1-seg(p,.92,.95))*24}px)`;
   }};
 }
@@ -2179,7 +2278,7 @@ function spArt(el){
       A=a; B=b;
     };
     animate=(p,t)=>{ if(!A) layout(); const T=RM?0:t;
-      if(eroi){ const e=RM?1:ease(seg(p,.2,.26)); eroi.style.opacity=e; eroi.style.transform=`scale(${lerp(.6,1,e)})`; eroi.classList.toggle('live',e>.98); if(eroiN) eroiN.textContent=(2.4*e).toFixed(1); }
+      if(eroi){ const e=RM?1:ease(seg(p,.2,.26)); eroi.style.opacity=e; eroi.style.transform=`scale(${lerp(.6,1,e)})`; eroi.classList.toggle('live',e>.98); if(eroiN) eroiN.textContent=(3.4*e).toFixed(1); }
       tags.forEach((g,i)=>{ if(!g.ok){ g.n.style.opacity=0; return; }
         const e=RM?1:ease(seg(p,.12+i*.01,.17+i*.01)), fx=Math.sin(T*.0009+i*1.7)*5, fy=Math.cos(T*.0011+i*1.3)*4;
         const x=(g.tx+fx)*e, y=(g.ty+fy)*e;
@@ -2321,26 +2420,26 @@ function manifestoScene(el){
 }
 /* ---------- Home: Kula in numbers — stats on one side, a wall of creator content on the other (not paired) ---------- */
 function showcaseScene(el){
-  const items=$$('.sc-list li',el), N=$('.sc-n',el), Lb=$('.sc-l',el), W=$('.sc-big .sc-who',el), wall=$('.sc-wall',el), left=$('.sc-left',el);
+  const items=$$('.sc-list li',el), N=$('.sc-n',el), Lb=$('.sc-l',el), wall=$('.sc-wall',el), left=$('.sc-left',el);
   const tiles=$$('.sc-tile',el).map(n=>({n,v:$('video',n),src:n.dataset.src,loaded:false,on:false}));
   const S=items.map(li=>({to:+li.dataset.to,pre:li.dataset.pre||'',suf:li.dataset.suf||'',dec:+li.dataset.dec||0,label:$('span',li).textContent,who:li.dataset.who}));
   const vtype=v=>v.canPlayType('video/mp4; codecs="avc1.4D401E"')?'.mp4':v.canPlayType('video/webm; codecs="vp9"')?'.webm':'';
   const fmt=(s,x)=>s.pre+(s.dec?x.toFixed(s.dec):Math.round(x))+s.suf;
   let cur=-1, t0=0;
-  items.forEach((li,i)=>$('button',li).addEventListener('click',()=>{ const top=el.getBoundingClientRect().top+scrollY, c=PACE.showcase, at=c.holds[i+(mobile?1:0)][0];
+  items.forEach((li,i)=>$('button',li).addEventListener('click',e=>{ e.currentTarget.blur(); const top=el.getBoundingClientRect().top+scrollY, c=PACE.showcase, at=c.holds[i+(mobile?1:0)][0];
     window.scrollTo({top:top+unmap(at,c)*(el.offsetHeight-innerHeight)+2,behavior:RM?'auto':'smooth'}); }));
   const layout=()=>{ el.style.height=(total(PACE.showcase)+100)+'vh'; cur=-1; };
   return {el,layout,update(p,t){
-    const NS=items.length, steps=mobile?NS+1:NS, k=Math.max(0,Math.min(steps-1,Math.floor(p*steps))), i=mobile?Math.max(0,k-1):k, intro=mobile&&k===0;
+    const NS=items.length, steps=mobile?NS+1:NS, k=Math.max(0,Math.min(steps-1,Math.floor(p*steps))), i=mobile?Math.max(0,k-1):k, intro=mobile&&(k===0||p<=0);
     const r=el.getBoundingClientRect(), vis=r.top<innerHeight*1.5&&r.bottom>-innerHeight*.5;
     el.classList.toggle('sc-intro',intro);
     // the wall plays whenever the section is near the screen (only the tiles actually shown on phones)
-    tiles.forEach(s=>{ const shown=s.n.offsetParent!==null, want=vis&&shown&&!RM&&(!mobile||intro);
+    tiles.forEach(s=>{ const shown=s.n.offsetParent!==null, want=vis&&shown&&!RM;
       if(want&&!s.loaded){ const ext=vtype(s.v); if(ext) s.v.src=s.src+ext; s.loaded=true; }
       if(want!==s.on){ s.on=want; if(want){ const q=s.v.play(); if(q&&q.catch) q.catch(()=>{}); } else s.v.pause(); } });
     if(i!==cur||intro){ if(i!==cur){ cur=i; t0=t; }
-      items.forEach((li,j)=>li.classList.toggle('on',j===i));
-      Lb.textContent=S[i].label; W.textContent=S[i].who==='k'?'Kula':'Client'; W.className='sc-who '+S[i].who; }
+      items.forEach((li,j)=>{ li.classList.toggle('on',j===i); li.classList.toggle('shown',j<=i); });
+      Lb.textContent=S[i].label; }
     if(intro) t0=t;
     const kk=RM?1:Math.min(1,(t-t0)/900), e=1-Math.pow(1-kk,3); N.textContent=fmt(S[i],S[i].to*e);
   }};
@@ -2369,7 +2468,7 @@ let scenes=[], lines=[], spins=[];
 /* ---------- step scrolling: one wheel flick / swipe / key press glides to the next resting point ---------- */
 (()=>{
   const fine=matchMedia('(pointer:fine)');
-  let anim=null, lastWheel=0, acc=0, quietNeeded=false, touchY=null, touchT=0;
+  let touchX=0, anim=null, lastWheel=0, acc=0, quietNeeded=false, touchY=null, touchT=0;
   const maxY=()=>document.documentElement.scrollHeight-innerHeight;
   const inUi=(e,sel)=>{ const t=e.target&&e.target.closest?e.target:null; return !!(t&&t.closest(sel)); };
   const blocked=()=>document.documentElement.classList.contains('join-open')||!$('#mobileMenu').hidden;
@@ -2384,6 +2483,10 @@ let scenes=[], lines=[], spins=[];
       const top=el.getBoundingClientRect().top+scrollY, h=el.offsetHeight;
       const marks=[...el.querySelectorAll('[data-stop]')].filter(n=>n.offsetHeight>=ih*.9);   // full-screen parts inside a block get a stop each
       if(marks.length){ marks.forEach(n=>push(n.getBoundingClientRect().top+scrollY)); continue; }
+      const navH=($('header.nav')||{}).offsetHeight||0;
+      const cards=innerWidth<=760?[...el.querySelectorAll('[data-stop-m]')]:[];   // phones: smaller items (a problem and its stat) centred one per step
+      if(cards.length){ cards.forEach(n=>{ const r=n.getBoundingClientRect(); push(r.top+scrollY+r.height/2-(ih+navH)/2); }); continue; }
+      if(el.hasAttribute('data-nostop')) continue;                      // shares the screen above it
       if(el.matches('[data-scene]')){
         const c=PACE[el.dataset.scene], T=total(c), run=h-ih; let accv=0;
         for(const [at,len] of c.holds){ const y0=top+(at*c.base+accv)/T*run; push(y0+6, y0+len/T*run-6); accv+=len; }
@@ -2446,9 +2549,9 @@ let scenes=[], lines=[], spins=[];
     const k=e.key, dn=['ArrowDown','PageDown',' '].includes(k)&&!(k===' '&&e.shiftKey), up=['ArrowUp','PageUp'].includes(k)||(k===' '&&e.shiftKey);
     if(!dn&&!up||!stepView()) return; e.preventDefault(); if(anim){ queued=dn?1:-1; return; } go(dn?1:-1);
   });
-  addEventListener('touchstart',e=>{ if(blocked()||e.touches.length>1) return; touchY=e.touches[0].clientY; touchT=performance.now(); },{passive:true});
+  addEventListener('touchstart',e=>{ if(blocked()||e.touches.length>1) return; touchY=e.touches[0].clientY; touchX=e.touches[0].clientX; touchT=performance.now(); },{passive:true});
   addEventListener('touchmove',e=>{ if(touchY!=null&&stepView()&&!inUi(e,'.join-panel,.mmenu')) e.preventDefault(); },{passive:false});
-  addEventListener('touchend',e=>{ if(touchY==null) return; const dy=touchY-(e.changedTouches[0]||{}).clientY; touchY=null;
+  addEventListener('touchend',e=>{ if(touchY==null) return; const t=e.changedTouches[0]||{}, dy=touchY-t.clientY, dxs=touchX-t.clientX; touchY=null; if(Math.abs(dxs)>Math.abs(dy)) return;   // sideways swipes (card stacks) don't step the page
     if(Math.abs(dy)>28&&stepView()){ if(anim){ queued=Math.sign(dy); return; } go(Math.sign(dy)); } });
   addEventListener('hashchange',()=>{ if(anim){ cancelAnimationFrame(anim.raf); anim=null; } });
 })();
@@ -2461,6 +2564,39 @@ document.addEventListener('click',e=>{ const a=e.target.closest('[data-reload]')
   const io=new IntersectionObserver(es=>es.forEach(e=>{ const t=e.target, phone=innerWidth<=760; if((t===sv)===phone) return;
     if(e.intersectionRatio>.72) t.classList.add('in'); else if(e.intersectionRatio<.05) t.classList.remove('in'); }),{threshold:[0,.05,.72]});
   io.observe(sv); sv.querySelectorAll('.ab-scr').forEach(n=>io.observe(n)); })();
+/* About: the intro and the problem cards fill the first screen together, so the next section starts below the fold */
+(()=>{ const fit=()=>{ const pr=document.querySelector('[data-view="about"] .problems'); if(!pr) return;
+  if(innerWidth<=760){ pr.style.removeProperty('--fill'); return; }
+  pr.style.setProperty('--fill','0px'); const top=pr.getBoundingClientRect().top+scrollY; pr.style.setProperty('--fill',Math.max(0,innerHeight-top)+'px'); };
+  addEventListener('resize',fit); addEventListener('hashchange',()=>setTimeout(fit,350)); setTimeout(fit,300); if(document.fonts) document.fonts.ready.then(fit); })();
+/* About on phones: swipeable stack of problem cards; staged "Less guesswork" screen */
+(()=>{
+  const grid=document.querySelector('[data-view="about"] .prob-grid'); if(!grid) return;
+  const cards=[...grid.querySelectorAll('.prob')], n=cards.length; let cur=0, dx=0, x0=null, y0=null, drag=false, hinted=false;
+  const nav=document.createElement('div'); nav.className='pstack-nav';
+  nav.innerHTML='<button type="button" class="ps-prev" aria-label="Previous problem"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="ps-dots">'+cards.map((_,i)=>`<i data-i="${i}"></i>`).join('')+'</span><button type="button" class="ps-next" aria-label="Next problem"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button><span class="ps-hint" aria-hidden="true">Swipe <b>→</b></span>';
+  grid.after(nav);
+  const dots=[...nav.querySelectorAll('.ps-dots i')];
+  const paint=()=>{ const on=innerWidth<=760; grid.classList.toggle('pstack',on);
+    cards.forEach((c,i)=>{ const k=(i-cur+n)%n; c.dataset.k=k; c.setAttribute('aria-hidden',on&&k!==0?'true':'false');
+      c.style.transform=on?(k===0?`translateX(${dx}px) rotate(${dx/40}deg)`:`translateY(${k*12}px) scale(${1-k*.05})`):''; c.style.zIndex=on?String(n-k):''; c.style.opacity=on?(k>2?0:1-k*.18):''; });
+    dots.forEach((d,i)=>d.classList.toggle('on',i===cur)); };
+  const go=d=>{ cur=(cur+d+n)%n; dx=0; hinted=true; nav.classList.add('used'); paint(); };
+  nav.querySelector('.ps-prev').onclick=()=>go(-1); nav.querySelector('.ps-next').onclick=()=>go(1);
+  dots.forEach(d=>d.onclick=()=>{ cur=+d.dataset.i; paint(); });
+  grid.addEventListener('touchstart',e=>{ if(innerWidth>760) return; x0=e.touches[0].clientX; y0=e.touches[0].clientY; drag=false; grid.classList.add('dragging'); },{passive:true});
+  grid.addEventListener('touchmove',e=>{ if(x0==null) return; const mx=e.touches[0].clientX-x0, my=e.touches[0].clientY-y0;
+    if(!drag&&Math.abs(mx)>8&&Math.abs(mx)>Math.abs(my)) drag=true; if(drag){ dx=mx; paint(); e.stopPropagation(); } },{passive:true});
+  grid.addEventListener('touchend',()=>{ grid.classList.remove('dragging'); if(drag&&Math.abs(dx)>60) go(dx<0?1:-1); else { dx=0; paint(); } x0=null; drag=false; });
+  window.__kulaSwipe=()=>drag;                                       // lets the page's step scrolling ignore sideways swipes here
+  addEventListener('resize',paint); paint();
+  // the top card nudges sideways when it comes into view, until someone swipes
+  new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting&&!hinted&&innerWidth<=760){ grid.classList.remove('nudge'); void grid.offsetWidth; grid.classList.add('nudge'); } }),{threshold:.6}).observe(grid);
+  // staged "Less guesswork… We create what works" screen
+  const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.intersectionRatio>.6) e.target.classList.add('in'); else if(e.intersectionRatio<.05) e.target.classList.remove('in'); }),{threshold:[0,.05,.6]});
+  document.querySelectorAll('[data-view="about"] .m-scr:last-of-type').forEach(n=>io.observe(n));
+})();
+
 /* ---------- router ---------- */
 const VIEWS=['home','work','how','about','contact','terms','privacy'];
 function parse(){const h=location.hash.slice(1)||'home'; if(h.startsWith('case-')&&CASES[h.slice(5)])return{view:'case',id:h.slice(5)}; return{view:VIEWS.includes(h)?h:'home'}}
